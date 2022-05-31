@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+  
+}  
+
+/*** HOME SECTION ***/
+
+.home-section{
+    text-decoration-color: #eee;
+}
+
+.home-section-container {
+    position: relative;
+    text-align: justify;
+    margin: auto;
+}
+
+.home-section-container img {
+    filter: blur(1px);
+    -webkit-filter: blur(1px)
+}
+
+
+/*** SERVICE SECTION ***/ 
+
+.service-section {
+    padding: 100px 50px;
+    background-color: #807F7A;
+}
+
+
+
+/*** BARBER SECTION ***/ 
+
+.section_heading
+{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section_heading h3
+{
+    color: #9e8a78;
+    font-weight: 400;
+    font-family: 'Prata', sans-serif;
+    font-size: 17px;
+}
+
+.section_heading h2
+{
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.barber-section
+{
+    border-bottom: 2px solid #eee;
+    padding: 100px 50px;
+}
+
+
+.barber-section .team_members .team_member 
+{
+    position: relative;
+    overflow: hidden;
+}
+
+.barber-section .team_members .team_member img 
+{
+    width: 20%;
+}
+/*** CONTACT SECTION ***/
+
+.contact-section
+{
+	padding:100px 50px;
+    background-color: #807F7A;
+    height: 650px;
+}
+
+.contact-info{
+    float: left ;
+}
+
+.contact-info h2
+{
+	font-size: 36px;
+	color: #FED700;
+	margin: 0 0 8px;
+	font-weight: 400;
+	line-height: 48px;
+	letter-spacing: -0.04em;
+	font-family: 'Prata', sans-serif;
+}
+
+.contact-info h3 
+{
+    line-height: 28px;
+    margin-bottom: 20px;
+    color: gold ;
+}
+
+.contact-info h4 
+{
+    font-size: 15px;
+    line-height: 28px;
+    color: gold;
+}
+
+.contact-form 
+{
+    background-color: #fff;
+    padding: 50px 40px;
+    -webkit-box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
+    box-shadow: 0px 50px 100px 0px rgba(64, 1, 4, 0.1), 0px -6px 0px 0px rgba(248, 99, 107, 0.004);
+    border-radius: 3px;
+    float: right;
+    margin-right: 80px;
+}
+
+.form-control
+{
+    background-color: #fff;
+    border-radius: 0;
+    padding: 25px 10px;
+    box-shadow: none;
+    border: 2px solid #eee;
+}
+
+.form-control:focus 
+{
+    border-color: #9e8a78;
+    box-shadow: none;
+    outline: none;
+}
+
+.form-group{
+    padding: 5px;
+}
