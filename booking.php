@@ -39,7 +39,7 @@
 			<h1>BOOKING FORM</h1>
 			<div class="card-body">
 
-			<form action="booking.php" id="resForm" method="post" target="_self">
+			<form action="booking.php" id="resForm" method="POST" target="_self">
                     <!-- <div class="form-group">
                       <label for="exampleInputEmail1">Email address</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="name">
@@ -115,7 +115,7 @@
 					<!-- SELECT DATE  -->
 
 					<h2>Select Date </h2>
-					<p>Date: <input type="text" id="datepicker" mindate="nextDay"></p>
+					<p>Date: <input type="text" id="datepicker" mindate="nextDay" name="selected_date"></p>
 
 					<fieldset>
 						<legend>Select Times </legend>
@@ -129,11 +129,11 @@
 						<label for="radio-3">3:30 PM</label>
 					</fieldset>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
-
+                    <button type="submit_booking_form" class="btn btn-primary">Submit</button>
 				
                   </form>
                 </div>
+				
 <!-- <?php
 // $link = mysqli_connect("localhost","root","","bbs_db");
 
