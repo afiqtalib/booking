@@ -1,6 +1,6 @@
 <!-- PHP INCLUDES -->
 <?php
-    include "db_con.php";
+    include "connect.php";
     include "includes/header.php";
     include "includes/navbar.php";
 ?>
@@ -9,23 +9,54 @@
 <link rel="stylesheet" href="css/main.css">
 
 <html>
+
     <!-- HOME SECTION --> 
     <section class="home-section"id="home">
         <div class="home-section-container">
+
+            <div class="bg-image">
+                <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
+            </div>
+
+            <div class="bg-text card-header">
+                <span class="overlay-text">It's Not Just a Haircut, It's an Experience.
+                    <br>
+                    Our Booking Policy
+                    <br>
+                    1) Just 3 barbers only set in booking system
+                    <br>
+                    2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
+                    <br>
+                </span>
+                <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary btn-lg" href="booking.php">Make Booking TEST</a>
+                </div>
+                
+            </div>
+        <div>
+        <!-- <div class="home-section-container">
             <img src="design/barbers-1.jpg" alt="barbers" style="width: 100%;">
                 <div class="content">
-                        <h3>It's Not Just a Haircut, It's an Experience.</h3>
-                        <p><strong>Our Booking Policy</strong></p>
-                        <p>1) Just 3 barbers only set in booking system</p>
-                        <p>2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system</p>
+                       
                 </div>
-                    
+  <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
+  <div class="centered">
+      <span class="overlay-text">It's Not Just a Haircut, It's an Experience.
+          <br>
+          Our Booking Policy
+          <br>
+          1) Just 3 barbers only set in booking system
+          <br>
+          2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
+      </span>
+</div> -->
+
                     <!-- BOOKING BUTTON -->
-                    <button id="app_submit" 
+                    <!-- <button id="app_submit" 
                         class="default_btn" 
                         type="submit">Make Booking
-                    </button>
-        </div>
+                    </button> -->
+        <!-- </div>  -->
     </section>
 
     <!-- BOOKING SECTION -->
@@ -58,22 +89,22 @@
 
     <!-- SERVICES SECTION --> 
     <style>
-    * {
-        box-sizing: border-box;
-    }
-    
-    .gallery .column {
-        float: left;
-        width: 25%;
-        padding: 15px;
-    }
-    
-    /* Clearfix (clear floats) */
-    .gallery::after {
-        content: "";
-        clear: both;
-        display: table;
-    }
+        * {
+            box-sizing: border-box;
+        }
+        
+        .gallery .column {
+            float: left;
+            width: 25%;
+            padding: 15px;
+        }
+        
+        /* Clearfix (clear floats) */
+        .gallery::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
     </style>
 
     <!-- SERVICES SECTION --> 
@@ -119,7 +150,7 @@
         <div class="container ">
             <h1>dddd</h1>
         </div>
-            <ul class="team_members row"> 
+                <ul class="team_members row"> 
                     <li class="barber-info">
                         <div class="team_member">
                             <img src="design/team-1.jpg" alt="Team Member">
@@ -194,7 +225,8 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-12">
-                                        <button id="contact_send" class="default_btn" >Send Message</button>
+                                        <button type="button" id="contact_send" class="btn btn-secondary">Send Message</button>
+                                        <!-- <button id="contact_send" class="default_btn" >Send Message</button> -->
                                     </div>
                                 </div>
                                 <img src="Design/images/ajax_loader_gif.gif" id = "contact_ajax_loader" style="display: none">

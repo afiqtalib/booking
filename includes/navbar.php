@@ -21,7 +21,6 @@
     }
 
     body {
-      background: white;
       height: 85vh;
     }
 
@@ -35,7 +34,7 @@
       align-items: center;
       padding: 5px 30px;
       z-index: 999;
-      background-color: black;
+      background-color: grey;
       box-sizing: border-box;
     }
 
@@ -45,7 +44,7 @@
       height: 80px;
     } 
 
-    .nav h1{
+    /* .nav h1{
       position: relative;
       display: flex;
       font-size: 10;
@@ -55,7 +54,7 @@
       text-transform: uppercase;
       letter-spacing: 2px;
       padding: 5px 150px;
-    }
+    } */
     .nav ul {
       display: flex;
       align-items:center;
@@ -76,9 +75,9 @@
       margin: 0 2px;
       text-decoration: none;
       text-transform: uppercase;
-      color: #fff;
+      color: white;
       letter-spacing: 1px;
-      font-weight: 500px;
+      font-weight: bold;
       padding: 5px 20px;
       line-height: 5px;
     }
@@ -102,7 +101,7 @@
     <div class="nav">
       <img src="design/logo-company.jpg" alt="Barbershop Logo">
           <!-- NAVBAR SECTION -->
-                <ul>
+                <ul class="bold">
                         <li><a href="#home">HOME</a></li>
                         <li><a href="booking.php">Book</a></li>
                         <li><a href="#service">Services</a></li>
@@ -111,8 +110,10 @@
                 </ul>   
     </div>
       <div class="logout">
-        <button type="button" class="btn btn-info">Account Profile</button>
-        <a class="btn btn-primary" href="logout.php">logout</a>
+        <button type="button" class="btn btn-info" href="profile.php">Account Profile
+        </button>
+        <a class="btn btn-info" href="profile.php">Profile</a>
+        <a class="btn btn-light" href="logout.php">logout</a>
     </div>
 
     

@@ -92,7 +92,6 @@
 						<!-- SELECT BARBER  -->
 					<div class="form-check mb-3">
                       <select class="form-select" aria-label="Default select example" name="selected_barber">
-						  <h5>huighiug</h5>
                         <option value="" >--- Choose Our Barber ---</option>
                         <?php 
                           $sql = "SELECT * FROM barbers";
@@ -129,7 +128,9 @@
 						<label for="radio-3">3:30 PM</label>
 					</fieldset>
 
+					<div class="d-grid gap-2">
                     <button type="submit_booking_form" class="btn btn-primary">Submit</button>
+					<div>
 				
                   </form>
                 </div>
@@ -166,5 +167,5 @@
 
 			<!-- PHP INCLUDES -->
 			<?php
-				include "includes/footer.php";
+				include "includes/footer.php";	
 			?>

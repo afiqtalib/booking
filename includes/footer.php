@@ -18,6 +18,7 @@
     font-size: 14px;
     color: #ddd;
     text-align: center;
+    position: center;
 }
 
 .footer_social 
@@ -48,7 +49,7 @@
 <footer class="footer_section">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-6 xs-padding">
+			<div class="col-md xs-padding">
 				<div class="copyright">
 					© 
                     <script type="text/javascript"> 
