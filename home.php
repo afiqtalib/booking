@@ -13,23 +13,23 @@
     <!-- HOME SECTION --> 
     <section class="home-section"id="home">
         <div class="home-section-container">
-
             <div class="bg-image">
                 <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
             </div>
 
             <div class="bg-text card-header">
-                <span class="overlay-text">It's Not Just a Haircut, It's an Experience.
+                <span class="overlay-text text-xl-start">It's Not Just a Haircut, It's an Experience.
+                    <br>
                     <br>
                     Our Booking Policy
                     <br>
-                    1) Just 3 barbers only set in booking system
+                    1) Just max 3 barbers only set in booking system
                     <br>
                     2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
                     <br>
                 </span>
-                <div class="d-grid gap-2">
-                    <a class="btn btn-outline-primary btn-lg" href="booking.php">Make Booking TEST</a>
+                <div class="d-grid gap-2 mt-5">
+                    <a class="btn btn-primary btn-lg" href="booking.php">BOOK NOW</a>
                 </div>
                 
             </div>
@@ -147,10 +147,31 @@
         <h3>Trendy Salon</h3>
             <h2>OUR BARBERS</h2>
         </div>
-        <div class="container ">
-            <h1>dddd</h1>
-        </div>
-                <ul class="team_members row"> 
+        <div class="row">
+            <div class="card col" style="width: 100%;">
+                <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
+                <div class="card-body">
+                    <h5 class="card-title">Barber Zaim</h5>
+                    <p class="card-text">Barber Expertise</p>
+                </div>
+            </div>
+
+            <div class="card col" style="width: 100%;">
+                <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
+                <div class="card-body">
+                    <h5 class="card-title">Barber Roy</h5>
+                    <p class="card-text">Barber Expertise</p>
+                </div>
+            </div>
+            <div class="card col" style="width: 100%;">
+                <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
+                <div class="card-body">
+                    <h5 class="card-title">Barber Danish</h5>
+                    <p class="card-text">Barber Expertise</p>
+                </div>
+            </div>
+            </div>
+                <!-- <ul class="team_members row"> 
                     <li class="barber-info">
                         <div class="team_member">
                             <img src="design/team-1.jpg" alt="Team Member">
@@ -166,7 +187,7 @@
                             <img src="design/team-3.jpg" alt="Team Member">
                         </div>
                     </li>
-                </ul>
+                </ul> -->
         </div>
     </div>
     </div>

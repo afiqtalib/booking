@@ -13,14 +13,13 @@ body
 }
 
 h1 {
-    padding-top: 50px;
+    padding-top: 800px;
 }
 .booking_section
 {
     max-width: 720px;
     margin: 50px auto;
     top: 200px;
-
 }
 
 .container {

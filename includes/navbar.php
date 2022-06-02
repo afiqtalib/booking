@@ -102,11 +102,11 @@
       <img src="design/logo-company.jpg" alt="Barbershop Logo">
           <!-- NAVBAR SECTION -->
                 <ul class="bold">
-                        <li><a href="#home">HOME</a></li>
+                        <li><a href="home.php#home">HOME</a></li>
                         <li><a href="booking.php">Book</a></li>
-                        <li><a href="#service">Services</a></li>
-                        <li><a href="#barber">barber</a></li>
-                        <li><a href="#contactus">CONTACT</a></li>
+                        <li><a href="home.php#service">Services</a></li>
+                        <li><a href="home.php#barber">barber</a></li>
+                        <li><a href="home.php#contactus">CONTACT</a></li>
                 </ul>   
     </div>
       <div class="logout">

@@ -36,20 +36,16 @@
 		
 	<body>
 		<section class="booking_section">
-			<h1>BOOKING FORM</h1>
-			<div class="card-body">
+			<div class="card-body mt-5">
+			<h1>BOOKING for Mens Grooming Service</h1>
+
 
 			<form action="booking.php" id="resForm" method="POST" target="_self">
-                    <!-- <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="name">
-                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                    </div> -->
-					
+
 					<!-- SELECT SERVICES --> 
-                    <!-- <div class="form-check">
+                    <div class="form-check">
                       <input class="form-check-input" type="radio" value="<?php echo $row['service_name'] ?>" name="<?php echo $row['service_name'] ?>" id="flexSwitchCheckDefault">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">TEST</label>
+                      <label class="form-check-label" for="flexSwitchCheckDefault">SELECT anything</label>
 						<?php 
 							$sql = "SELECT * FROM services";
 
@@ -58,14 +54,14 @@
 							
 							if ($result->num_rows > 0) {
 								// output data of each row
-								while ($row = $result->fetch_assoc()) {
+								if ($row = $result->fetch_assoc()) {
 								?>
 									<option value="<?php echo $row['service_name'] ?>"><?php echo $row['service_name'] ?></option>
 								<?php
 								}
 							} 
 							?>
-                    </div> -->
+                    </div>
 
 						<!-- SELECT SERVICES  -->
                     <div class="form-check mb-3">
