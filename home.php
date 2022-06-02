@@ -18,10 +18,14 @@
             </div>
 
             <div class="bg-text card-header">
-                <span class="overlay-text text-xl-start">It's Not Just a Haircut, It's an Experience.
+                <span class="overlay-text text-start">
+                    Welcome to Twin & Dad Barbershop
                     <br>
                     <br>
-                    Our Booking Policy
+                    It's Not Just a Haircut, It's an Experience.
+                    <br>
+                    <br>
+                    Our Booking Policy :
                     <br>
                     1) Just max 3 barbers only set in booking system
                     <br>
@@ -109,33 +113,36 @@
 
     <!-- SERVICES SECTION --> 
     <section class="service-section" id="service">
-    <div class="section_heading ">
-        <h3>Our Services</h3>
-            <h2>OUR SERVICES</h2>
+
+        <div class="section_heading ">
+            <h3>Our Services</h3>
+                <!-- <h2>OUR SERVICES</h2> -->
         </div>
+
         <div class="gallery">
             <div class="column">
-            <img src="design/haircolor.jpg" alt="hairstyle" style="width:100%">
+                <img src="design/haircolor.jpg" alt="hairstyle" style="width:100%">
             </div>
             <div class="column">
-            <img src="design/haircolor-2.jpg" alt="hairstyle" style="width:100%" >
+                <img src="design/haircolor-2.jpg" alt="hairstyle" style="width:100%" >
             </div> 
             <div class="column">
-            <img src="design/haircut.jpg" alt="hairstyle" style="width:100%">
+                <img src="design/haircut.jpg" alt="hairstyle" style="width:100%">
             </div>
             <div class="column">
-            <img src="design/haircut-2.jpg" alt="hairstyle" style="width:100%" >
+                <img src="design/haircut-2.jpg" alt="hairstyle" style="width:100%" >
             </div>
             <div class="column">
-            <img src="design/hairperm.jpg" alt="hairstyle" style="width:100%">
+                <img src="design/hairperm.jpg" alt="hairstyle" style="width:100%">
             </div>
             <div class="column">
-            <img src="design/haircurly.jpg" alt="hairstyle" style="width:100%">
+                <img src="design/haircurly.jpg" alt="hairstyle" style="width:100%">
             </div>
             
             <div class="column">
-            <img src="design/hairline.jpg" alt="hairstyle" style="width:100%" >
+                <img src="design/hairline.jpg" alt="hairstyle" style="width:100%" >
             </div>
+
         </div>
     </section>
     <!-- END SERVICES SECTION --> 
@@ -258,7 +265,7 @@
                 </div>
             </div>
     </section>
-
+</html>
         <!-- END CONTACT US SECTION --> 
 
         <!-- PHP INCLUDES -->
@@ -266,4 +273,3 @@
             include "includes/footer.php";
 
         ?>
-</html>
