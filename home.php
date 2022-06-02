@@ -39,21 +39,21 @@
             </div>
         <div>
         <!-- <div class="home-section-container">
-            <img src="design/barbers-1.jpg" alt="barbers" style="width: 100%;">
+                <img src="design/barbers-1.jpg" alt="barbers" style="width: 100%;">
                 <div class="content">
                        
                 </div>
-  <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
-  <div class="centered">
-      <span class="overlay-text">It's Not Just a Haircut, It's an Experience.
-          <br>
-          Our Booking Policy
-          <br>
-          1) Just 3 barbers only set in booking system
-          <br>
-          2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
-      </span>
-</div> -->
+            <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
+            <div class="centered">
+                <span class="overlay-text">It's Not Just a Haircut, It's an Experience.
+                    <br>
+                    Our Booking Policy
+                    <br>
+                    1) Just 3 barbers only set in booking system
+                    <br>
+                    2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
+                </span>
+            </div> -->
 
                     <!-- BOOKING BUTTON -->
                     <!-- <button id="app_submit" 
@@ -63,78 +63,90 @@
         <!-- </div>  -->
     </section>
 
-    <!-- BOOKING SECTION -->
 
-    <!-- <section class="book_section" id="booking">
-        <div class="book_bg"></div>
-        <div class="map_pattern"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-6">
-                    <form action="booking.php" method="post" id="booking_form" class="form-horizontal booking_form">
-                        <div class="book_content">
-                            <h2 style="color: white;">Make booking</h2>
-                            <p style="color: #999;">
-                                Barber is a person whose occupation is mainly to cut dress groom <br>style and shave men's and boys hair.
-                            </p>
-                        </div>
-
-                        <!-- SUBMIT BUTTON -->
-
-                        <!-- <button id="app_submit" class="default_btn" type="submit">
-                            Make Booking
-                        </button>
-
-                    </form>
-                </div>
-            </div>
-        </div> -->
-    <!--</section> -->
-
-    <!-- SERVICES SECTION --> 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        
-        .gallery .column {
-            float: left;
-            width: 25%;
-            padding: 15px;
-        }
-        
-        /* Clearfix (clear floats) */
-        .gallery::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-    </style>
+    <!-- STYLE for SERVICES SECTION --> 
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            
+            .gallery .column {
+                float: left;
+                width: 25%;
+                padding: 15px;
+            }
+            
+            /* Clearfix (clear floats) */
+            .gallery::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+        </style>
 
     <!-- SERVICES SECTION --> 
     <section class="service-section" id="service">
 
         <div class="section_heading ">
             <h3>Our Services</h3>
-                <!-- <h2>OUR SERVICES</h2> -->
+            <!-- <h2>OUR SERVICES</h2> -->
         </div>
+
+            <div class="row">
+                <div class="card m-3 col " style="width: 18rem;">
+                    <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Hair Style</h5>
+                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
+                    </div>
+                </div>
+
+                <div class="card m-3 col" style="width: 18rem;">
+                    <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Hair Style</h5>
+                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
+                    </div>
+                </div>
+
+                <div class="card m-3 col " style="width: 18rem;">
+                    <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Hair Style</h5>
+                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
+                    </div>
+                </div>
+
+                <div class="card m-3 col " style="width: 18rem;">
+                    <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Hair Style</h5>
+                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
+                    </div>
+                </div>
+            </div>
 
         <div class="gallery">
             <div class="column">
                 <img src="design/haircolor.jpg" alt="hairstyle" style="width:100%">
             </div>
+
             <div class="column">
                 <img src="design/haircolor-2.jpg" alt="hairstyle" style="width:100%" >
             </div> 
+
             <div class="column">
                 <img src="design/haircut.jpg" alt="hairstyle" style="width:100%">
             </div>
+
             <div class="column">
                 <img src="design/haircut-2.jpg" alt="hairstyle" style="width:100%" >
             </div>
+
             <div class="column">
                 <img src="design/hairperm.jpg" alt="hairstyle" style="width:100%">
             </div>
+
             <div class="column">
                 <img src="design/haircurly.jpg" alt="hairstyle" style="width:100%">
             </div>
@@ -143,130 +155,178 @@
                 <img src="design/hairline.jpg" alt="hairstyle" style="width:100%" >
             </div>
 
+            <div class="column">
+                <img src="design/hairline.jpg" alt="hairstyle" style="width:100%" >
+            </div>
         </div>
     </section>
     <!-- END SERVICES SECTION --> 
 
-    <!-- BARBER SECTION --> 
+    <!-- START BARBER SECTION --> 
     <section class="barber-section" id="barber">
-    <div class="container">
-        <div class="section_heading ">
-        <h3>Trendy Salon</h3>
-            <h2>OUR BARBERS</h2>
-        </div>
-        <div class="row">
-            <div class="card col" style="width: 100%;">
-                <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
-                <div class="card-body">
-                    <h5 class="card-title">Barber Zaim</h5>
-                    <p class="card-text">Barber Expertise</p>
-                </div>
+        <div class="container">
+            <div class="section_heading ">
+                <h3>Trendy Salon</h3>
+                <h2>OUR BARBERS</h2>
             </div>
+            <?php
+            // $stmt = $con->prepare("Select * from service_categories");
+            //     $stmt->execute();
+            //     $categories = $stmt->fetchAll();
+            
+            // // create a prepared statement
+            // $stmt = $conn->prepare("SELECT * FROM barbers");
+            // // bind parameters for markers 
+            // $stmt->bind_param();
+            // // execute query 
+            // $result = $stmt->execute();
+            // $mysqli = new mysqli("localhost", "root", "", "bbs_db");
 
-            <div class="card col" style="width: 100%;">
-                <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
-                <div class="card-body">
-                    <h5 class="card-title">Barber Roy</h5>
-                    <p class="card-text">Barber Expertise</p>
+            // $stmt = $mysqli->prepare("SELECT * FROM barbers where barber_un=?");
+
+            // foreach($barbers as $barber_un){
+
+            //     if($stmt->prepare("SELECT barber_name FROM barbers WHERE barber_un=?")) {
+            
+            //         $stmt->bind_param('barber_roy',$barber_un);
+            
+            //         $stmt->execute();
+            
+            //         $stmt->bind_result($barber_name);
+                        
+            //         while($stmt->fetch()) {
+            //             echo $barber_name;
+            //         }
+            //         $stmt->close();
+            //     }
+            // }
+
+            // if ($result ==  true) {
+
+            //     echo "</br>New record created Successfully";
+
+            // }
+
+            // $stmt->close();
+            ?>
+
+            <div class="row">
+                <div class="card col m-4 border-secondary" style="width: 100%;">
+                    <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Barber Zaim</h5>
+                        <p class="card-text">Barber Expertise</p>
+                    </div>
+                </div>
+
+                <div class="card col m-4 border-secondary" style="width: 100%;">
+                    <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Barber Roy</h5>
+                        <p class="card-text">Barber Expertise</p>
+                    </div>
+                </div>
+                <div class="card col m-4 border-secondary" style="width: 100%;">
+                    <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Barber Danish</h5>
+                        <p class="card-text">Barber Expertise</p>
+                    </div>
+                </div>
+                </div>
+                    <!-- <ul class="team_members row"> 
+                        <li class="barber-info">
+                            <div class="team_member">
+                                <img src="design/team-1.jpg" alt="Team Member">
+                            </div>
+                        </li>
+                        <li class="barber-info">
+                            <div class="team_member">
+                                <img src="design/team-2.jpg" alt="Team Member">
+                            </div>
+                        </li>
+                        <li class="barber-info">
+                            <div class="team_member">
+                                <img src="design/team-3.jpg" alt="Team Member">
+                            </div>
+                        </li>
+                    </ul> -->
                 </div>
             </div>
-            <div class="card col" style="width: 100%;">
-                <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
-                <div class="card-body">
-                    <h5 class="card-title">Barber Danish</h5>
-                    <p class="card-text">Barber Expertise</p>
-                </div>
-            </div>
-            </div>
-                <!-- <ul class="team_members row"> 
-                    <li class="barber-info">
-                        <div class="team_member">
-                            <img src="design/team-1.jpg" alt="Team Member">
-                        </div>
-                    </li>
-                    <li class="barber-info">
-                        <div class="team_member">
-                            <img src="design/team-2.jpg" alt="Team Member">
-                        </div>
-                    </li>
-                    <li class="barber-info">
-                        <div class="team_member">
-                            <img src="design/team-3.jpg" alt="Team Member">
-                        </div>
-                    </li>
-                </ul> -->
         </div>
-    </div>
-    </div>
     </section>
     <!-- END BARBER SECTION --> 
 
 
-    <!-- CONTACT US SECTION --> 
-
+    <!-- START CONTACT US SECTION --> 
     <section class="contact-section" id="contactus">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 sm-padding">
-                        <div class="contact-info">
-                            <h2>
-                                Get in touch with us & 
-                                <br>send us message today!
-                            </h2>
-                            <p> Twin & Dad Barbershop is the top 5 barbershop based in Kelantan
-                            </p>
-                            <h3>
-                            Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 sm-padding">
+                    <!-- Business Information -->
+                    <div class="contact-info">
+                        <h2>Get in touch with us & send us message today!</h2>
+                        <p> Twin & Dad Barbershop is the top 5 barbershop based in Kelantan</p>
+                        <address>Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</address>
+                        <h4>
+                            <span style = "font-weight: bold">Email:</span> 
+                            hr.twinanddadbarbershop@gmail.com 
+                            <br> 
+                            <span style = "font-weight: bold">Phone:</span> 
+                            +6011-39183821
                             <br>
-                            15150 Kota Bharu Kelantan                        
-                            </h3>
-                            <h4>
-                                <span style = "font-weight: bold">Email:</span> 
-                                hr.twinanddadbarbershop@gmail.com 
-                                <br> 
-                                <span style = "font-weight: bold">Phone:</span> 
-                                +6011-39183821
-                                <br>
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 sm-padding">
-                        <div class="contact-form">
-                            <div id="contact_ajax_form" class="contactForm">
-                                <div class="form-group colum-row row">
-                                    <div class="col-sm-6">
-                                        <input type="text" id="contact_name" name="name" class="form-control" placeholder="Name">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="email" id="contact_email" name="email" class="form-control" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <input type="text" id="contact_subject" name="subject" class="form-control" placeholder="Subject">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <textarea id="contact_message" name="message" cols="35" rows="4" class="form-control message" placeholder="Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <button type="button" id="contact_send" class="btn btn-secondary">Send Message</button>
-                                        <!-- <button id="contact_send" class="default_btn" >Send Message</button> -->
-                                    </div>
-                                </div>
-                                <img src="Design/images/ajax_loader_gif.gif" id = "contact_ajax_loader" style="display: none">
-                                <div id="contact_status_message"></div>
+                        </h4>
+
+                        <!-- Business Hours -->
+                        <div class="container card text-white bg-secondary mb-3">
+                            <div class="row">
+                                <div class="col-10 text-center card-header">Business Hours</div>
+                                <div class="col-4 card-text">Sunday<br>Monday<br>Tuesday<br>Wednesday<br>Thursday<br>Friday<br>Saturday</div>
+                                <div class="col-6 card-text">12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>Close<br>12:00PM - 9:30PM</div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
+                <!-- Contact Us Form -->
+                <div class="col-lg-6 sm-padding">
+                    <div class="contact-form">
+                        <div id="contact_ajax_form" class="contactForm">
+                            <div class="form-group colum-row row">
+                                <div class="col-sm-6">
+                                    <input type="text" id="contact_name" name="name" class="form-control" placeholder="Name">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="email" id="contact_email" name="email" class="form-control" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <input type="text" id="contact_subject" name="subject" class="form-control" placeholder="Subject">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <textarea id="contact_message" name="message" cols="35" rows="4" class="form-control message" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <button type="button" id="contact_send" class="btn btn-secondary">Send Message</button>
+                                    <!-- <button id="contact_send" class="default_btn" >Send Message</button> -->
+                                </div>
+                            </div>
+                            <img src="Design/images/ajax_loader_gif.gif" id = "contact_ajax_loader" style="display: none">
+                            <div id="contact_status_message"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
     </section>
+    <!-- END CONTACT US SECTION --> 
+
 </html>
-        <!-- END CONTACT US SECTION --> 
 
         <!-- PHP INCLUDES -->
         <?php

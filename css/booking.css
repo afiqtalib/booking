@@ -12,14 +12,15 @@ body
     margin-top: 22px;
 }
 
-h1 {
-    padding-top: 800px;
-}
+/* h1 {
+    padding-top: 10px;
+} */
+
 .booking_section
 {
     max-width: 720px;
     margin: 50px auto;
-    top: 200px;
+    top: 20px;
 }
 
 .container {

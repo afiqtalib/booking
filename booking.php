@@ -35,17 +35,18 @@
 	
 		
 	<body>
-		<section class="booking_section">
-			<div class="card-body mt-5">
-			<h1>BOOKING for Mens Grooming Service</h1>
+		<section class="booking_section pt-5">
+			<div class="card">
+				<div class="card-header text-xl-center text-white bg-primary mb-3">BOOKING</div>
 
 
-			<form action="booking.php" id="resForm" method="POST" target="_self">
+				<form action="booking.php" id="resForm" method="POST" target="_self">
 
 					<!-- SELECT SERVICES --> 
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" value="<?php echo $row['service_name'] ?>" name="<?php echo $row['service_name'] ?>" id="flexSwitchCheckDefault">
-                      <label class="form-check-label" for="flexSwitchCheckDefault">SELECT anything</label>
+                    <!-- <div class="form-check">
+
+                      <input class="form-check-input" type="radio" value="<?php echo $row['service_name'] ?>" name="<?php echo $row['service_name'] ?>" id="taktahu">
+                      <label class="form-check-label" for="taktahu">SELECT anything</label>
 						<?php 
 							$sql = "SELECT * FROM services";
 
@@ -61,10 +62,10 @@
 								}
 							} 
 							?>
-                    </div>
+                    </div> -->
 
 						<!-- SELECT SERVICES  -->
-                    <div class="form-check mb-3">
+                    <div class="form-check mt-2">--- Choose type of Hair Cut ---
                       <select class="form-select" aria-label="Default select example" name="selected_services">
                         <option value="" >--- Choose type of Hair Cut ---</option>
                         <?php 
@@ -86,7 +87,7 @@
                     </div>
 
 						<!-- SELECT BARBER  -->
-					<div class="form-check mb-3">
+					<div class="form-check mt-4">Choose Our Barber
                       <select class="form-select" aria-label="Default select example" name="selected_barber">
                         <option value="" >--- Choose Our Barber ---</option>
                         <?php 
@@ -108,10 +109,15 @@
                     </div>
 
 					<!-- SELECT DATE  -->
-
-					<h2>Select Date </h2>
-					<p>Date: <input type="text" id="datepicker" mindate="nextDay" name="selected_date"></p>
-
+					<div class="form-group">Select Date 
+						
+                      <input type="date" class="form-control form-control-user" mindate="nextDay" min="<?php echo date('Y-m-d') ?>">
+                    </div>
+					
+					<!-- <div class="form-check">
+						<h2>Select Date </h2>
+						<p>Date: <input type="text" id="datepicker" mindate="nextDay" name="selected_date"></p>
+					</div> -->
 					<fieldset>
 						<legend>Select Times </legend>
 						<input type="radio" name="radio-1" id="radio-1">
@@ -127,9 +133,10 @@
 					<div class="d-grid gap-2">
                     <button type="submit_booking_form" class="btn btn-primary">Submit</button>
 					<div>
+						
 				
-                  </form>
-                </div>
+                </form>
+            </div>
 				
 <!-- <?php
 // $link = mysqli_connect("localhost","root","","bbs_db");
@@ -159,6 +166,67 @@
 			</form>
 		</section>
 	</body>
+	<!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">Booking</h1>
+                  </div>
+
+                  <form class="user" action="bookingAction.php" method="POST">
+                    
+                    <div class="form-group">
+                      <input type="date" class="form-control form-control-user" min="<?php echo date('Y-m-d') ?>">
+                    </div>
+                    <div class="form-group">
+                    <select class="form-select" aria-label="Default select example" name="roomNumber">
+                      <option value="" selected>Default</option>
+                      <?php
+                      include 'connection.php';
+                      $sql = "SELECT * FROM Hotel";
+
+                      // echo $sql;
+                      $result = $conn->query($sql);
+
+                      if ($result->num_rows > 0) {
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                      ?>
+                          <option value="<?php echo $row['roomNumber'] ?>"><?php echo $row['roomNumber'] ?></option>
+                      <?php
+                        }
+                      }
+                      ?>
+                    </select>
+                    </div>
+
+                    <button class="btn btn-primary btn-user btn-block">
+                      Book
+                    </button>
+                    <hr>
+                  </form>
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="forgot-password.html">Forgot Password?</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
 </html>
 
 			<!-- PHP INCLUDES -->
