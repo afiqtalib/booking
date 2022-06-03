@@ -1,8 +1,11 @@
 <!-- PHP INCLUDES -->
 <?php
+    session_start();
     include "connect.php";
     include "includes/header.php";
     include "includes/navbar.php";
+
+if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
 ?>
 
 <!-- Main Page Stylesheet -->
@@ -19,7 +22,7 @@
 
             <div class="bg-text card-header">
                 <span class="overlay-text text-start">
-                    Welcome to Twin & Dad Barbershop
+                    Welcome to Twin & Dad Barbershop 
                     <br>
                     <br>
                     It's Not Just a Haircut, It's an Experience.
@@ -269,14 +272,18 @@
                         <p> Twin & Dad Barbershop is the top 5 barbershop based in Kelantan</p>
                         <address>Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</address>
                         <h4>
-                            <span style = "font-weight: bold">Email:</span> 
-                            hr.twinanddadbarbershop@gmail.com 
+                            <i class="fa fa-envelope-o white">
+                            <span style = "font-weight: bold"> 
+                            </span> 
+                            </i>
+                            <span style = "font-weight: bold">Email</span> 
+                            hr.twinanddadbarbershop@gmail.com
                             <br> 
                             <span style = "font-weight: bold">Phone:</span> 
                             +6011-39183821
                             <br>
                         </h4>
-
+                        
                         <!-- Business Hours -->
                         <div class="container card text-white bg-secondary mb-3">
                             <div class="row">
@@ -328,8 +335,12 @@
 
 </html>
 
-        <!-- PHP INCLUDES -->
-        <?php
-            include "includes/footer.php";
-
-        ?>
+    <!-- PHP INCLUDES -->
+    <?php
+        include "includes/footer.php";
+    }   
+    else{
+        header("Location: index.php");
+        exit();
+    }
+    ?>

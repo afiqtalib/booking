@@ -49,3 +49,7 @@
         <button type="button" class="btn btn-outline-primary btn-lg">Update Profile</button>
     </div>
 </div>
+
+<?php
+    include "includes/footer.php";
+?>

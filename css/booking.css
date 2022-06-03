@@ -1,7 +1,7 @@
-body
+/* body
 {
     box-sizing: border-box;
-}
+} */
 
 .text_header
 {
@@ -18,9 +18,9 @@ body
 
 .booking_section
 {
-    max-width: 720px;
-    margin: 50px auto;
-    top: 20px;
+    /* max-width: 720px;
+    margin: 50px auto; */
+    padding-top: 20px;
 }
 
 .container {
