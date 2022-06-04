@@ -109,14 +109,9 @@
                         <li><a href="home.php#contactus">CONTACT</a></li>
                 </ul>   
     </div>
+
       <div class="logout">
-        <button type="button" class="btn btn-info" href="profile.php">Account Profile
-        </button>
-        <a class="btn btn-info" href="profile.php">Profile</a>
-        <a class="btn btn-light" href="logout.php">logout</a>
+        <button><a class="btn btn-info" href="profile.php" >Profile</a></button>
+        <button><a class="btn btn-light" href="logout.php">logout</a></button>
     </div>
-
-    
-
-
 </header>
