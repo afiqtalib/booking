@@ -3,6 +3,9 @@
     include "connect.php";
     include "includes/header.php";
     include "includes/navbar.php";
+
+    // SET TIMEZONE CALENDAR
+    date_default_timezone_set("Asia/Kuala_Lumpur");
   ?>
 
 <!DOCTYPE html>
@@ -20,17 +23,25 @@
 
 		<!-- JS for CALENDAR --> 
 		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-  		<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-  		<script>
-			$( function() {
-				$( "#datepicker" ).datepicker();
-			} );
-		</script>
+  	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+  	
+    <script>
+		// 	$( function() {
+		// 		$( "#datepicker" ).datepicker();
+		// 	} );
+		// </script>
   
-		<script>
-			mobiscroll.datepicker('#picker', {
-			controls: ['calendar']
-			});
+		 <script>
+		// 	mobiscroll.datepicker('#picker', {
+		// 	controls: ['calendar']
+		// 	});
+
+
+      $("#datepicker").datepicker({
+    beforeShowDay: function(date) {
+        return [date.getDay() == 0 || date.getDay() == 1 || date.getDay() == 2 || date.getDay() == 3 || date.getDay() == 4 ] ;
+    }
+});
 		</script>
 
 	</head>
@@ -77,9 +88,10 @@
                     <div class="text-center">
                       <h1 class="h4 text-gray-900 mb-4">Booking Now </h1>
                     </div>
-
+                    
+                    <p>Date: <input type="text" id="datepicker"></p>
                     <!-- BOOKING FORM -->
-                    <form action="booking.php" id="bookForm" method="POST" target="_self">
+                    <form action="booking.php" id="bookForm" method="POST">
 
                       <!-- SELECT SERVICES TEST CODE
                       <div class="form-check">
@@ -148,12 +160,13 @@
 
                       <!-- SELECT DATE  -->
                       <div class="form-group mt-4">Select Date 
-                        <input type="date" class="form-control form-control-user" mindate="nextDay" min="<?php echo date('Y-m-d') ?>">
+                        <input type="date" class="form-control form-control-user" id="datepicker"
+                        mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
                       </div>
             
                       <!-- <div class="form-check">
                         <h2>Select Date </h2>
-                        <p>Date: <input type="text" id="datepicker" mindate="nextDay" name="selected_date"></p>
+                        <p>Date: <input type="text" id="datepicker"  mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>"></p>
                       </div> -->
 
                       <!-- SELECT TIME SLOT -->
