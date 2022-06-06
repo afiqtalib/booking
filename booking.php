@@ -3,6 +3,7 @@
     include "connect.php";
     include "includes/header.php";
     include "includes/navbar.php";
+    include "functions.php";
 
     // SET TIMEZONE CALENDAR
     date_default_timezone_set("Asia/Kuala_Lumpur");
@@ -24,29 +25,17 @@
 		<!-- JS for CALENDAR --> 
 		<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-  	
-    <script>
-		// 	$( function() {
-		// 		$( "#datepicker" ).datepicker();
-		// 	} );
-		// </script>
   
-		 <script>
-		// 	mobiscroll.datepicker('#picker', {
-		// 	controls: ['calendar']
-		// 	});
-
-
+		<script>
       $("#datepicker").datepicker({
-    beforeShowDay: function(date) {
+        beforeShowDay: function(date) {
         return [date.getDay() == 0 || date.getDay() == 1 || date.getDay() == 2 || date.getDay() == 3 || date.getDay() == 4 ] ;
-    }
-});
+        }
+      });
 		</script>
 
 	</head>
 	
-		
 	<body>
 		<section class="booking_section">
 
@@ -75,22 +64,40 @@
 
       // mysqli_close($link);
       ?> -->
+
     <?php
+          
+      if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
+      {
+        // Selected SERVICES
+        $selected_service = $_POST['selected_service'];
 
-      // if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
-      // {
-      //   // Selected SERVICES
+        // Selected BARBER
+        $selected_barber = $_POST['selected_barber'];
 
-      //     $selected_service = $_POST['selected_service'];
+        // Selected DATE
+        $selected_date = $_POST['selected_date'];
 
-      //     // Selected BARBER
+        // Selected TIME 
+        // $selected_time=$_POST['selected_time'];
 
-      //     $selected_barber = $_POST['selected_barber'];
+        // $stmtgetCurrentbookingID = $conn->prepare("SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'bbs_db' AND TABLE_NAME = 'bookings'");
+        // $stmtgetCurrentbookingID->execute();
+        // $booking_id = $stmtgetCurrentbookingID->fetch();
+        
+        // $stmt_booking = $conn->prepare("insert into bookings(service_id, barber_id, book_date) values(?, ?, ?)");
+        // $stmt_booking->execute(array,$book_id,$selected_barber, $selected_service, $selected_date);
+        
 
-      //     // Selected DATE+TIME
-      //     $selected_date = $_POST['selected_date'];
-
-      // }
+        echo "<div class = 'alert alert-success'>";
+            echo "Great! Your booking has been created successfully.";
+        echo "</div>";
+        foreach ($_POST as $selected => $value){
+          echo "<div class='card'>";
+          echo "$selected = $value";
+          echo "</div>";
+        }
+      }
     ?>
 
       <!-- Outer Row -->
@@ -107,12 +114,12 @@
                     </div>
                     
                     <!-- BOOKING FORM -->
-                    <form action="booking.php" id="bookForm" method="POST">
+                    <form action="booking.php" method="POST">
 
-                      <!-- SELECT SERVICES TEST CODE
-                      <div class="form-check">
+                      <!-- SELECT SERVICES TEST CODE -->
+                      <!-- <div class="form-check">
                         <input class="form-check-input" type="radio" value="<?php echo $row['service_name'] ?>" name="<?php echo $row['service_name'] ?>" id="taktahu">
-                        <label class="form-check-label" for="taktahu">SELECT anything</label>
+                        <label class="form-check-label" for="taktahu"></label>
                         <?php 
                           $sql = "SELECT * FROM services";
 
@@ -132,7 +139,7 @@
 
                       <!-- SELECT SERVICES  -->
                       <div class="form-check mt-2">--- Choose type of Hair Cut ---
-                        <select class="form-select" aria-label="Default select example" name="selected_services">
+                        <select class="form-select" aria-label="Default select example" name="selected_service">
                           <option value="" >--- Choose type of Hair Cut ---</option>
                           <?php 
                             $sql = "SELECT * FROM services";
@@ -144,7 +151,7 @@
                               // output data of each row
                               while ($row = $result->fetch_assoc()) {
                                 ?>
-                                  <option value="<?php echo $row['service_name'] ?>"><?php echo $row['service_name'] ?></option>
+                                  <option value="<?php echo $row['service_name'] ?>"><?php echo $row['service_name'] .' • RM'. $row['service_price'] ." • ". $row['service_duration'] ."min"?></option>
                                 <?php
                               }
                             } 
@@ -186,19 +193,19 @@
                       </div> -->
 
                       <!-- SELECT TIME SLOT -->
-                      <fieldset>
+                      <!-- <fieldset>
                         <legend>Select Times </legend>
                         <input type="radio" name="selected_time" id="radio-1">
                         <label for="radio-1">12:30 PM</label>
                       <br>
                         <input type="radio" name="radio-1" id="radio-1">
                         <label for="radio-2">2:00 PM</label>
-                      </fieldset>
+                      </fieldset> -->
                       
                       
                       <!-- SUBMIT BOOKING BUTTON -->
                       <div class="d-grid gap-2">
-                        <button name="submit_booking_form" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="submit_booking_form" value="submit" class="btn btn-primary">Submit</button>
                       <div>
         
                     </form>

@@ -22,7 +22,7 @@
     
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Employees</h1>
+                <h1 class="h3 mb-0 text-gray-800">Barbers</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report
@@ -247,7 +247,7 @@
 
                                 <!-- SUBMIT BUTTON -->
 
-                                <button type="submit" name="add_new_employee" class="btn btn-primary">Add employee</button>
+                                <button type="submit" name="add_new_employee" class="btn btn-primary">Add Barber</button>
 
                             </form>
 
@@ -309,7 +309,7 @@
                             ?>
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Edit Employee</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Edit Barber</h6>
                                 </div>
                                 <div class="card-body">
                                     <form method="POST" action="employees.php?do=Edit&employee_id=<?php echo $employee_id; ?>">
