@@ -33,7 +33,7 @@
             ?>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Clients</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Customers</h6>
                 </div>
                 <div class="card-body">
                     
@@ -42,7 +42,7 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">ID#</th>
+                                    <th scope="col">Cust ID</th>
                                     <th scope="col">First Name</th>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Phone Number</th>
