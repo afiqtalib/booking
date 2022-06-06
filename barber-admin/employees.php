@@ -50,23 +50,23 @@
                     ?>
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Employees</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Barbers</h6>
                             </div>
                             <div class="card-body">
                                 
-                                <!-- ADD NEW Employee BUTTON -->
+                                <!-- ADD NEW BARBER BUTTON -->
                                 <a href="employees.php?do=Add" class="btn btn-success btn-sm" style="margin-bottom: 10px;">
                                     <i class="fa fa-plus"></i> 
-                                    Add Employee
+                                    Add Barber
                                 </a>
 
-                                <!-- Employees Table -->
+                                <!-- BARBERS Table -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th scope="col">First Name</th>
-                                                <th scope="col">Last Name</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Username</th>
                                                 <th scope="col">Phone Number</th>
                                                 <th scope="col">E-mail</th>
                                                 <th scope="col">Manage</th>
@@ -150,7 +150,7 @@
                     
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Add New Employee</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Add New Barber</h6>
                         </div>
                         <div class="card-body">
                             <form method="POST" action="employees.php?do=Add">
@@ -179,7 +179,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="employee_lname">Last Name</label>
+                                            <label for="employee_lname">Username</label>
                                             <input type="text" class="form-control" value="<?php echo (isset($_POST['employee_lname']))?htmlspecialchars($_POST['employee_lname']):'' ?>" placeholder="Last Name" name="employee_lname">
                                             <?php
                                                 if(isset($_POST['add_new_employee']))

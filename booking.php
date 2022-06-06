@@ -75,6 +75,23 @@
 
       // mysqli_close($link);
       ?> -->
+    <?php
+
+      // if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
+      // {
+      //   // Selected SERVICES
+
+      //     $selected_service = $_POST['selected_service'];
+
+      //     // Selected BARBER
+
+      //     $selected_barber = $_POST['selected_barber'];
+
+      //     // Selected DATE+TIME
+      //     $selected_date = $_POST['selected_date'];
+
+      // }
+    ?>
 
       <!-- Outer Row -->
       <div class="row justify-content-center pt-5">
@@ -89,7 +106,6 @@
                       <h1 class="h4 text-gray-900 mb-4">Booking Now </h1>
                     </div>
                     
-                    <p>Date: <input type="text" id="datepicker"></p>
                     <!-- BOOKING FORM -->
                     <form action="booking.php" id="bookForm" method="POST">
 
@@ -160,7 +176,7 @@
 
                       <!-- SELECT DATE  -->
                       <div class="form-group mt-4">Select Date 
-                        <input type="date" class="form-control form-control-user" id="datepicker"
+                        <input type="date" class="form-control form-control-user" id="datepicker" name="selected_date"
                         mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
                       </div>
             
@@ -172,16 +188,17 @@
                       <!-- SELECT TIME SLOT -->
                       <fieldset>
                         <legend>Select Times </legend>
-                        <input type="radio" name="radio-1" id="radio-1">
+                        <input type="radio" name="selected_time" id="radio-1">
                         <label for="radio-1">12:30 PM</label>
                       <br>
                         <input type="radio" name="radio-1" id="radio-1">
                         <label for="radio-2">2:00 PM</label>
                       </fieldset>
                       
+                      
                       <!-- SUBMIT BOOKING BUTTON -->
                       <div class="d-grid gap-2">
-                        <button type="submit_booking_form" class="btn btn-primary">Submit</button>
+                        <button name="submit_booking_form" class="btn btn-primary">Submit</button>
                       <div>
         
                     </form>

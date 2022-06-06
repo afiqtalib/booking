@@ -20,9 +20,11 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                 <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
             </div>
 
-            <div class="bg-text card-header">
+            <div class="bg-text card-header"> Hi, 
+            <?php echo $_SESSION['username'];?>
+
                 <span class="overlay-text text-start">
-                    Welcome to Twin & Dad Barbershop 
+                    - Welcome to Twin & Dad Barbershop 
                     <br>
                     <br>
                     It's Not Just a Haircut, It's an Experience.
