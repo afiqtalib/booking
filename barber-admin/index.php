@@ -2,7 +2,7 @@
 	session_start();
 
 	//Check If user is already logged in
-	if(isset($_SESSION['username_barbershop_Xw211qAAsq4']) && isset($_SESSION['password_barbershop_Xw211qAAsq4']))
+	if(isset($_SESSION['admin_username']) && isset($_SESSION['admin_username']))
 	{
         //Page Title
         $pageTitle = 'Dashboard';

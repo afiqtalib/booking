@@ -40,32 +40,6 @@
 	<body>
 		<section class="booking_section">
 
-      <!-- OTHERS METHOD TO PREPARED  
-      <?php 
-      // // $link = mysqli_connect("localhost","root","","bbs_db");
-
-      // // $sql = "SELECT service_name FROM services GROUP BY service_name;";
-
-      // // $result = mysqli_query($link,$sql);
-      // // if ($result != 0) {
-      // //     echo '<label> Select Hair Cut :';
-      // //     echo '<select service_name="city">';
-      // //     echo '<option value="">--- Choose type of Hair Cut ---</option>';
-
-      //     $num_results = mysqli_num_rows($result);
-      // //     for ($i=0;$i>$num_results;$i++) {
-      // //         $row = mysqli_fetch_array($result);
-      // //         $name = $row['service_name'];
-      // //         echo '<option value="' .$name. '">' .$name. '</option>';
-      // //     }
-
-      // //     echo '</select>';
-      // //     echo '</label>';
-      // // }
-
-      // // mysqli_close($link);
-      ?> -->
-
     <?php
           
       if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
@@ -79,31 +53,26 @@
         // Selected DATE
         $selected_date = $_POST['selected_date'];
 
-       
-
         $cust_id=$_SESSION['user_id'];
-        echo $cust_id.$selected_barber.$selected_date.$selected_service;
+        // echo $cust_id.$selected_barber.$selected_date.$selected_service;
 
         // Selected TIME 
         // $selected_time=$_POST['selected_time'];
-
-
        
         $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date,cust_id) values($selected_service, $selected_barber, '$selected_date', $cust_id)");
 
-        echo "<div class = 'alert alert-success'>";
+        echo "<div class = 'alert alert-success text-center'>";
             echo "Great! Your booking has been created successfully.";
         echo "</div>";
+        
         foreach ($_POST as $selected => $value){
-          echo "<div class='card'>";
           echo "$selected = $value";
-          echo "</div>";
         }
       }
     ?>
 
       <!-- Outer Row -->
-      <div class="row justify-content-center pt-5">
+      <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 col-md-1">
           <div class="card o-hidden border-0 shadow-lg my-5">
             <div class="card-body p-0">
@@ -119,6 +88,7 @@
                     <form action="" method="POST">
 
                       <!-- SELECT SERVICES  -->
+                      
                       <div class="form-check mt-2">--- Choose type of Hair Cut ---
                         <select class="form-select" aria-label="Default select example" name="selected_service">
                           <option value="" >--- Choose type of Hair Cut ---</option>
@@ -141,6 +111,7 @@
                       </div>
 
                       <!-- SELECT BARBER  -->
+
                       <div class="form-check mt-4">Choose Our Barber
                         <select class="form-select" aria-label="Default select example" name="selected_barber">
                           <option value="" >--- Choose Our Barber ---</option>
@@ -163,6 +134,7 @@
                       </div>
 
                       <!-- SELECT DATE  -->
+
                       <div class="form-group mt-4">Select Date 
                         <input type="date" class="form-control form-control-user" id="datepicker" name="selected_date"
                         mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
