@@ -43,29 +43,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                 
             </div>
         <div>
-        <!-- <div class="home-section-container">
-                <img src="design/barbers-1.jpg" alt="barbers" style="width: 100%;">
-                <div class="content">
-                       
-                </div>
-            <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
-            <div class="centered">
-                <span class="overlay-text">It's Not Just a Haircut, It's an Experience.
-                    <br>
-                    Our Booking Policy
-                    <br>
-                    1) Just 3 barbers only set in booking system
-                    <br>
-                    2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
-                </span>
-            </div> -->
-
-                    <!-- BOOKING BUTTON -->
-                    <!-- <button id="app_submit" 
-                        class="default_btn" 
-                        type="submit">Make Booking
-                    </button> -->
-        <!-- </div>  -->
     </section>
 
 
@@ -270,7 +247,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                 <div class="col-lg-6 sm-padding">
                     <!-- Business Information -->
                     <div class="contact-info">
-                        <h2>Get in touch with us & send us message today!</h2>
+                        <h2>Get in touch with us today!</h2>
                         <p> Twin & Dad Barbershop is the top 5 barbershop based in Kelantan</p>
                         <address>Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</address>
                         <h4>

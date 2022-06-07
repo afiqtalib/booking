@@ -1,5 +1,6 @@
 <!-- PHP INCLUDES -->
   <?php
+    session_start();
     include "connect.php";
     include "includes/header.php";
     include "includes/navbar.php";
@@ -18,7 +19,7 @@
 
 		<!-- STYLE FOR BOOKING -->
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-		<!-- <link rel="stylesheet" href="css/booking.css"> -->
+		<link rel="stylesheet" href="css/booking.css">
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
 
@@ -41,28 +42,28 @@
 
       <!-- OTHERS METHOD TO PREPARED  
       <?php 
-      // $link = mysqli_connect("localhost","root","","bbs_db");
+      // // $link = mysqli_connect("localhost","root","","bbs_db");
 
-      // $sql = "SELECT service_name FROM services GROUP BY service_name;";
+      // // $sql = "SELECT service_name FROM services GROUP BY service_name;";
 
-      // $result = mysqli_query($link,$sql);
-      // if ($result != 0) {
-      //     echo '<label> Select Hair Cut :';
-      //     echo '<select service_name="city">';
-      //     echo '<option value="">--- Choose type of Hair Cut ---</option>';
+      // // $result = mysqli_query($link,$sql);
+      // // if ($result != 0) {
+      // //     echo '<label> Select Hair Cut :';
+      // //     echo '<select service_name="city">';
+      // //     echo '<option value="">--- Choose type of Hair Cut ---</option>';
 
       //     $num_results = mysqli_num_rows($result);
-      //     for ($i=0;$i<$num_results;$i++) {
-      //         $row = mysqli_fetch_array($result);
-      //         $name = $row['service_name'];
-      //         echo '<option value="' .$name. '">' .$name. '</option>';
-      //     }
+      // //     for ($i=0;$i>$num_results;$i++) {
+      // //         $row = mysqli_fetch_array($result);
+      // //         $name = $row['service_name'];
+      // //         echo '<option value="' .$name. '">' .$name. '</option>';
+      // //     }
 
-      //     echo '</select>';
-      //     echo '</label>';
-      // }
+      // //     echo '</select>';
+      // //     echo '</label>';
+      // // }
 
-      // mysqli_close($link);
+      // // mysqli_close($link);
       ?> -->
 
     <?php
@@ -78,16 +79,17 @@
         // Selected DATE
         $selected_date = $_POST['selected_date'];
 
+       
+
+        $cust_id=$_SESSION['user_id'];
+        echo $cust_id.$selected_barber.$selected_date.$selected_service;
+
         // Selected TIME 
         // $selected_time=$_POST['selected_time'];
 
-        // $stmtgetCurrentbookingID = $conn->prepare("SELECT AUTO_INCREMENT FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'bbs_db' AND TABLE_NAME = 'bookings'");
-        // $stmtgetCurrentbookingID->execute();
-        // $booking_id = $stmtgetCurrentbookingID->fetch();
-        
-        // $stmt_booking = $conn->prepare("insert into bookings(service_id, barber_id, book_date) values(?, ?, ?)");
-        // $stmt_booking->execute(array,$book_id,$selected_barber, $selected_service, $selected_date);
-        
+
+       
+        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date,cust_id) values($selected_service, $selected_barber, '$selected_date', $cust_id)");
 
         echo "<div class = 'alert alert-success'>";
             echo "Great! Your booking has been created successfully.";
@@ -110,32 +112,11 @@
               <div class="row">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h4 text-gray-900 mb-4">Booking Now </h1>
+                      <h1 class="h4 text-gray-900 mb-4">Booking Now for be Handsome Boy</h1>
                     </div>
                     
                     <!-- BOOKING FORM -->
-                    <form action="booking.php" method="POST">
-
-                      <!-- SELECT SERVICES TEST CODE -->
-                      <!-- <div class="form-check">
-                        <input class="form-check-input" type="radio" value="<?php echo $row['service_name'] ?>" name="<?php echo $row['service_name'] ?>" id="taktahu">
-                        <label class="form-check-label" for="taktahu"></label>
-                        <?php 
-                          $sql = "SELECT * FROM services";
-
-                          // echo $sql;
-                          $result = $conn->query($sql);
-                          
-                          if ($result->num_rows > 0) {
-                            // output data of each row
-                            if ($row = $result->fetch_assoc()) {
-                            ?>
-                              <option value="<?php echo $row['service_name'] ?>"><?php echo $row['service_name'] ?></option>
-                            <?php
-                            }
-                          } 
-                        ?>
-                      </div> -->
+                    <form action="" method="POST">
 
                       <!-- SELECT SERVICES  -->
                       <div class="form-check mt-2">--- Choose type of Hair Cut ---
@@ -151,7 +132,7 @@
                               // output data of each row
                               while ($row = $result->fetch_assoc()) {
                                 ?>
-                                  <option value="<?php echo $row['service_name'] ?>"><?php echo $row['service_name'] .' • RM'. $row['service_price'] ." • ". $row['service_duration'] ."min"?></option>
+                                  <option value="<?php echo $row['service_id'] ?>"><?php echo $row['service_name'] .' • RM'. $row['service_price'] ." • ". $row['service_duration'] ."min"?></option>
                                 <?php
                               }
                             } 
@@ -173,7 +154,7 @@
                               // output data of each row
                               while ($row = $result->fetch_assoc()) {
                                 ?>
-                                  <option value="<?php echo $row['barber_name'] ?>"><?php echo $row['barber_name'] ?></option>
+                                  <option value="<?php echo $row['barber_id'] ?>"><?php echo $row['barber_name'] ?></option>
                                 <?php
                               }
                             } 
@@ -186,11 +167,6 @@
                         <input type="date" class="form-control form-control-user" id="datepicker" name="selected_date"
                         mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
                       </div>
-            
-                      <!-- <div class="form-check">
-                        <h2>Select Date </h2>
-                        <p>Date: <input type="text" id="datepicker"  mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>"></p>
-                      </div> -->
 
                       <!-- SELECT TIME SLOT -->
                       <!-- <fieldset>

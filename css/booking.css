@@ -18,9 +18,9 @@
 
 .booking_section
 {
-    max-width: 720px;
+    max-width: 100%;
     margin: 50px auto;
-    padding-top: 150px;
+    padding-top: 80px;
     /* margin-top: 80px; */
 }
 
