@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;bbs_db';
+    $dsn = 'mysql:host=localhost;dbname=barbershop';
 	$user = 'root';
 	$pass = '';
 	$option = array(
