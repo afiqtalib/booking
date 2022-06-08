@@ -62,14 +62,14 @@
 					SERVICES
 	  			</div>
 
-	  			<!-- Nav Item - Pages Collapse Menu --
+	  			<!-- Nav Item - Pages Collapse Menu -->
 	  			<li class="nav-item">
 					<a class="nav-link" href="service-categories.php">
 		  				<i class="fas fa-list"></i>
 		  				<span>Service Categories</span>
 		  			</a>
 	  			</li>
--->
+ 
 	  			<li class="nav-item">
 					<a class="nav-link" href="services.php">
 		  				<i class="bs bs-scissors-1"></i>

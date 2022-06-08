@@ -18,7 +18,7 @@
     
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Service Categories</h1>
+                <h1 class="h3 mb-0 text-gray-800">Timeslot</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report
@@ -33,14 +33,14 @@
             ?>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Service Categories</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Time Slot</h6>
                 </div>
                 <div class="card-body">
 
                     <!-- ADD NEW CATEGORY BUTTON -->
                     <button class="btn btn-success btn-sm" style="margin-bottom: 10px;" type="button" data-toggle="modal" data-target="#add_new_category" data-placement="top">
                         <i class="fa fa-plus"></i> 
-                        Add Category
+                        Add Slot
                     </button>
 
                     <!-- Add New Category Modal -->
@@ -48,14 +48,14 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Add New Category</h5>
+                                    <h5 class="modal-title">Add New Slot</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="category_name">Category name</label>
+                                        <label for="category_name">Slot Time</label>
                                         <input type="text" id="category_name_input" class="form-control" placeholder="Category Name" name="category_name">
                                         <div class="invalid-feedback" id="required_category_name" style="display: none;">
                                             Category name is required!
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="button" class="btn btn-info" id="add_category_bttn">Add Category</button>
+                                    <button type="button" class="btn btn-info" id="add_category_bttn">Add Slot</button>
                                 </div>
                             </div>
                         </div>
@@ -75,8 +75,8 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Category ID</th>
-                                    <th>Category NAME</th>
+                                    <!-- <th>Category ID</th> -->
+                                    <th>Time Slot</th>
                                     <th>Manage</th>
                                 </tr>
                             </thead> 
@@ -85,9 +85,9 @@
                                 foreach($rows_categories as $category)
                                 {
                                     echo "<tr>";
-                                        echo "<td>";
-                                            echo $category['category_id'];
-                                        echo "</td>";
+                                        // echo "<td>";
+                                        //     echo $category['category_id'];
+                                        // echo "</td>";
                                         echo "<td>";
                                             echo $category['category_name'];
                                         echo "</td>";
@@ -108,14 +108,14 @@
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit Slot</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="form-group">
-                                                                        <label for="category_name">Category Name</label>
+                                                                        <label for="category_name">Time Slot</label>
                                                                         <input type="text" class="form-control" id="<?php echo "input_category_name_".$category["category_id"]; ?>" value="<?php echo $category["category_name"]; ?>">
                                                                         <div class="invalid-feedback" id = "<?php echo "invalid_input_".$category["category_id"]; ?>">
                                                                             Category name is required.
@@ -140,13 +140,13 @@
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Delete Slot</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    Are you sure you want to delete this Category "<?php echo $category['category_name']; ?>"?
+                                                                    Are you sure you want to delete this Slot "<?php echo $category['category_name']; ?>"?
                                                                 </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
