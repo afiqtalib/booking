@@ -92,12 +92,11 @@
                       <div class="form-check mt-2">--- Choose type of Hair Cut ---
                         <select class="form-select" aria-label="Default select example" name="selected_service">
                           <option value="" >--- Choose type of Hair Cut ---</option>
+
                           <?php 
                             $sql = "SELECT * FROM services";
-
                             // echo $sql;
                             $result = $conn->query($sql);
-                            
                             if ($result->num_rows > 0) {
                               // output data of each row
                               while ($row = $result->fetch_assoc()) {
@@ -107,6 +106,7 @@
                               }
                             } 
                           ?>
+
                         </select>
                       </div>
 
@@ -115,12 +115,11 @@
                       <div class="form-check mt-4">Choose Our Barber
                         <select class="form-select" aria-label="Default select example" name="selected_barber">
                           <option value="" >--- Choose Our Barber ---</option>
+
                           <?php 
                             $sql = "SELECT * FROM barbers";
-
                             // echo $sql;
-                            $result = $conn->query($sql);
-                            
+                            $result = $conn->query($sql);                            
                             if ($result->num_rows > 0) {
                               // output data of each row
                               while ($row = $result->fetch_assoc()) {
@@ -130,6 +129,7 @@
                               }
                             } 
                           ?>
+                          
                         </select>
                       </div>
 

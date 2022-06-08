@@ -66,7 +66,7 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Service Name</th>
-                                        <th scope="col">Service Category</th>
+                                        <!-- <th scope="col">Service Category</th> -->
                                         <th scope="col">Description</th>
                                         <th scope="col">Price</th>
                                         <th scope="col">Duration</th>
@@ -81,9 +81,9 @@
                                                 echo "<td>";
                                                     echo $service['service_name'];
                                                 echo "</td>";
-                                                echo "<td>";
-                                                    echo $service['category_name'];
-                                                echo "</td>";
+                                                // echo "<td>";
+                                                //     echo $service['category_name'];
+                                                // echo "</td>";
                                                 echo "<td style = 'width:30%'>";
                                                     echo $service['service_description'];
                                                 echo "</td>";

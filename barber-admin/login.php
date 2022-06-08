@@ -11,8 +11,6 @@
 	$pageTitle = 'Barber Admin Login';
 	include 'connect.php';
 	include 'Includes/functions/functions.php';
-
-
 ?>
 
 
@@ -51,7 +49,7 @@
 
 						//Check if User Exist In database
 
-						$stmt = $con->prepare("Select admin_id, username,password from barber_admin where username = ? and password = ?");
+						$stmt = $con->prepare("SELECT admin_id, username,password FROM barber_admin where username = ? and password = ?");
 						$stmt->execute(array($username,$hashedPass));
 						$row = $stmt->fetch();
 						$count = $stmt->rowCount();
