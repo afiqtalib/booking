@@ -10,7 +10,7 @@
 	// ELSE
 	$pageTitle = 'Barber Admin Login';
 	include 'connect.php';
-	include 'Includes/functions/functions.php';
+	// include 'Includes/functions/functions.php';
 ?>
 
 
@@ -19,7 +19,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Manager Login</title>
+		<title>Admin Login</title>
 		<!-- FONTS FILE -->
 		<link href="Design/fonts/css/all.min.css" rel="stylesheet" type="text/css">
 
@@ -32,7 +32,7 @@
 	</head>
 	<body>
 		<div class="login">
-			<form class="login-container validate-form" name="login-form" method="POST" action="login.php" onsubmit="return validateLogInForm()">
+			<form class="login-container validate-form" name="login-form" method="POST" action="login.php" >
 				<span class="login100-form-title p-b-32">
 					Barber Admin Login
 				</span>
@@ -41,30 +41,49 @@
 
 				<?php
 
-					if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin-button']))
+					if( isset($_POST['signin']))
 					{
-						$username = test_input($_POST['username']);
-						$password = test_input($_POST['password']);
-						$hashedPass = sha1($password);
+						$username = ($_POST['username']);
+						$password = ($_POST['password']);
+						// $hashedPass = md5($password);
 
+						$sql = "SELECT * FROM admin WHERE admin_username='$username' AND admin_password='$password' ";
+						$query=mysqli_query($conn,$sql);
+						$num=mysqli_fetch_array($query);
+
+						if($num>0)
+						{
+						// $_POST['password']=$_POST['username'];
+						$_SESSION['username_barbershop_Xw211qAAsq4'] = $username;
+						$_SESSION['password_barbershop_Xw211qAAsq4'] = $password;
+						$_SESSION['admin_id_barbershop_Xw211qAAsq4'] = $sql['admin_id'];
+						header("location:index.php");
+						echo "haii ";
+						// exit();
+						}
+						// else {
+						// 	echo "errorr boss";
+						// }
+						
 						//Check if User Exist In database
 
-						$stmt = $con->prepare("SELECT admin_id, username,password FROM barber_admin where username = ? and password = ?");
-						$stmt->execute(array($username,$hashedPass));
-						$row = $stmt->fetch();
-						$count = $stmt->rowCount();
+						// $stmt = $con->prepare("SELECT admin_id, username,password FROM barber_admin where username = ? and password = ?");
+						// $stmt->execute(array($username,$hashedPass));
+						// $row = $stmt->fetch();
+						// $count = $stmt->rowCount();
+
 
 						// Check if count > 0 which mean that the database contain a record about this username
 
-						if($count > 0)
-						{
+						// if($count > 0)
+						// {
 
-							$_SESSION['username_barbershop_Xw211qAAsq4'] = $username;
-							$_SESSION['password_barbershop_Xw211qAAsq4'] = $password;
-							$_SESSION['admin_id_barbershop_Xw211qAAsq4'] = $row['admin_id'];
-							header('Location: index.php');
-							die();
-						}
+						// 	$_SESSION['username_barbershop_Xw211qAAsq4'] = $username;
+						// 	$_SESSION['password_barbershop_Xw211qAAsq4'] = $password;
+						// 	$_SESSION['admin_id_barbershop_Xw211qAAsq4'] = $row['admin_id'];
+						// 	header('Location: index.php');
+						// 	die();
+						// }
 						else
 						{
 							?>
@@ -88,7 +107,7 @@
 
 				<div class="form-input">
 					<span class="txt1">Username</span>
-					<input type="text" name="username" class = "form-control" oninput = "getElementById('required_username').style.display = 'none'" autocomplete="off">
+					<input type="text" name="username" class = "form-control"  autocomplete="off">
 					<span class="invalid-feedback" id="required_username">Username is required!</span>
 				</div>
 				
@@ -96,14 +115,14 @@
 
 				<div class="form-input">
 					<span class="txt1">Password</span>
-					<input type="password" name="password" class="form-control" oninput = "getElementById('required_password').style.display = 'none'" autocomplete="new-password">
+					<input type="password" name="password" class="form-control" autocomplete="new-password">
 					<span class="invalid-feedback" id="required_password">Password is required!</span>
 				</div>
 				
 				<!-- SIGN IN BUTTON -->
 
 				<p>
-					<button type="submit" name="signin-button" >Sign In</button>
+					<button type="submit" name="signin" >Sign In</button>
 				</p>
 
 				<!-- FORGOT YOUR PASSWORD LINK -->

@@ -9,7 +9,7 @@
 
         //Includes
         include 'connect.php';
-        include 'Includes/functions/functions.php'; 
+        // include 'Includes/functions/functions.php'; 
         include 'Includes/templates/header.php';
 
 ?>
@@ -36,7 +36,8 @@
 					  			<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 					  				Total Customers
 					  			</div>
-					  			<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo countItems("client_id","clients")?></div>
+                                  
+					  			<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count("user_id","users")?></div>
 							</div>
 							<div class="col-auto">
 					  			<i class="bs bs-boy fa-2x text-gray-300"></i>

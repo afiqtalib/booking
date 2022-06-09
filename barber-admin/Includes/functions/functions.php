@@ -34,6 +34,13 @@
 		return $stat_->fetchColumn();
 	}
 
+	function count($item, $table)
+	{
+		global $conn;
+		$sql = "SELECT COUNT $item FROM $table ";
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
+	}
     /*
 		=============================================================
 		** Check Items Function
