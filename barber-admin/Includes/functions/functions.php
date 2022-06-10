@@ -36,10 +36,14 @@
 
 	function count($item, $table)
 	{
-		global $conn;
-		$sql = "SELECT COUNT $item FROM $table ";
-		$result = $conn->query($sql);
-		$row = $result->fetch_assoc();
+		// global $conn;
+		// $sql = "SELECT COUNT $item FROM $table ";
+		// $result = $conn->query($sql);
+		// $row = $result->fetch_assoc();
+		$sql = "SELECT COUNT($item) FROM $table";
+        $result = mysqli_query($conn, $sql);
+        $count = mysqli_num_rows ($result);
+        echo "$count";
 	}
     /*
 		=============================================================

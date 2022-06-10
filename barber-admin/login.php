@@ -41,7 +41,7 @@
 
 				<?php
 
-					if( isset($_POST['signin']))
+					if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['signin']))
 					{
 						$username = ($_POST['username']);
 						$password = ($_POST['password']);
@@ -59,7 +59,7 @@
 						$_SESSION['admin_id_barbershop_Xw211qAAsq4'] = $sql['admin_id'];
 						header("location:index.php");
 						echo "haii ";
-						// exit();
+						exit();
 						}
 						// else {
 						// 	echo "errorr boss";

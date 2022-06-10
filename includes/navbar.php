@@ -111,7 +111,7 @@
     </div>
 
       <div class="logout">
-        <button><a class="btn btn-info" href="profile.php" >Profile</a></button>
+        <button><a class="btn btn-info" href="viewprofile.php" >Profile</a></button>
         <button><a class="btn btn-light" href="logout.php">logout</a></button>
     </div>
 </header>

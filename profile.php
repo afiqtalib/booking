@@ -3,34 +3,33 @@
     session_start(); 
     include "connect.php";
     include "includes/header.php";
-    include "includes/navbar.php";
+    // include "includes/navbar.php";
 
-    // $user_id=$_GET['user_id'];
     // $sql="SELECT * FROM 'users' WHERE user_id='$user_id'";
     // $result=mysqli_query($conn,$sql);
-    // $row=mysqli_fetch_assoc($result);
+    // $row=mysqli_fetch_array($result);
     // $name=$row['name'];
     // $uname=$row['uname'];
     // $email=$row['email'];
     // $phonenum=$row['phonenum'];
     // $pass=$row['password'];
+    $user_id=$_GET['updateid'];
+    if ( isset($_POST['submit'])) {
+        $name = ($_POST['name']);
+        $uname = ($_POST['uname']);
+        $email = ($_POST['email']);
+        $phonenum = ($_POST['phonenum']);
+        $pass = ($_POST['password']);
 
-    // if ( isset($_POST['submit'])) {
-    //     $name = ($_POST['name']);
-    //     $uname = ($_POST['uname']);
-    //     $email = ($_POST['email']);
-    //     $phonenum = ($_POST['phonenum']);
-    //     $pass = ($_POST['password']);
-
-    //     $sql="UPDATE 'users' SET name='$name', uname='$uname', email='$email', phonenum='$phonenum', password='$pass' WHERE user_id='$user_id'";
-    //     $result = mysqli_query($conn, $sql);
-    //     if($result){
-    //         echo "updated data profile";
-    //     }
-    //     else {
-    //         die(mysqli_error($conn));
-    //     }
-    // }
+        $sql="UPDATE users SET name='$name', uname='$uname', email='$email', phonenum='$phonenum', password='$pass' WHERE user_id=$user_id";
+        $result = mysqli_query($conn, $sql);
+        if($result){
+            echo "updated data profile";
+        }
+        else {
+            die(mysqli_error($conn));
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +64,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="cust_username">Username</label>
-                    <input type="text" class="form-control" value=""  placeholder="Enter Username" name="username">
+                    <input type="text" class="form-control" value=""  placeholder="Enter Username" name="u name">
                 </div>
             </div>
         </div>

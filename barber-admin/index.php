@@ -37,7 +37,12 @@
 					  				Total Customers
 					  			</div>
                                   
-					  			<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo count("user_id","users")?></div>
+					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
+                                      <?php $sql = "SELECT COUNT(*) FROM users";
+                                      $result = mysqli_query($conn, $sql);
+                                      $count = mysqli_num_rows ($result);
+                                      echo "$count";?>
+                                </div>
 							</div>
 							<div class="col-auto">
 					  			<i class="bs bs-boy fa-2x text-gray-300"></i>
