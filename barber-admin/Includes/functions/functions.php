@@ -34,16 +34,17 @@
 		return $stat_->fetchColumn();
 	}
 
-	function count($item, $table)
+	function countRow($item, $table)
 	{
-		// global $conn;
+		global $conn;
 		// $sql = "SELECT COUNT $item FROM $table ";
 		// $result = $conn->query($sql);
 		// $row = $result->fetch_assoc();
+        // include 'connect.php';
 		$sql = "SELECT COUNT($item) FROM $table";
         $result = mysqli_query($conn, $sql);
-        $count = mysqli_num_rows ($result);
-        echo "$count";
+        $roww = mysqli_num_rows ($result);
+        return $roww;
 	}
     /*
 		=============================================================

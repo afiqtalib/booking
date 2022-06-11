@@ -9,7 +9,7 @@
 
         //Includes
         include 'connect.php';
-        // include 'Includes/functions/functions.php'; 
+        include 'Includes/functions/functions.php'; 
         include 'Includes/templates/header.php';
 
 ?>
@@ -38,10 +38,10 @@
 					  			</div>
                                   
 					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
-                                      <?php $sql = "SELECT COUNT(*) FROM users";
+                                      <?php $sql = "SELECT COUNT(service_id) FROM services";
                                       $result = mysqli_query($conn, $sql);
                                       $count = mysqli_num_rows ($result);
-                                      echo "$count";?>
+                                      echo $count;?>
                                 </div>
 							</div>
 							<div class="col-auto">
@@ -60,7 +60,7 @@
 					  			<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
 					  				Total Services
 					  			</div>
-					  			<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo countItems("service_id","services")?></div>
+					  			<div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo countRow("service_id","services")?></div>
 							</div>
 							<div class="col-auto">
 					  			<i class="bs bs-scissors-1 fa-2x text-gray-300"></i>
@@ -80,7 +80,7 @@
 					  			</div>
 					  			<div class="row no-gutters align-items-center">
 									<div class="col-auto">
-						  				<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo countItems("employee_id","employees")?></div>
+						  				<div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo counRow("barber_id","barbers")?></div>
 									</div>
 					  			</div>
 							</div>

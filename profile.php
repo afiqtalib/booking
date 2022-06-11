@@ -3,17 +3,18 @@
     session_start(); 
     include "connect.php";
     include "includes/header.php";
-    // include "includes/navbar.php";
+    include "includes/navbar.php";
+    $user_id=$_GET['updateid'];
 
-    // $sql="SELECT * FROM 'users' WHERE user_id='$user_id'";
-    // $result=mysqli_query($conn,$sql);
-    // $row=mysqli_fetch_array($result);
+    $sql="SELECT * FROM users WHERE user_id=$user_id";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_array($result);
     // $name=$row['name'];
     // $uname=$row['uname'];
     // $email=$row['email'];
     // $phonenum=$row['phonenum'];
     // $pass=$row['password'];
-    $user_id=$_GET['updateid'];
+
     if ( isset($_POST['submit'])) {
         $name = ($_POST['name']);
         $uname = ($_POST['uname']);
@@ -45,26 +46,26 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="employee_phone">Name</label>
-                    <input type="text" class="form-control" value=""  placeholder="Enter Name" name="name">
+                    <label for="customer_name">Name</label>
+                    <input type="text" class="form-control" value="<?php echo $row['name']?>"  placeholder="Enter Name" name="name">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group"> 
-                    <label for="employee_email">Email</label>
-                    <input type="email" class="form-control" value="" placeholder="Enter E-mail" name="email">
+                    <label for="customer_email">Email</label>
+                    <input type="email" class="form-control" value="<?php echo $row['email']?>" placeholder="Enter E-mail" name="email">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group"> 
-                    <label for="employee_email">Phone Number</label>
-                    <input type="text" class="form-control" value="" placeholder="Enter Phone Number" name="phonenum">
+                    <label for="customer_phonenum">Phone Number</label>
+                    <input type="text" class="form-control" value="<?php echo $row['phonenum']?>" placeholder="Enter Phone Number" name="phonenum">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="cust_username">Username</label>
-                    <input type="text" class="form-control" value=""  placeholder="Enter Username" name="u name">
+                    <input type="text" class="form-control" value="<?php echo $row['username']?>"  placeholder="Enter Username" name="u name">
                 </div>
             </div>
         </div>
@@ -73,7 +74,7 @@
             <div class="col-md-6">
                 <div class="form-group"> 
                     <label for="cust_password">Password</label>
-                    <input type="password" class="form-control" value="" placeholder="Enter Password" name="password">
+                    <input type="password" class="form-control" value="<?php echo $row['pass']?>" placeholder="Enter Password" name="password">
                 </div>
             </div>
         </div>
