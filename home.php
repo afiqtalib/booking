@@ -70,7 +70,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
     <section class="service-section" id="service">
 
         <div class="section_heading ">
-            <h3>Our Services</h3>
+            <h3>Our Gallery</h3>
             <!-- <h2>OUR SERVICES</h2> -->
         </div>
 

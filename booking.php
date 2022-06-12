@@ -37,58 +37,17 @@
       // });
 		</script>
 
-    <!-- <script>
-      $('#datepicker1').datepicker({
-        daysOfWeekDisabled: [0,6]
-      });
-    </script> -->
      <!-- <script type="text/javascript">
             $(function () {
                 $('#datepicker1').datepicker({
                     daysOfWeekDisabled: [0,6]
                 });
             });
-        </script> -->
+      </script> -->
 	</head>
 	
 	<body>
 		<section class="booking_section">
-
-    <?php
-          
-      if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
-      {
-        // Selected SERVICES
-        $selected_service = $_POST['selected_service'];
-
-        // Selected BARBER
-        $selected_barber = $_POST['selected_barber'];
-
-        // Selected DATE
-        $selected_date = $_POST['selected_date'];
-
-        $cust_id=$_SESSION['user_id'];
-        // echo $cust_id.$selected_barber.$selected_date.$selected_service;
-
-        // Selected TIME 
-        $selected_time=$_POST['selected_time'];
-       
-        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date,cust_id) values($selected_service, $selected_barber, '$selected_date', $cust_id)");
-
-        echo "<div class = 'alert alert-success text-center mt-4'>";
-            echo "Great! Your booking has been created successfully.";
-        echo "</div>";
-        
-        foreach ($_POST as $selected => $value){
-          echo "$selected = $value";
-        }
-      }
-      // else {
-      //   echo "<div class = 'alert alert-danger text-center mt-4'>";
-      //   echo "Your booking unsuccessfully!!";
-      //   echo "</div>";      }
-    ?>
-
       <!-- Outer Row -->
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 col-md-1">
@@ -104,6 +63,40 @@
                     
                     <!-- BOOKING FORM -->
                     <form action="" method="POST">
+                      <?php
+          
+                      if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
+                      {
+                        // Selected SERVICES
+                        $selected_service = $_POST['selected_service'];
+                
+                        // Selected BARBER
+                        $selected_barber = $_POST['selected_barber'];
+                
+                        // Selected DATE
+                        $selected_date = $_POST['selected_date'];
+                
+                        $cust_id=$_SESSION['user_id'];
+                        // echo $cust_id.$selected_barber.$selected_date.$selected_service;
+                
+                        // Selected TIME 
+                        $selected_time=$_POST['selected_time'];
+                      
+                        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, book_time,cust_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $cust_id)");
+                
+                        echo "<div class = 'alert alert-success text-center mt-4'>";
+                            echo "Your booking has been created successfully.";
+                        echo "</div>";
+                        
+                        foreach ($_POST as $selected => $value){
+                          echo "$selected = $value";
+                        }
+                      }
+                      else {
+                        echo "<div class = 'alert alert-danger text-center mt-4'>";
+                        echo "Your booking unsuccessfully!!";
+                        echo "</div>";      }
+                      ?>
 
                       <!-- SELECT SERVICES  -->
                 
@@ -129,7 +122,10 @@
                       </div>
 
                       <!-- SELECT BARBER  -->
-
+                      <?php $sql = "SELECT COUNT(*) FROM services";
+                                      $result = mysqli_query($conn, $sql);
+                                      $countservices = mysqli_num_rows ($result);
+                                      echo $countservices;?>
                       <div class="form-check mt-4">Choose Our Barber
                         <select class="form-select" aria-label="Default select example" name="selected_barber">
                           <option value="" >--- Choose Our Barber ---</option>
@@ -163,9 +159,6 @@
                         <legend>Select Times </legend>
                         <input type="radio" name="selected_time" id="radio-1">
                         <label for="radio-1">12:30 PM</label>
-                      <br>
-                        <input type="radio" name="radio-1" id="radio-1">
-                        <label for="radio-2">2:00 PM</label>
                       </fieldset>
                       
                       
