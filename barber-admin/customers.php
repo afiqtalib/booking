@@ -2,7 +2,7 @@
     session_start();
 
      //Page Title
-    $pageTitle = 'Clients';
+    $pageTitle = 'Customer';
 
     //Includes
     include 'connect.php';
@@ -26,11 +26,6 @@
             </div>
 
             <!-- Clients Table -->
-            <?php
-                $stmt = $con->prepare("SELECT * FROM clients");
-                $stmt->execute();
-                $rows_clients = $stmt->fetchAll(); 
-            ?>
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <h6 class="m-0 font-weight-bold text-primary">Customers</h6>
@@ -43,31 +38,38 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Cust ID</th>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Last Name</th>
+                                    <th scope="col">Name</th>
                                     <th scope="col">Phone Number</th>
                                     <th scope="col">E-mail</th>
+                                    <th scope="col">Username</th>
+                                    <th scope="col">Password</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    foreach($rows_clients as $client)
+                                    $sql = "SELECT * FROM users";
+                                    $result = mysqli_query($conn, $sql);
+                                    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                    foreach($rows as $customer)
                                     {
                                         echo "<tr>";
                                             echo "<td>";
-                                                echo $client['client_id'];
+                                                echo $customer['user_id'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $client['first_name'];
+                                                echo $customer['name'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $client['last_name'];
+                                                echo $customer['phonenum'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $client['phone_number'];
+                                                echo $customer['email'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $client['client_email'];
+                                                echo $customer['username'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $customer['username'];
                                             echo "</td>";
                                         echo "</tr>";
                                     }

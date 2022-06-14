@@ -24,28 +24,36 @@
 
 	*/
 
-
-    function countItems($item,$table)
-	{
-		global $con;
-		$stat_ = $con->prepare("SELECT COUNT($item) FROM $table");
-		$stat_->execute();
-		
-		return $stat_->fetchColumn();
+	function countColumn ($column, $table) {
+		@include 'connect.php';
+		$sql = "SELECT COUNT($column) as count FROM $table";
+		$result =mysqli_query($conn, $sql);
+		while($row = mysqli_fetch_assoc($result)){
+		return $row["count"];
+		}
 	}
+	
+    // function countItems($item,$table)
+	// {
+	// 	global $con;
+	// 	$stat_ = $con->prepare("SELECT COUNT($item) FROM $table");
+	// 	$stat_->execute();
+		
+	// 	return $stat_->fetchColumn();
+	// }
 
-	function countRow($item, $table)
-	{
-		global $conn;
+	// function countRow($item, $table)
+	// {
+		//global $conn;
 		// $sql = "SELECT COUNT $item FROM $table ";
 		// $result = $conn->query($sql);
 		// $row = $result->fetch_assoc();
         // include 'connect.php';
-		$sql = "SELECT COUNT($item) FROM $table";
-        $result = mysqli_query($conn, $sql);
-        $roww = mysqli_num_rows ($result);
-        return $roww;
-	}
+	// 	$sql = "SELECT COUNT($item) FROM $table";
+    //     $result = mysqli_query($conn, $sql);
+    //     $roww = mysqli_num_rows ($result);
+    //     return $roww;
+	// }
     /*
 		=============================================================
 		** Check Items Function
