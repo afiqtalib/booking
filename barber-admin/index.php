@@ -117,7 +117,7 @@
 		<!-- Appointment Tables -->
         <div class="card shadow mb-4">
             <div class="card-header tab" style="padding: 0px !important;background: #36b9cc!important">
-            	<button class="tablinks active" onclick="openTab(event, 'Upcoming')">
+            	<button class="tablinks active" onclick="openTab(event, 'all')">
             		Upcoming Bookings
             	</button>
                 <button class="tablinks" onclick="openTab(event, 'All')">
@@ -129,7 +129,7 @@
             </div>
             <div class="card-body">
             	<div class="table-responsive">
-                	<table class="table table-bordered tabcontent" id="Upcoming" style="display:table" width="100%" cellspacing="0">
+                	<table class="table table-bordered tabcontent" id="all" style="display:table" width="100%" cellspacing="0">
                   		<thead>
                                 <tr>
                                     <th>
@@ -154,42 +154,43 @@
                         </thead>
                             <tbody>
                                 <?php
-									$sql = "SELECT * FROM bookings";
-									$sql = "SELECT s.service_name AS service_name, b.barber_name AS barber.name
-									FROM TABLE bookings
-									INNER JOIN services 
-									ON book_id = bookings.service_id
-									INNER JOIN barber 
-									ON bookings.barber_id = 
-									ORDER BY book_id";
 
-  $sql= "SELECT teams.team_name AS team_name,
-  projects.project_name AS project_name
-FROM TABLE teams
-INNER JOIN matches
-  ON teams.id = matches.team_id
-INNER JOIN matches
-  ON matches.project_id = projects.id
-ORDER BY teams.id";
+									
+									// $sql = "SELECT service_name, barber_name
+									// FROM services s 
+									// INNER JOIN bookings b
+									// ON s.service_id = b.service_id
+									// INNER JOIN barbers br
+									// ON br.barber_id = b.barber_id"; 
+									$sql = "SELECT service_name, barber_name, book_date, book_time, name 
+									FROM services s 
+									INNER JOIN bookings b 
+									ON s.service_id = b.service_id 
+									INNER JOIN barbers br 
+									ON br.barber_id = b.barber_id 
+									INNER JOIN users u 
+									ON u.user_id = b.user_id";
+
+							
 									$result = mysqli_query($conn, $sql);
 									$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-									foreach($rows as $booking)
+									foreach($rows as $booking){
                                 
-									echo "<tr>";
+										echo "<tr>";
                                             echo "<td>";
                                                 echo $booking['book_date'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $booking['service_id'];
+                                                echo $booking['service_name'];
                                             echo "</td>";
                                             echo "<td>";
                                                 echo $booking['book_time'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $booking['user_id'];
+                                                echo $booking['name'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $booking['barber_id'];
+                                                echo $booking['barber_name'];
                                             echo "</td>";
                                         // echo "</tr>";
 								?>
@@ -240,6 +241,7 @@ ORDER BY teams.id";
                                                		
                                             </td>
                                         </tr> 
+										<?php } ?>
 
                             </tbody>
                 	</table>

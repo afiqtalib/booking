@@ -43,6 +43,7 @@
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Password</th>
+                                    <th scope="col">Manage</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,8 +70,22 @@
                                                 echo $customer['username'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $customer['username'];
+                                                echo "******";
                                             echo "</td>";
+                                            echo "<td>";?>
+
+                                                <ul class="list-inline m-0">
+                                                    <!-- DELETE BUTTON -->
+
+                                                    <li class="list-inline-item" data-toggle="tooltip" title="Delete">
+                                                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
+                                                            <a href="customer-delete.php?userid=<?php echo $customer['user_id']; ?>" style="color: white;">
+                                                                <i class="fa fa-trash"></i>    
+                                                            </a>
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            <?php echo "</td>";
                                         echo "</tr>";
                                     }
                                 ?>
