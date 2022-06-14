@@ -155,6 +155,22 @@
                             <tbody>
                                 <?php
 									$sql = "SELECT * FROM bookings";
+									$sql = "SELECT s.service_name AS service_name, b.barber_name AS barber.name
+									FROM TABLE bookings
+									INNER JOIN services 
+									ON book_id = bookings.service_id
+									INNER JOIN barber 
+									ON bookings.barber_id = 
+									ORDER BY book_id";
+
+  $sql= "SELECT teams.team_name AS team_name,
+  projects.project_name AS project_name
+FROM TABLE teams
+INNER JOIN matches
+  ON teams.id = matches.team_id
+INNER JOIN matches
+  ON matches.project_id = projects.id
+ORDER BY teams.id";
 									$result = mysqli_query($conn, $sql);
 									$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 									foreach($rows as $booking)

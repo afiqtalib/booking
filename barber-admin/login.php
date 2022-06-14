@@ -8,7 +8,7 @@
 		exit();
 	}
 	// ELSE
-	$pageTitle = 'Barber Admin Login';
+	$pageTitle = 'Admin Login';
 	include 'connect.php';
 	// include 'Includes/functions/functions.php';
 ?>
@@ -33,8 +33,9 @@
 	<body>
 		<div class="login">
 			<form class="login-container validate-form" name="login-form" method="POST" action="login.php" >
-				<span class="login100-form-title p-b-32">
-					Barber Admin Login
+			<img src="Design/image/logo-company.jpg" alt="company-logo" style="height: 120px" class="mx-auto d-block">
+				<span class="login100-form-title p-b-32 text-center p-4">
+					Admin Login
 				</span>
 
 				<!-- PHP SCRIPT WHEN SUBMIT -->
