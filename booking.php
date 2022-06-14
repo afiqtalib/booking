@@ -76,13 +76,13 @@
                         // Selected DATE
                         $selected_date = $_POST['selected_date'];
                 
-                        $cust_id=$_SESSION['user_id'];
+                        $user_id=$_SESSION['user_id'];
                         // echo $cust_id.$selected_barber.$selected_date.$selected_service;
                 
                         // Selected TIME 
                         $selected_time=$_POST['selected_time'];
                       
-                        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, book_time,cust_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $cust_id)");
+                        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, book_time, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
                 
                         echo "<div class = 'alert alert-success text-center mt-4'>";
                             echo "Your booking has been created successfully.";
