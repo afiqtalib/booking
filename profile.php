@@ -129,59 +129,6 @@ if ( isset($_POST['update_profile submit']))
         //Include Footer
         include 'includes/footer.php';
 ?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-<form method="POST">
-    <div class="container mx-auto m-5 pt-5">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="customer_name">Name</label>
-                    <input type="text" class="form-control" value="<?php echo $row['name']?>"  placeholder="Enter Name" name="name">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group"> 
-                    <label for="customer_email">Email</label>
-                    <input type="email" class="form-control" value="<?php echo $row['email']?>" placeholder="Enter E-mail" name="email">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group"> 
-                    <label for="customer_phonenum">Phone Number</label>
-                    <input type="text" class="form-control" value="<?php echo $row['phonenum']?>" placeholder="Enter Phone Number" name="phonenum">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="cust_username">Username</label>
-                    <input type="text" class="form-control" value="<?php echo $row['username']?>"  placeholder="Enter Username" name="u name">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            
-            <div class="col-md-6">
-                <div class="form-group"> 
-                    <label for="cust_password">Password</label>
-                    <input type="password" class="form-control" value="<?php echo $row['pass']?>" placeholder="Enter Password" name="password">
-                </div>
-            </div>
-        </div> -->
-        <!-- Button Update Profile -->
-        <!-- <div class=" gap-2 col-4 mx-auto">
-            <button name="submit" type="button" class="btn btn-outline-primary btn-lg">Update Profile</button>
-        </div>
-    </div>
-</form>
-</body>
-</html> -->
 
 <?php
 // $conn=mysqli_connect("localhost", "root", "");
