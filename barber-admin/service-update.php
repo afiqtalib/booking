@@ -74,7 +74,7 @@ if (isset($_POST['edit_service'])) {
             <div class="card-body">
 
 
-                <!-- FORM ADD NEW SERVICE -->
+                <!-- FORM UPDATE SERVICE -->
                 <form method="POST">
                     <?php
                         $service_id = $_GET["service_id"];

@@ -29,20 +29,61 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                     <br>
                     It's Not Just a Haircut, It's an Experience.
                     <br>
+                    - Quality Over Quantity -
                     <br>
                     Our Booking Policy :
                     <br>
-                    1) Just max 3 barbers only set in booking system
+                    1) Just 3 barbers only set in booking system
                     <br>
                     2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
                     <br>
                 </span>
                 <div class="d-grid gap-2 mt-5">
-                    <a class="btn btn-primary btn-lg" href="booking.php">BOOK NOW</a>
+                    <a class="btn btn-light btn-lg" href="booking.php">BOOK NOW</a>
                 </div>
                 
             </div>
         <div>
+    </section>
+
+    <!-- PRICING SECTION  -->
+
+    <section class="pricing_section" id="pricing">
+
+
+        <div class="flex-container">
+            <div class="section_heading">
+                <h3>Save 20% On Beauty Spa</h3>
+                <h2>Our Barber Pricing</h2>
+                <div class="heading-line"></div>
+            </div>
+            <div class="row">
+                <?php
+                    $sql = "SELECT * FROM services";
+                    $result = mysqli_query($conn, $sql);
+                    $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                ?>
+
+                <div class="col-lg-4 col-md-6 sm-padding grid-item">
+                    <div class="price_wrap">
+                        <ul class="price_list">
+                            <?php
+                                foreach ($row as $services)  
+                                {
+                                    ?>
+                                        <li>
+                                            <h4><?php echo $services['service_name'] ?></h4>
+                                            <p><?php echo $services['service_name'] ?></p>
+                                            <span class="price">RM<?php echo $services['service_price'] ?></span>
+                                        </li>
+                                    <?php
+                                }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
 
@@ -75,38 +116,36 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
         </div>
 
             <div class="row">
-                <div class="card m-3 col " style="width: 18rem;">
-                    <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Hair Style</h5>
-                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
-                    </div>
-                </div>
+            <h3>Mens Grooming Services</h3>
 
-                <div class="card m-3 col" style="width: 18rem;">
+                <?php
+                $sql = "SELECT * FROM services";
+                $result = mysqli_query($conn, $sql);
+                $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                    foreach ($row as $services)  {
+                ?>
+                    <div class="col-lg-4 col-md-6 sm-padding">
+                        <div class="price_wrap">
+                            <ul class="price_list">
+                                <li>
+                                    <h5><?php echo $services['service_name'] ?></h5>
+                                    <p><?php echo $services['service_desc'] ?></p>
+                                    <span class="price">RM<?php echo $services['service_price'] ?></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                <!-- <div class="card m-3 g-col-6 " style="width: 18rem;">
                     <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Hair Style</h5>
-                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
+                        <h5 class="card-title"><?php echo $services['service_name'];?></h5>
+                        <p class="card-text"> <?php echo $services['service_price'];?><span class="dot-separator"> . </span><?php echo $services['service_duration']; ?></p>
+                        <small><?php echo $services['service_desc'];?></small>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="card m-3 col " style="width: 18rem;">
-                    <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Hair Style</h5>
-                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
-                    </div>
-                </div>
-
-                <div class="card m-3 col " style="width: 18rem;">
-                    <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Hair Style</h5>
-                        <p class="card-text">RM 20 <span class="dot-separator">.</span> 60 min</p>
-                    </div>
-                </div>
             </div>
+            <?php } ?>
 
         <div class="gallery">
             <div class="column">
@@ -154,9 +193,8 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
             <?php
             $sql = "SELECT * FROM barbers";
             $result = mysqli_query($conn, $sql);
-            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            foreach ($rows as $barber)
-                {
+            $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach ($row as $barber)
             ?>
 
             <div class="row">
@@ -168,20 +206,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                     </div>
                 </div>
 
-                <!-- <div class="card col m-4 border-secondary" style="width: 100%;">
-                    <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Barber Roy</h5>
-                        <p class="card-text">Barber Expertise</p>
-                    </div>
-                </div>
-                <div class="card col m-4 border-secondary" style="width: 100%;">
-                    <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Barber Danish</h5>
-                        <p class="card-text">Barber Expertise</p>
-                    </div>
-                </div>
                 </div>
                     <ul class="team_members col"> 
                         <li class="barber-info">
@@ -194,15 +218,9 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                                 <img src="design/team-2.jpg" alt="Team Member">
                             </div>
                         </li>
-                        <li class="barber-info">
-                            <div class="team_member">
-                                <img src="design/team-3.jpg" alt="Team Member">
-                            </div>
-                        </li>
                     </ul>
-                </div> -->
+                </div>
             </div>
-            <?php }?>
         </div>
     </section>
     <!-- END BARBER SECTION --> 
