@@ -17,21 +17,22 @@
     // $phonenum=$row['phonenum'];
     // $pass=$row['password'];
 
-if ( isset($_POST['update_profile submit'])) 
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment'])) 
 {
-    $user_id=$_GET["user_id"];
+    // $book_id=$_GET["book_id"];
 
-    $name = ($_POST["name"]);
-    $username = ($_POST["username"]);
-    $email = ($_POST["email"]);
-    $phonenum = ($_POST["phonenum"]);
-    $password = ($_POST["password"]);
+    $card_name = ($_POST["card_name"]);
+    $card_no = ($_POST["card_no"]);
+    $exp_mth = ($_POST["exp_mth"]);
+    $exp_year = ($_POST["exp_year"]);
+    $cvv = ($_POST["cvv"]);
+    $pay_total= ($_POST["pay_total"]);
 
-    $sql="UPDATE users SET name='$name', username='$username', email='$email', phonenum='$phonenum', password='$password' WHERE user_id=$user_id";
+    $sql = "INSERT INTO payment ( card_name, card_no, exp_mth, exp_year, cvv, pay_total) VALUE ('$card_name', '$card_no', '$exp_mth', '$exp_year', '$cvv', '$pay_total')";
     $result = mysqli_query($conn, $sql);
     if($result){
-        echo "<script>alert('Your Profile has been successfully updated');</script>"; 
-        echo "<script>window.location.href = 'viewprofile.php'</script>"; 
+        echo "<script>alert('Your Booking has been successfully made');</script>"; 
+        echo "<script>window.location.href = 'home.php'</script>"; 
     }
     else {
         die(mysqli_error($conn));
@@ -44,7 +45,7 @@ if ( isset($_POST['update_profile submit']))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile</title>
+    <title>Payment</title>
 </head>
 
 <body>
@@ -53,11 +54,11 @@ if ( isset($_POST['update_profile submit']))
     
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">My Profile</h1>
+            <h1 class="h3 mb-0 text-gray-800">Payment</h1>
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-center">
-                <h6 class="m-0 font-weight-bold text-primary">Update Profile</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Payment for Booking</h6>
             </div>
             <div class="card-body">
 
@@ -65,51 +66,60 @@ if ( isset($_POST['update_profile submit']))
                 <!-- FORM UPDATE SERVICE -->
                 <form method="POST">
                     <?php
-                        $user_id = $_GET["user_id"];
-                        $ret=mysqli_query($conn,"SELECT * FROM users WHERE user_id='$user_id'");
-                        while ($row=mysqli_fetch_array($ret)) {
+                        // $book_id = $_GET["book_id"];
+                        // $ret=mysqli_query($conn,"SELECT * FROM users WHERE user_id='$u_id'");
+                        // while ($row=mysqli_fetch_array($ret)) {
                     ?>
-                    <input type="hidden" value="<?php echo $user_id?>">
-                    <div class="row ml-4">
+                    <!-- <input type="hidden" value="<?php echo $user_id?>"> -->
+                    <div class="row p-5">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" value="<?php echo $row['name']; ?>" placeholder="Name" name="name" required="true">
+                                <label for="name">Card Name</label>
+                                <input type="text" class="form-control" placeholder="BANK IN MALAYSIA" name="card_name" required="true">
+                                <!-- <select id="cars"  placeholder="BANK IN MALAYSIA" name="selected_bank" size="3">
+                                    <option value="volvo">MAYBANK</option>
+                                    <option value="saab">BANK ISLAM</option>
+                                    <option value="fiat">CIMB BANK</option>
+                                    -->
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Phone Number">Phone Number </label>
-                                <input type="text" class="form-control" value="<?php echo $row['phonenum']; ?>" placeholder="Phone Number" name="phonenum" required="true">
+                                <label for="Phone Number">Card No</label>
+                                <input type="text" class="form-control"  placeholder="1111-2222-3333-4444" name="card_no" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="service_price">Email</label>
-                                <input type="Email" class="form-control" value="<?php echo $row['email']; ?>" placeholder="Email" name="email" required="true">
+                                <label for="service_price">Exp Month</label>
+                                <input type="month" class="form-control"  placeholder="2013" name="exp_mth" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Username">Username</label>
-                                <input type="text" class="form-control" value="<?php echo $row['username']; ?>" placeholder="Username" name="username" required="true">
+                                <label for="Username">Exp Year</label>
+                                <input type="number" class="form-control" placeholder="Sept" name="exp_year" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Password">Password</label>
-                                <input type="password" class="form-control" value="<?php echo $row['password']; ?>" placeholder="Password" name="password" required="true">
+                                <label for="Password">CVV</label>
+                                <input type="password" class="form-control" placeholder="***" name="CVV" max="3" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="Password">TOTAL SERVICE</label>
+                                <input type="text" class="form-control" value=""  placeholder="RM353" name="pay_total" required="true">
                             </div>
                         </div>
                     </div>
 
-                    <?php
-                    }
-                    ?> 
+                   
                 
                     <!-- SUBMIT BUTTON -->
                     <div class="text-center">
-                        <button type="submit" name="update_profile" class="btn btn-primary">Update</button>
+                        <button type="submit" name="submit_payment" class="btn btn-primary">Pay</button>
                     </div>
 
                 </form>
