@@ -88,9 +88,9 @@
                             echo "Your booking has been created successfully.";
                         echo "</div>";
                         
-                        foreach ($_POST as $selected => $value){
-                          echo "$selected = $value";
-                        }
+                        // foreach ($_POST as $selected => $value){
+                        //   echo "$selected = $value";
+                        // }
                       }
                       else {
                         echo "<div class = 'alert alert-danger text-center mt-4'>";
@@ -101,7 +101,7 @@
                       <!-- SELECT SERVICES  -->
                 
                       <div class="form-check mt-2">--- Choose Hair Style---
-                        <select class="form-select" aria-label="Default select example" name="selected_service">
+                        <select class="form-select" aria-label="Default select example" name="selected_service" required="true">
                           <option value="" >--- Choose type of Hairstyle ---</option>
 
                           <?php 
@@ -122,12 +122,8 @@
                       </div>
 
                       <!-- SELECT BARBER  -->
-                      <?php $sql = "SELECT COUNT(*) FROM services";
-                                      $result = mysqli_query($conn, $sql);
-                                      $countservices = mysqli_num_rows ($result);
-                                      echo $countservices;?>
                       <div class="form-check mt-4">Choose Our Barber
-                        <select class="form-select" aria-label="Default select example" name="selected_barber">
+                        <select class="form-select" aria-label="Default select example" name="selected_barber" required="true">
                           <option value="" >--- Choose Our Barber ---</option>
 
                           <?php 
@@ -151,15 +147,14 @@
 
                       <div class="form-group mt-4">Select Date 
                         <input type="date" class="form-control form-control-user" name="selected_date"
-                        mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY">
+                        mindate="tomorrow" min="<?php echo date("Y-m-d", strtotime("+1 day")); ?>" placeholder="MM/DD/YYYY" required="true">
                       </div>
 
                       <!-- SELECT TIME SLOT -->
-                      <fieldset>
-                        <legend>Select Times </legend>
-                        <input type="radio" name="selected_time" id="radio-1">
-                        <label for="radio-1">12:30 PM</label>
-                      </fieldset>
+
+                      <div class="form-group mt-4">Select Time Slot 
+                        <input type="time" class="form-control form-control-user" name="selected_time" placeholder="HH:MM" required="true"  min="12:00" max="18:00">
+                      </div>
                       
                       
                       <!-- SUBMIT BOOKING BUTTON -->

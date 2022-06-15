@@ -152,56 +152,23 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                 <h2>OUR BARBERS</h2>
             </div>
             <?php
-            // $stmt = $con->prepare("Select * from service_categories");
-            //     $stmt->execute();
-            //     $categories = $stmt->fetchAll();
-            
-            // // create a prepared statement
-            // $stmt = $conn->prepare("SELECT * FROM barbers");
-            // // bind parameters for markers 
-            // $stmt->bind_param();
-            // // execute query 
-            // $result = $stmt->execute();
-            // $mysqli = new mysqli("localhost", "root", "", "bbs_db");
-
-            // $stmt = $mysqli->prepare("SELECT * FROM barbers where barber_un=?");
-
-            // foreach($barbers as $barber_un){
-
-            //     if($stmt->prepare("SELECT barber_name FROM barbers WHERE barber_un=?")) {
-            
-            //         $stmt->bind_param('barber_roy',$barber_un);
-            
-            //         $stmt->execute();
-            
-            //         $stmt->bind_result($barber_name);
-                        
-            //         while($stmt->fetch()) {
-            //             echo $barber_name;
-            //         }
-            //         $stmt->close();
-            //     }
-            // }
-
-            // if ($result ==  true) {
-
-            //     echo "</br>New record created Successfully";
-
-            // }
-
-            // $stmt->close();
+            $sql = "SELECT * FROM barbers";
+            $result = mysqli_query($conn, $sql);
+            $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            foreach ($rows as $barber)
+                {
             ?>
 
             <div class="row">
                 <div class="card col m-4 border-secondary" style="width: 100%;">
                     <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
                     <div class="card-body text-center">
-                        <h5 class="card-title">Barber Zaim</h5>
+                        <h5 class="card-title"><?php $barber ['barber_name'];?></h5>
                         <p class="card-text">Barber Expertise</p>
                     </div>
                 </div>
 
-                <div class="card col m-4 border-secondary" style="width: 100%;">
+                <!-- <div class="card col m-4 border-secondary" style="width: 100%;">
                     <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
                     <div class="card-body text-center">
                         <h5 class="card-title">Barber Roy</h5>
@@ -216,7 +183,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                     </div>
                 </div>
                 </div>
-                    <!-- <ul class="team_members row"> 
+                    <ul class="team_members col"> 
                         <li class="barber-info">
                             <div class="team_member">
                                 <img src="design/team-1.jpg" alt="Team Member">
@@ -232,9 +199,10 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                                 <img src="design/team-3.jpg" alt="Team Member">
                             </div>
                         </li>
-                    </ul> -->
-                </div>
+                    </ul>
+                </div> -->
             </div>
+            <?php }?>
         </div>
     </section>
     <!-- END BARBER SECTION --> 
