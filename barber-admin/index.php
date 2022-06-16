@@ -162,7 +162,7 @@
 									// ON s.service_id = b.service_id
 									// INNER JOIN barbers br
 									// ON br.barber_id = b.barber_id"; 
-									$sql = "SELECT service_name, barber_name, book_date, book_time, name 
+									$sql = "SELECT book_id, service_name, barber_name, book_date, book_time, name 
 									FROM services s 
 									INNER JOIN bookings b 
 									ON s.service_id = b.service_id 
@@ -207,7 +207,9 @@
 
                                                     <li class="list-inline-item" data-toggle="tooltip" title="Cancel Appointment">
                                                         <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
-                                                            <i class="fas fa-calendar-times"></i>
+															<a href="booking-delete.php?book_id=<?php echo $booking['book_id']; ?> " style="color: white;">
+																<i class="fas fa-calendar-times"></i>
+															</a>
                                                         </button>
 
                                                          <!-- CANCEL MODAL  -->

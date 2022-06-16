@@ -21,18 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment']))
 {
     // $book_id=$_GET["book_id"];
 
-    $card_name = ($_POST["card_name"]);
-    $card_no = ($_POST["card_no"]);
-    $exp_mth = ($_POST["exp_mth"]);
-    $exp_year = ($_POST["exp_year"]);
-    $cvv = ($_POST["cvv"]);
-    $pay_total= ($_POST["pay_total"]);
+    $card_name = ($_POST['card_name']);
+    $card_no = ($_POST['card_no']);
+    $exp_mth = ($_POST['exp_mth']);
+    $exp_year = ($_POST['exp_year']);
+    $cvv = ($_POST['cvv']);
+    $pay_total= ($_POST['pay_total']);
 
     $sql = "INSERT INTO payment ( card_name, card_no, exp_mth, exp_year, cvv, pay_total) VALUE ('$card_name', '$card_no', '$exp_mth', '$exp_year', '$cvv', '$pay_total')";
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "<script>alert('Your Booking has been successfully made');</script>"; 
-        echo "<script>window.location.href = 'home.php'</script>"; 
+        echo "<script>window.location.href = 'bbs/home.php'</script>"; 
     }
     else {
         die(mysqli_error($conn));
@@ -76,16 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment']))
                             <div class="form-group">
                                 <label for="name">Card Name</label>
                                 <input type="text" class="form-control" placeholder="BANK IN MALAYSIA" name="card_name" required="true">
-                                <!-- <select id="cars"  placeholder="BANK IN MALAYSIA" name="selected_bank" size="3">
-                                    <option value="volvo">MAYBANK</option>
-                                    <option value="saab">BANK ISLAM</option>
-                                    <option value="fiat">CIMB BANK</option>
-                                    -->
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Phone Number">Card No</label>
+                                <label for="Phone Number">Card Number</label>
                                 <input type="text" class="form-control"  placeholder="1111-2222-3333-4444" name="card_no" required="true">
                             </div>
                         </div>
@@ -104,15 +99,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment']))
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="Password">CVV</label>
-                                <input type="password" class="form-control" placeholder="***" name="CVV" max="3" required="true">
+                                <input type="text" class="form-control" placeholder="***" name="CVV" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="Password">TOTAL SERVICE</label>
-                                <input type="text" class="form-control" value=""  placeholder="RM353" name="pay_total" required="true">
+                                <label for="Password">TOTAL SERVICE (RM)</label>
+                                <input type="text" class="form-control"  placeholder="RM353" name="pay_total" required="true">
                             </div>
                         </div>
+                        <label><input type="checkbox" checked="checked" name="" required="true">Butir Pembayaran will be encrypt</label>
                     </div>
 
                    

@@ -28,7 +28,7 @@
             <!-- Clients Table -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary"><?php echo $_SESSION['username_barbershop_Xw211qAAsq4']?> </h6>
+                    <h6 class="m-0 font-weight-bold text-primary">ADMIN <?php echo $_SESSION['username_barbershop_Xw211qAAsq4']?></h6>
                 </div>
                 <div class="card-body">
                     
@@ -37,12 +37,13 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Cust ID</th>
+                                    <th scope="col">ID</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone Number</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Password</th>
+                                    <th scope="col">Update</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -69,7 +70,7 @@
                                                 echo $admin['admin_username'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $admin['admin_username'];
+                                                echo $admin['admin_password'];
                                             echo "</td>";
                                         echo "</tr>";
                                     }

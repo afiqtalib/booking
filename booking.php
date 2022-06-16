@@ -87,6 +87,7 @@
                         echo "<div class = 'alert alert-success text-center mt-4'>";
                             echo "Your booking has been created successfully.";
                         echo "</div>";
+                        echo "<script type='text/javascript'> document.location ='payment.php'; </script>";
                         
                         // foreach ($_POST as $selected => $value){
                         //   echo "$selected = $value";
@@ -159,7 +160,7 @@
                       
                       <!-- SUBMIT BOOKING BUTTON -->
                       <div class="d-grid gap-2">
-                        <button type="submit" name="submit_booking_form" value="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="submit_booking_form" value="submit" href="payment.php" class="btn btn-primary">Submit</button>
                       <div>
         
                     </form>
