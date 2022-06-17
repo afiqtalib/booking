@@ -65,7 +65,7 @@
                                                 echo "<td>";
                                                     echo $service['service_name'];
                                                 echo "</td>";
-                                                echo "<td style = 'width:40%'>";
+                                                echo "<td style = 'width:50%'>";
                                                     echo $service['service_desc'];
                                                 echo "</td>";
                                                 echo "<td>";

@@ -38,7 +38,16 @@
 					  			</div>
                                   
 					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <?php echo countColumn ("user_id", "users")?>
+                                    <?php $barber = $_SESSION['barber_id'];
+										$sql = "SELECT COUNT(user_id) as count
+										FROM users u
+										JOIN bookings b
+										ON u.user_id = b.user_id
+										WHERE b.barber_id='$barber'";
+										$result =mysqli_query($conn, $sql);
+										while($row = mysqli_fetch_assoc($result)){
+										echo $row["count"];}
+									?>
                                 </div>
 							</div>
 							<div class="col-auto">
@@ -102,7 +111,13 @@
 					  				Bookings
 					  			</div>
 					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <?php echo countColumn("book_id","bookings") ?>
+                                    <?php
+										$barber = $_SESSION['barber_id'];
+										$sql = "SELECT COUNT(book_id) as count FROM bookings WHERE barber_id='$barber'";
+										$result =mysqli_query($conn, $sql);
+										while($row = mysqli_fetch_assoc($result)){
+									  	echo $row["count"];}
+									?>
                                 </div>
 							</div>
 							<div class="col-auto">
@@ -162,16 +177,17 @@
 									// ON s.service_id = b.service_id
 									// INNER JOIN barbers br
 									// ON br.barber_id = b.barber_id"; 
-									$barber_id = $_SESSION["barber_id"];
-									$sql = "SELECT service_name, barber_name, book_date, book_time, name 
+									// service_name, barber_name, book_date, book_time, name 
+									$barber = $_SESSION['barber_id'];
+									$sql = "SELECT s.*, b.*, br.*, u.*
 									FROM services s 
-									INNER JOIN bookings b 
+								 	JOIN bookings b 
 									ON s.service_id = b.service_id 
-									INNER JOIN barbers br 
+									JOIN barbers br 
 									ON br.barber_id = b.barber_id 
-									INNER JOIN users u 
+									JOIN users u 
 									ON u.user_id = b.user_id
-									WHERE br.barber_id = '$barber_id' ";
+									WHERE br.barber_id = '$barber' ";
 
 							
 									$result = mysqli_query($conn, $sql);

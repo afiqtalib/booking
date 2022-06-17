@@ -72,7 +72,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                                 {
                                     ?>
                                         <li>
-                                            <h4><?php echo $services['service_name'] ?></h4>
                                             <p><?php echo $services['service_name'] ?></p>
                                             <span class="price">RM<?php echo $services['service_price'] ?></span>
                                         </li>
@@ -124,7 +123,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                 $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
                     foreach ($row as $services)  {
                 ?>
-                    <div class="col-lg-4 col-md-6 sm-padding">
+                    <!-- <div class="col-lg-4 col-md-6 sm-padding">
                         <div class="price_wrap">
                             <ul class="price_list">
                                 <li>
@@ -134,7 +133,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 <!-- <div class="card m-3 g-col-6 " style="width: 18rem;">
                     <img src="design/haircolor.jpg" class="card-img-top" alt="hairstyle">
                     <div class="card-body text-center">
@@ -194,10 +193,13 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
             $sql = "SELECT * FROM barbers";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            foreach ($row as $barber)
+            foreach ($row as $barber) {
+                echo $barber ['barber_name'];
+                echo "<br>";
+            }
             ?>
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="card col m-4 border-secondary" style="width: 100%;">
                     <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
                     <div class="card-body text-center">
@@ -220,7 +222,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
     <!-- END BARBER SECTION --> 
@@ -262,36 +264,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                 
                 <!-- Contact Us Form -->
                 <div class="col-lg-6 sm-padding">
-                    <div class="contact-form">
-                        <div id="contact_ajax_form" class="contactForm">
-                            <div class="form-group colum-row row">
-                                <div class="col-sm-6">
-                                    <input type="text" id="contact_name" name="name" class="form-control" placeholder="Name">
-                                </div>
-                                <div class="col-sm-6">
-                                    <input type="email" id="contact_email" name="email" class="form-control" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <input type="text" id="contact_subject" name="subject" class="form-control" placeholder="Subject">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <textarea id="contact_message" name="message" cols="35" rows="4" class="form-control message" placeholder="Message"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <button type="button" id="contact_send" class="btn btn-secondary">Send Message</button>
-                                    <!-- <button id="contact_send" class="default_btn" >Send Message</button> -->
-                                </div>
-                            </div>
-                            <img src="Design/images/ajax_loader_gif.gif" id = "contact_ajax_loader" style="display: none">
-                            <div id="contact_status_message"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

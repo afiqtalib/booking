@@ -60,7 +60,7 @@
 						// $_SESSION['name_barber'] = $name;
 						$_SESSION['username_barber'] = $username;
 						$_SESSION['password_barber'] = $password;
-						$_SESSION['barber_id'] = $sql['barber_id'];
+						$_SESSION['barber_id'] = $num['barber_id'];
 						header("location:index.php");
 						echo "haii ";
 						exit();
