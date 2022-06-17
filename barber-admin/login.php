@@ -8,7 +8,7 @@
 		exit();
 	}
 	// ELSE
-	$pageTitle = 'Admin Login';
+	$pageTitle = 'Admin Login | Twin & Dad Barbershop';
 	include 'connect.php';
 	// include 'Includes/functions/functions.php';
 ?>

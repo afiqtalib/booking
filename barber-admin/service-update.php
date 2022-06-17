@@ -3,7 +3,7 @@
     session_start();
 
     //Page Title
-    $pageTitle = 'Edit Services';
+    $pageTitle = 'Edit Services | Twin & Dad Barbershop';
 
     //Includes
     include 'connect.php';

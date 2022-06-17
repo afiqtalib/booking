@@ -2,7 +2,7 @@
     session_start();
 
      //Page Title
-    $pageTitle = 'Customer';
+    $pageTitle = 'Customer | Twin & Dad Barbershop';
 
     //Includes
     include 'connect.php';

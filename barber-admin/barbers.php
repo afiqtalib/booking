@@ -3,7 +3,7 @@
     session_start();
 
     //Page Title
-    $pageTitle = 'Barbers';
+    $pageTitle = 'Barbers | Twin & Dad Barbershop';
 
     //Includes
     include 'connect.php';
@@ -46,10 +46,12 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th scope="col">#ID</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone Number</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Username</th>
+                                    <th scope="col">Password</th>
                                     <th scope="col">Manage</th>
                                 </tr>
                             </thead>
@@ -62,6 +64,9 @@
                                         {
                                             echo "<tr>";
                                                 echo "<td>";
+                                                    echo $barber['barber_id'];
+                                                echo "</td>";
+                                                echo "<td>";
                                                     echo $barber['barber_name'];
                                                 echo "</td>";
                                                 echo "<td style = 'width:20%'>";
@@ -72,6 +77,9 @@
                                                 echo "</td>";
                                                 echo "<td>";
                                                     echo $barber['barber_un'];
+                                                echo "</td>";
+                                                echo "<td>";
+                                                    echo "******";
                                                 echo "</td>";
                                                 echo "<td>";?>
                                                 <ul class="list-inline m-0">

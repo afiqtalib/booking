@@ -3,7 +3,7 @@
     session_start();
 
     //Page Title
-    $pageTitle = 'Profile | Barber';
+    $pageTitle = 'My Profile | Barber';
 
     //Includes
     include 'connect.php';

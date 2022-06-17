@@ -5,7 +5,7 @@
 	if(isset($_SESSION['username_barber']) && isset($_SESSION['password_barber']))
 	{
         //Page Title
-        $pageTitle = 'Dashboard';
+        $pageTitle = 'Dashboard | Twin & Dad Barbershop';
 
         //Includes
         include 'connect.php';
