@@ -63,12 +63,12 @@
 	  			</div>
 
 	  			<!-- Nav Item - Pages Collapse Menu -->
-	  			<!-- <li class="nav-item">
-					<a class="nav-link" href="service-categories.php">
+	  			<li class="nav-item">
+					<a class="nav-link" href="slot.php">
 		  				<i class="fas fa-list"></i>
-		  				<span>Service Categories</span>
+		  				<span>Timeslot</span>
 		  			</a>
-	  			</li> -->
+	  			</li>
  
 	  			<li class="nav-item">
 					<a class="nav-link" href="services.php">
@@ -105,12 +105,12 @@
 		  				<span>Barbers</span>
 		  			</a>
 	  			</li>
-	  			<li class="nav-item">
+	  			<!-- <li class="nav-item">
 					<a class="nav-link" href="employees-schedule.php">
 		  				<i class="fas fa-calendar-week icon-ver"></i>
 		  				<span>Barbers Schedule</span>
 		  			</a>
-	  			</li>
+	  			</li> -->
 	  
 	  			<!-- Divider -->
 	  			<hr class="sidebar-divider d-none d-md-block">

@@ -87,16 +87,16 @@
                         echo "<div class = 'alert alert-success text-center mt-4'>";
                             echo "Your booking has been created successfully.";
                         echo "</div>";
-                        echo "<script type='text/javascript'> document.location ='payment.php'; </script>";
+                        // echo "<script type='text/javascript'> document.location ='payment.php'; </script>";
                         
                         // foreach ($_POST as $selected => $value){
                         //   echo "$selected = $value";
                         // }
                       }
-                      else {
-                        echo "<div class = 'alert alert-danger text-center mt-4'>";
-                        echo "Your booking unsuccessfully!!";
-                        echo "</div>";      }
+                      // else {
+                      //   echo "<div class = 'alert alert-danger text-center mt-4'>";
+                      //   echo "Your booking unsuccessfully!!";
+                      //   echo "</div>";      }
                       ?>
 
                       <!-- SELECT SERVICES  -->
@@ -140,7 +140,6 @@
                               }
                             } 
                           ?>
-                          
                         </select>
                       </div>
 
@@ -154,9 +153,24 @@
                       <!-- SELECT TIME SLOT -->
 
                       <div class="form-group mt-4">Select Time Slot 
-                        <input type="time" class="form-control form-control-user" name="selected_time" placeholder="HH:MM" required="true"  min="12:00" max="18:00">
+                        <!-- <input type="time" class="form-control form-control-user" name="selected_time" placeholder="HH:MM" required="true"  min="12:00" max="18:00"> -->
+                        <select class="form-select" aria-label="Default select example" name="selected_time" required="true">
+                          <option value="" >--- Default ---</option>
+                            <?php 
+                                $sql = "SELECT * FROM slots" ;
+                                // echo $sql;
+                                $result = $conn->query($sql);                            
+                                if ($result->num_rows > 0) {
+                                  // output data of each row
+                                  while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                      <option type="time" value="<?php echo $row['slot_id'] ?>"><?php echo $row['time_slot'] ?></option>
+                                    <?php
+                                  }
+                                } 
+                              ?>
+                        </select>
                       </div>
-                      
                       
                       <!-- SUBMIT BOOKING BUTTON -->
                       <div class="d-grid gap-2">

@@ -48,7 +48,8 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "SELECT * FROM admin";
+                                    $session = $_SESSION['username_barbershop_Xw211qAAsq4'];
+                                    $sql = "SELECT * FROM admin WHERE admin_username='$session'";
                                     $result = mysqli_query($conn, $sql);
                                     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     foreach($rows as $admin)
@@ -72,6 +73,19 @@
                                             echo "<td>";
                                                 echo $admin['admin_password'];
                                             echo "</td>";
+                                            echo "<td>";?>
+                                                <ul class="list-inline m-0">
+
+                                                    <!-- EDIT BUTTON -->
+                                                    <li class="list-inline-item" data-toggle="tooltip" title="Edit">
+                                                        <button class="btn btn-success btn-sm rounded-0">
+                                                            <a href="profile-update.php?admin_id=<?php echo $admin['admin_id']; ?>" style="color: white;">
+                                                                <i class="fa fa-edit"></i>
+                                                            </a>
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            <?php echo "</td>";
                                         echo "</tr>";
                                     }
                                 ?>
