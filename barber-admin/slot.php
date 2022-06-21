@@ -18,7 +18,7 @@
     
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Timeslot</h1>
+                <h1 class="h3 mb-0 text-gray-800">Booking Slot</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report
@@ -28,7 +28,7 @@
             <!-- Service Categories Table -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Timeslot</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Booking Slot</h6>
                 </div>
                 <div class="card-body">
 
@@ -44,6 +44,7 @@
                             <thead>
                                 <tr>
                                     <th>Time Slot</th>
+                                    <th>Date Slot</th>
                                     <th>Time Slot Status</th>
                                     <th>Barber Name</th>
                                     <th>Manage</th>
@@ -51,29 +52,26 @@
                             </thead> 
                             <tbody>
                                 <?php
-                                // $sql = "SELECT slot_status, time_slot, barber_name
-                                // FROM slots s
-                                // JOIN barbers br 
-								// ON s.slot_id = br.barber_id";
-                                // $result = mysqli_query($conn, $sql);
-                                // if ($result){
-                                    // while ($slot = mysqli_fetch_all($result)) {
-                                // $result = mysqli_query($conn, $sql);
-                                // $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                                $sql = "SELECT * FROM slots";
-                                $result = mysqli_query($conn, $sql);
-                                $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                                foreach ($rows as $slot)
+                                    $sql = "SELECT s.*, br.* 
+                                    FROM slots s
+                                    INNER JOIN barbers br 
+                                    ON s.barber_id = br.barber_id";
+                                    $result = mysqli_query($conn, $sql);
+                                    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                                    foreach ($rows as $slot)
                                 {
                                     echo "<tr>";
                                         echo "<td>";
                                             echo $slot['time_slot'];
                                         echo "</td>";
                                         echo "<td>";
+                                            echo $slot['date_slot'];
+                                        echo "</td>";
+                                        echo "<td>";
                                             echo $slot['slot_status'];
                                         echo "</td>";
                                         echo "<td>";
-                                            echo $slot['barber_id'];
+                                            echo $slot['barber_name'];
                                         echo "</td>";
                                         echo "<td>";
                                         ?>
@@ -91,7 +89,7 @@
                                                     <!-- DELETE BUTTON -->
                                                     <li class="list-inline-item" data-toggle="tooltip" title="Delete Slot">
                                                         <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">   
-                                                            <a href="slot_kero.php?slot_id=<?php echo $slot['slot_id']; ?>" style="color: white;">
+                                                            <a href="slot-delete.php?slot_id=<?php echo $slot['slot_id']; ?>" style="color: white;">
                                                                 <i class="fa fa-trash"></i>
                                                             </a>
                                                         </button>

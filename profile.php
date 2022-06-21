@@ -125,29 +125,9 @@ if ( isset($_POST['update_profile submit']))
 ?>
 
 <?php
-// $conn=mysqli_connect("localhost", "root", "");
-// $db=mysqli_select_db($conn, 'bbs_db')
 
-// if ( isset($_POST['submit_booking']))
-// {
-//     $user_id = $_POST['user_id'];
-
-//     $query = "UPDATE 'users' SET uname $name = '$_POST[name]', $uname = '$_POST[uname]', $email = '$_POST[email]', $phonenum = '$_POST[phonenum], $pass = '$_POST[password]' WHERE user_id='$_POST[user_id]'";
-//     $query_run = mysqli_query($conn,$query);
-
-//     if($query_run)
-//     {
-//         echo "Data Updated";
-//     }
-//     else 
-//     {
-//         echo "Data Not Updated";
-//     }
-// }
 
 ?>
-<!-- Main Page Stylesheet -->
-<!-- <link rel="stylesheet" href="css/main.css"> -->
 
 
 

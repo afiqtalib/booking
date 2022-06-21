@@ -38,16 +38,7 @@
 					  			</div>
                                   
 					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
-                                    <?php $barber = $_SESSION['barber_id'];
-										$sql = "SELECT COUNT(user_id) as count
-										FROM users u
-										JOIN bookings b
-										ON u.user_id = b.user_id
-										WHERE b.barber_id='$barber'";
-										$result =mysqli_query($conn, $sql);
-										while($row = mysqli_fetch_assoc($result)){
-										echo $row["count"];}
-									?>
+								  <?php echo countColumn("user_id","users")?>
                                 </div>
 							</div>
 							<div class="col-auto">
@@ -162,9 +153,6 @@
                                     <th>
                                         Barber
                                     </th>
-                                    <th>
-                                        Manage
-                                    </th>
                                 </tr>
                         </thead>
                             <tbody>
@@ -179,7 +167,7 @@
 									// ON br.barber_id = b.barber_id"; 
 									// service_name, barber_name, book_date, book_time, name 
 									$barber = $_SESSION['barber_id'];
-									$sql = "SELECT s.*, b.*, br.*, u.*
+									$sql = "SELECT s.*, b.*, br.*, u.*, sl.*
 									FROM services s 
 								 	JOIN bookings b 
 									ON s.service_id = b.service_id 
@@ -187,6 +175,8 @@
 									ON br.barber_id = b.barber_id 
 									JOIN users u 
 									ON u.user_id = b.user_id
+									JOIN slots sl
+									ON sl.slot_id = b.slot_id
 									WHERE br.barber_id = '$barber' ";
 
 							
@@ -204,7 +194,7 @@
                                                 echo $booking['service_name'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $booking['book_time'];
+                                                echo $booking['time_slot'];
                                             echo "</td>";
                                             echo "<td>";
                                                 echo $booking['name'];
@@ -212,57 +202,9 @@
                                             echo "<td>";
                                                 echo $booking['barber_name'];
                                             echo "</td>";
-                                        // echo "</tr>";
+                                        echo "</tr>";
+									}
 								?>
-                                        <!-- <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td> -->
-                                            <td>
-                                                <ul class="list-inline m-0">
-
-                                                     <!-- CANCEL BUTTON -->
-
-                                                    <li class="list-inline-item" data-toggle="tooltip" title="Cancel Appointment">
-                                                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
-                                                            <i class="fas fa-calendar-times"></i>
-                                                        </button>
-
-                                                         <!-- CANCEL MODAL  -->
-                                                        <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title">Cancel Appointment</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <p>Are you sure you want to cancel this appointment?</p>
-                                                                        <div class="form-group">
-                                                                            <label>Tell Us Why?</label>
-                                                                            <textarea class="form-control" id=""></textarea>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                                        <button type="button" data-id = "" class="btn btn-danger cancel_appointment_button">Yes, Cancel</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </li>
-                                                </ul> 
-
-                                               		
-                                            </td>
-                                        </tr> 
-										<?php } ?>
-
                             </tbody>
                 	</table>
               	</div>

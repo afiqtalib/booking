@@ -8,6 +8,11 @@
 
     // SET TIMEZONE CALENDAR
     date_default_timezone_set("Asia/Kuala_Lumpur");
+    // if ($_SERVER["REQUEST_METHOD" == "POST"]){
+    //   foreach ($_POST as $key => $value){
+    //     echo "$key = $value<br>";
+    //   }
+    // }
   ?>
 
 <!DOCTYPE html>
@@ -58,11 +63,12 @@
               <div class="row">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h4 text-gray-900 mb-3">Booking Now for be Handsome Boy</h1>
+                      <h1 class="h4 text-gray-900 mb-3">Booking Now for being Handsome Boy
+                      </h1>
                     </div>
                     
                     <!-- BOOKING FORM -->
-                    <form action="" method="POST">
+                    <form action="<?php  echo $_SERVER['PHP_SELF']; ?>" method="POST">
                       <?php
           
                       if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
@@ -82,7 +88,7 @@
                         // Selected TIME 
                         $selected_time=$_POST['selected_time'];
                       
-                        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, book_time, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
+                        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
                 
                         echo "<div class = 'alert alert-success text-center mt-4'>";
                             echo "Your booking has been created successfully.";

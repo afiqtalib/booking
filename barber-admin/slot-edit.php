@@ -18,47 +18,21 @@
     {
 ?>
 
-<?php 
-
-    // $errorMessage = "error inserted";
-    // $successMessage = "successfully inseertt data";
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_new_slot'])) {
-        $timeslot = $_POST["time_slot"];
-        $slotstatus = $_POST["slot_status"];
-        $barber = $_POST["slot_barber"];
-
-        
-        // QUERY FOR ADD NEW SERVICE TO DATABASE
-        $query=mysqli_query($conn, "INSERT INTO slots (time_slot, slot_status, barber_id) VALUE ('$timeslot', '$slotstatus', '$barber')");
-        if ($query){
-            echo "<script>alert('You have successfully inserted the new slot time');</script>";
-            echo "<script type='text/javascript'> document.location ='slot.php'; </script>";
-        }
-        else
-        {
-          echo "<script>alert('Something Went Wrong. Please try again');</script>";
-        }
-    }
-?>
 <?php
-    // $service_name = "";
-    // $service_duration = "";
-    // $service_price = "";
-    // $service_desc ="";
 
 if (isset($_POST['edit_slot'])) {
 
     $slot_id = $_GET["slot_id"];
     //Getting Post Values
     $timeslot = $_POST["time_slot"];
+    $dateslot = $_POST["date_slot"];
     $slotstatus = $_POST["slot_status"];
     $barber = $_POST["slot_barber"];
 
-    $query=mysqli_query($conn, "UPDATE slots SET time_slot='$timeslot', slot_status='$slotstatus' barber_id='$barber' WHERE slot_id='$slot_id'"); {
+    $query=mysqli_query($conn, "UPDATE slots SET time_slot='$timeslot', date_slot='$dateslot', slot_status='$slotstatus', barber_id='$barber' WHERE slot_id='$slot_id'"); {
         if ($query){
             echo "<script>alert('You have successfully updated the data');</script>";
-            echo "<script type='text/javascript'> document.location ='slots.php'; </script>";
+            echo "<script type='text/javascript'> document.location ='slot.php'; </script>";
         }
         else
         {
@@ -99,7 +73,12 @@ if (isset($_POST['edit_slot'])) {
                 <form method="POST">
                 <?php
                         $slot_id = $_GET["slot_id"];
-                        $ret=mysqli_query($conn,"SELECT * FROM slots WHERE slot_id='$slot_id'");
+                        $sql = "SELECT s.*, br.* 
+                        FROM slots s
+                        INNER JOIN barbers br 
+                        ON s.barber_id = br.barber_id
+                        WHERE slot_id='$slot_id'";
+                        $ret=mysqli_query($conn,$sql);
                         while ($row=mysqli_fetch_array($ret)) {
                     ?>
                    <input type="hidden" value="<?php echo $slot_id?>">
@@ -108,6 +87,12 @@ if (isset($_POST['edit_slot'])) {
                             <div class="form-group">
                                 <label for="barber_name">Time Slot</label>
                                 <input type="time" class="form-control"  placeholder="" value="<?php echo $row['time_slot']; ?>" name="time_slot" min="12:00" max="9:00" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="barber_name">Date Slot</label>
+                                <input type="date" class="form-control"  placeholder="" value="<?php echo $row['date_slot']; ?>" name="date_slot" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -124,18 +109,10 @@ if (isset($_POST['edit_slot'])) {
                                 <label for="barber_name">Barber</label>
                                 <select class="custom-select" name="slot_barber">
                                     <option value="">--</option>
-                                    <?php 
-                                        $sql = "SELECT * FROM barbers";
-                                        $result = $conn->query($sql);                            
-                                        if ($result->num_rows > 0) {
-                                        while ($row = $result->fetch_assoc()) 
-                                        {
-                                            ?>
+                                   
                                             <option value="<?php echo $row['barber_id'] ?>"><?php echo $row['barber_name'] ?></option>
-                                            <?php
-                                        }
-                                        } 
-                                    ?>
+                                        
+                                        
                                 </select>
                             </div>
                         </div>
@@ -145,7 +122,7 @@ if (isset($_POST['edit_slot'])) {
                     ?> 
                     <!-- SUBMIT BUTTON -->
 
-                    <button type="submit" name="add_new_slot" class="btn btn-primary">Add Slot</button>
+                    <button type="submit" name="edit_slot" class="btn btn-primary">Update Slot</button>
 
                 </form>
             </div>

@@ -25,12 +25,13 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_new_slot'])) {
         $timeslot = $_POST["time_slot"];
+        $dateslot = $_POST["date_slot"];
         $slotstatus = $_POST["slot_status"];
         $barber = $_POST["slot_barber"];
 
         
         // QUERY FOR ADD NEW SERVICE TO DATABASE
-        $query=mysqli_query($conn, "INSERT INTO slots (time_slot, slot_status, barber_id) VALUE ('$timeslot', '$slotstatus', '$barber')");
+        $query=mysqli_query($conn, "INSERT INTO slots (time_slot, date_slot, slot_status, barber_id) VALUE ('$timeslot', '$dateslot', '$slotstatus', '$barber')");
         if ($query){
             echo "<script>alert('You have successfully inserted the new slot time');</script>";
             echo "<script type='text/javascript'> document.location ='slot.php'; </script>";
@@ -57,7 +58,7 @@
     
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Timeslots</h1>
+            <h1 class="h3 mb-0 text-gray-800">Booking Slot</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                 <i class="fas fa-download fa-sm text-white-50"></i>
                 Generate Report
@@ -80,6 +81,12 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label for="barber_name">Date Slot</label>
+                                <input type="date" class="form-control"  placeholder="" name="date_slot" required="true">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label for="barber_un">Slot Status</label>
                                 <select class="custom-select" name="slot_status">
                                     <option value="available">Available</option>
@@ -91,7 +98,7 @@
                             <div class="form-group">
                                 <label for="barber_name">Barber</label>
                                 <select class="custom-select" name="slot_barber">
-                                    <option value="">--</option>
+                                    <option value="">--- Select Barber ---</option>
                                     <?php 
                                         $sql = "SELECT * FROM barbers";
                                         $result = $conn->query($sql);                            

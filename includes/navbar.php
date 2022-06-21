@@ -112,7 +112,17 @@
     </div>
 
       <div class="logout">
-        <button><a class="btn btn-info" href="viewprofile.php" >Profile</a></button>
-        <button><a class="btn btn-light" href="logout.php">logout</a></button>
+        <!-- <button><a class="btn btn-light" href="viewprofile.php" >Profile</a></button>
+        <button><a class="btn btn-light" href="logout.php">logout</a></button> -->
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <?php echo $_SESSION['username'];?>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="viewprofile.php">My Profile</a></li>
+            <li><a class="dropdown-item" href="mybooking.php">My Booking</a></li>
+            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+          </ul>
+      </div>
     </div>
 </header>

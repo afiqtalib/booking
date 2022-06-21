@@ -162,14 +162,16 @@
 									// ON s.service_id = b.service_id
 									// INNER JOIN barbers br
 									// ON br.barber_id = b.barber_id"; 
-									$sql = "SELECT book_id, service_name, barber_name, book_date, book_time, name 
-									FROM services s 
-									INNER JOIN bookings b 
-									ON s.service_id = b.service_id 
-									INNER JOIN barbers br 
-									ON br.barber_id = b.barber_id 
-									INNER JOIN users u 
-									ON u.user_id = b.user_id";
+									$sql = "SELECT book_id, service_name, barber_name, book_date, sl.time_slot, name 
+                                    FROM services s 
+                                    INNER JOIN bookings b 
+                                    ON s.service_id = b.service_id 
+                                    INNER JOIN barbers br 
+                                    ON br.barber_id = b.barber_id 
+                                    INNER JOIN users u 
+                                    ON u.user_id = b.user_id
+                                    join slots sl
+                                    on b.slot_id = sl.slot_id;";
 
 							
 									$result = mysqli_query($conn, $sql);
@@ -184,7 +186,7 @@
                                                 echo $booking['service_name'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $booking['book_time'];
+                                                echo $booking['time_slot'];
                                             echo "</td>";
                                             echo "<td>";
                                                 echo $booking['name'];
@@ -192,14 +194,7 @@
                                             echo "<td>";
                                                 echo $booking['barber_name'];
                                             echo "</td>";
-                                        // echo "</tr>";
 								?>
-                                        <!-- <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td> -->
                                             <td>
                                                 <ul class="list-inline m-0">
 
@@ -239,8 +234,6 @@
 
                                                     </li>
                                                 </ul> 
-
-                                               		
                                             </td>
                                         </tr> 
 										<?php } ?>
