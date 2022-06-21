@@ -53,7 +53,7 @@
 
                 <!-- MY BOOKING -->
                 
-                    <table class="table table-bordered border-primary">
+                    <table class="table table-bordered border-primary text-center">
                         <thead>
                             <tr>
                                 <th scope="col">#ID</th>
