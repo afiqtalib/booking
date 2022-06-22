@@ -20,7 +20,7 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment'])) 
 {
     // $book_id=$_GET["book_id"];
-
+    
     $card_name = ($_POST['card_name']);
     $card_no = ($_POST['card_no']);
     $exp_mth = ($_POST['exp_mth']);
@@ -28,11 +28,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment']))
     $cvv = ($_POST['cvv']);
     $pay_total= ($_POST['pay_total']);
 
-    $sql = "INSERT INTO payment ( card_name, card_no, exp_mth, exp_year, cvv, pay_total) VALUE ('$card_name', '$card_no', '$exp_mth', '$exp_year', '$cvv', '$pay_total')";
+    $sql = "INSERT INTO payment ( card_name, card_no, exp_mth, exp_year, cvv, pay_total) VALUES ('$card_name', '$card_no', '$exp_mth', '$exp_year', '$cvv', '$pay_total')";
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "<script>alert('Your Booking has been successfully made');</script>"; 
-        echo "<script>window.location.href = 'bbs/home.php'</script>"; 
+        echo "<script>window.location.href = 'home.php'</script>"; 
     }
     else {
         die(mysqli_error($conn));
@@ -67,10 +67,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment']))
                 <form method="POST">
                     <?php
                         // $book_id = $_GET["book_id"];
-                        // $ret=mysqli_query($conn,"SELECT * FROM users WHERE user_id='$u_id'");
-                        // while ($row=mysqli_fetch_array($ret)) {
+                        // $sql = "SELECT b.*,s.* 
+                        // FROM bookings b
+                        // JOIN services s 
+                        // ON s.service_id = b.service_id
+                        // WHERE book_id='$book_id'";
+                        // $ret=mysqli_query($conn,$sql);
+                        //     while ($row=mysqli_fetch_array($ret)) {
                     ?>
-                    <!-- <input type="hidden" value="<?php echo $user_id?>"> -->
+                    <!-- <input type="hidden" value=""> -->
                     <div class="row p-5">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -87,31 +92,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment']))
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="service_price">Exp Month</label>
-                                <input type="month" class="form-control"  placeholder="2013" name="exp_mth" required="true">
+                                <input type="month" class="form-control"  placeholder="September" name="exp_mth" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="Username">Exp Year</label>
-                                <input type="number" class="form-control" placeholder="Sept" name="exp_year" required="true">
+                                <input type="number" class="form-control" placeholder="2032" name="exp_year" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="Password">CVV</label>
-                                <input type="text" class="form-control" placeholder="***" name="CVV" required="true">
+                                <input type="number" class="form-control" placeholder="****" name="cvv" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="Password">TOTAL SERVICE (RM)</label>
-                                <input type="text" class="form-control"  placeholder="RM353" name="pay_total" required="true">
+                                <input type="text" class="form-control"  placeholder="RM353"  name="pay_total" required="true">
                             </div>
                         </div>
                         <label><input type="checkbox" checked="checked" name="" required="true">Butir Pembayaran will be encrypt</label>
                     </div>
 
-                   
+                   <?php
+                        ?>
                 
                     <!-- SUBMIT BUTTON -->
                     <div class="text-center">

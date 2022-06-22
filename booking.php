@@ -53,6 +53,40 @@
 	
 	<body>
 		<section class="booking_section">
+      <?php
+        if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+          // Selected SERVICES
+          $selected_service = $_POST['selected_service'];
+  
+          // Selected BARBER
+          $selected_barber = $_POST['selected_barber'];
+  
+          // Selected DATE
+          $selected_date = $_POST['selected_date'];
+  
+          $user_id=$_SESSION['user_id'];
+          // echo $cust_id.$selected_barber.$selected_date.$selected_service;
+  
+          // Selected TIME 
+          $selected_time=$_POST['selected_time'];
+        
+          $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
+  
+          echo "<div class = 'alert alert-success text-center mt-4'>";
+              echo "Your booking has been created successfully.";
+          echo "</div>";
+          // echo "<script type='text/javascript'> document.location ='payment.php'; </script>";
+          
+          // foreach ($_POST as $selected => $value){
+          //   echo "$selected = $value";
+          // }
+        }
+        // else {
+        //   echo "<div class = 'alert alert-danger text-center mt-4'>";
+        //   echo "Your booking unsuccessfully!!";
+        //   echo "</div>";      }
+      ?>
       <!-- Outer Row -->
       <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-6 col-md-1">
@@ -69,41 +103,6 @@
                     
                     <!-- BOOKING FORM -->
                     <form action="<?php  echo $_SERVER['PHP_SELF']; ?>" method="POST">
-                      <?php
-          
-                      if(isset($_POST['submit_booking_form']) && $_SERVER['REQUEST_METHOD'] == 'POST')
-                      {
-                        // Selected SERVICES
-                        $selected_service = $_POST['selected_service'];
-                
-                        // Selected BARBER
-                        $selected_barber = $_POST['selected_barber'];
-                
-                        // Selected DATE
-                        $selected_date = $_POST['selected_date'];
-                
-                        $user_id=$_SESSION['user_id'];
-                        // echo $cust_id.$selected_barber.$selected_date.$selected_service;
-                
-                        // Selected TIME 
-                        $selected_time=$_POST['selected_time'];
-                      
-                        $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
-                
-                        echo "<div class = 'alert alert-success text-center mt-4'>";
-                            echo "Your booking has been created successfully.";
-                        echo "</div>";
-                        // echo "<script type='text/javascript'> document.location ='payment.php'; </script>";
-                        
-                        // foreach ($_POST as $selected => $value){
-                        //   echo "$selected = $value";
-                        // }
-                      }
-                      // else {
-                      //   echo "<div class = 'alert alert-danger text-center mt-4'>";
-                      //   echo "Your booking unsuccessfully!!";
-                      //   echo "</div>";      }
-                      ?>
 
                       <!-- SELECT SERVICES  -->
                 
@@ -135,10 +134,8 @@
 
                           <?php 
                             $sql = "SELECT * FROM barbers";
-                            // echo $sql;
                             $result = $conn->query($sql);                            
                             if ($result->num_rows > 0) {
-                              // output data of each row
                               while ($row = $result->fetch_assoc()) {
                                 ?>
                                   <option value="<?php echo $row['barber_id'] ?>"><?php echo $row['barber_name'] ?></option>
@@ -159,22 +156,23 @@
                       <!-- SELECT TIME SLOT -->
 
                       <div class="form-group mt-4">Select Time Slot 
-                        <!-- <input type="time" class="form-control form-control-user" name="selected_time" placeholder="HH:MM" required="true"  min="12:00" max="18:00"> -->
                         <select class="form-select" aria-label="Default select example" name="selected_time" required="true">
                           <option value="" >--- Default ---</option>
                             <?php 
-                                $sql = "SELECT * FROM slots" ;
-                                // echo $sql;
-                                $result = $conn->query($sql);                            
-                                if ($result->num_rows > 0) {
-                                  // output data of each row
-                                  while ($row = $result->fetch_assoc()) {
-                                    ?>
-                                      <option type="time" value="<?php echo $row['slot_id'] ?>"><?php echo $row['time_slot'] ?></option>
-                                    <?php
-                                  }
-                                } 
-                              ?>
+                              // $selected_barber = $_POST['selected_barber'];
+
+                              $sql = "SELECT * FROM slots " ;
+                              // echo $sql;
+                              $result = $conn->query($sql);                            
+                              if ($result->num_rows > 0) {
+                                // output data of each row
+                                while ($row = $result->fetch_assoc()) {
+                                  ?>
+                                    <option type="time" value="<?php echo $row['slot_id'] ?>"><?php echo $row['time_slot'] ?></option>
+                                  <?php
+                                }
+                              } 
+                            ?>
                         </select>
                       </div>
                       

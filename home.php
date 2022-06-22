@@ -53,8 +53,8 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
 
         <div class="flex-container">
             <div class="section_heading">
-                <h3>Save 20% On Beauty Spa</h3>
-                <h2>Our Barber Pricing</h2>
+                <h3 style="colour: black;">Save 20% On Beauty Spa</h3>
+                <!-- <h2>Our Barber Pricing</h2> -->
                 <div class="heading-line"></div>
             </div>
             <div class="row">
@@ -115,7 +115,6 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
         </div>
 
             <div class="row">
-            <h3>Mens Grooming Services</h3>
 
                 <?php
                 $sql = "SELECT * FROM services";
@@ -187,7 +186,7 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
         <div class="container">
             <div class="section_heading ">
                 <h3>Trendy Salon</h3>
-                <h2>OUR BARBERS</h2>
+                <!-- <h2>OUR BARBERS</h2> -->
             </div>
             <?php
             $sql = "SELECT * FROM barbers";

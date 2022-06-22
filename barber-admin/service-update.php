@@ -104,7 +104,7 @@ if (isset($_POST['edit_service'])) {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="service_description">Service Description</label>
-                                <textarea class="form-control" value="<?php echo $row['service_desc']; ?>" name="service_desc" placeholder="Service Description"></textarea>
+                                <input type="text" class="form-control" value="<?php echo $row['service_desc']; ?>" name="service_desc" placeholder="Service Description">
                             </div>
                         </div>
                     </div>
