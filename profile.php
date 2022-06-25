@@ -17,7 +17,7 @@
     // $phonenum=$row['phonenum'];
     // $pass=$row['password'];
 
-if ( isset($_POST['update_profile submit'])) 
+if ( isset($_POST['update_profile'])) 
 {
     $user_id=$_GET["user_id"];
 

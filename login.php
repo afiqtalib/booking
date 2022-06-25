@@ -1,53 +1,25 @@
-<?php 
-session_start(); 
-include "connect.php";
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LOGIN | Twin & Dad Barbershop</title>
+	<link rel="stylesheet" type="text/css" href="css/login.css">
+</head>
+<body>
+     <form action="login-action.php" method="post">
+		 <img src="design/logo-company.jpg" alt="company-logo">
+     	<h2>CUSTOMER LOGIN</h2>
+     	<?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
+		 
+     	<label>User Name</label>
+     	<input type="text" name="uname" placeholder="User Name"><br>
 
-if (isset($_POST['uname']) && isset($_POST['password'])) {
+     	<label>Password</label>
+     	<input type="password" name="password" placeholder="Password"><br>
 
-	function validate($data){
-       $data = trim($data);
-	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
-	}
-
-	$uname = validate($_POST['uname']);
-	$pass = validate($_POST['password']);
-
-	if (empty($uname)) {
-		header("Location: index.php?error=User Name is required");
-	    exit();
-	}else if(empty($pass)){
-        header("Location: index.php?error=Password is required");
-	    exit();
-	}else{
-		// hashing the password
-        $pass = md5($pass);
-
-        
-		$sql = "SELECT * FROM users WHERE username='$uname' AND password='$pass'";
-
-		$result = mysqli_query($conn, $sql);
-
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $uname && $row['password'] === $pass) {
-            	$_SESSION['username'] = $row['username'];
-            	// $_SESSION['name'] = $row['name'];
-            	$_SESSION['user_id'] = $row['user_id'];
-            	header("Location: home.php");
-		        exit();
-            }else{
-				header("Location: index.php?error=Incorect User name or password");
-		        exit();
-			}
-		}else{
-			header("Location: index.php?error=Incorect User name or password");
-	        exit();
-		}
-	}
-	
-}else{
-	header("Location: index.php");
-	exit();
-}
+     	<button type="submit">Login</button>
+          <a href="signup.php" class="ca">Don't have an account ?</a>
+     </form>
+</body>
+</html>

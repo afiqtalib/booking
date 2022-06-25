@@ -102,21 +102,28 @@
       <img src="design/logo-company.jpg" alt="Barbershop Logo">
           <!-- NAVBAR SECTION -->
                 <ul class="bold">
-                        <li><a href="home.php#home">HOME</a></li>
+                        <li><a href="index.php#home">HOME</a></li>
                         <li><a href="booking.php">Book</a></li>
-                        <li><a href="home.php#service">Gallery</a></li>
-                        <li><a href="home.php#pricing">Services</a></li>
-                        <li><a href="home.php#barber">barber</a></li>
-                        <li><a href="home.php#contactus">about us</a></li>
+                        <li><a href="index.php#service">Gallery</a></li>
+                        <li><a href="index.php#pricing">Services</a></li>
+                        <li><a href="index.php#barber">barber</a></li>
+                        <li><a href="index.php#contactus">about us</a></li>
                 </ul>   
     </div>
 
       <div class="logout">
+        <?php if (!(isset($_SESSION['user_id']) && isset($_SESSION['username']))) { ?>
+          <a class="btn btn-secondary" href="login.php">login</a>
+        <?php }?>
         <!-- <button><a class="btn btn-light" href="viewprofile.php" >Profile</a></button>
         <button><a class="btn btn-light" href="logout.php">logout</a></button> -->
+        <?php if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) { ?>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <?php echo $_SESSION['username'];?>
+          
+          <?php
+              echo $_SESSION['username'];     
+          ?>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="viewprofile.php">My Profile</a></li>
@@ -124,5 +131,7 @@
             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
           </ul>
       </div>
+      <?php } ?>
+
     </div>
 </header>
