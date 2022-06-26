@@ -85,13 +85,13 @@
                                                 <ul class="list-inline m-0">
 
                                                     <!-- EDIT BUTTON -->
-                                                    <li class="list-inline-item" data-toggle="tooltip" title="Edit">
+                                                    <!-- <li class="list-inline-item" data-toggle="tooltip" title="Edit">
                                                         <button class="btn btn-success btn-sm rounded-0">
                                                             <a href="barber-update.php?barber_id=<?php echo $barber['barber_id']; ?>" style="color: white;">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
                                                         </button>
-                                                    </li>
+                                                    </li> -->
                                                     <!-- DELETE BUTTON -->
 
                                                     <li class="list-inline-item" data-toggle="tooltip" title="Delete">
