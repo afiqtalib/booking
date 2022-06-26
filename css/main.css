@@ -41,6 +41,12 @@
     margin: auto;
 }
 
+/* PRICING SECTION */
+.pricing_section {
+    padding: 100px 50px;
+    background-color: #807F7A;
+    color: whitesmoke;
+}
 
 /*** SERVICE SECTION ***/ 
 
@@ -61,7 +67,7 @@
 
 .section_heading h3
 {
-    color: whitesmoke;
+    color: #807F7A;
     font-weight: 400;
     font-family: 'Prata', sans-serif;
     font-size: 37px;

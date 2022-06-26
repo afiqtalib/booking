@@ -58,36 +58,29 @@
     <section class="pricing_section" id="pricing">
 
 
-        <div class="flex-container">
+        <div class="grid-container mb-5">
             <div class="section_heading">
-                <h3 style="colour: black;">Save 20% On Beauty Spa</h3>
+                <h3 style="color: Grey; padding-top: 100px;">Men's Grooming Services</h3>
                 <!-- <h2>Our Barber Pricing</h2> -->
                 <div class="heading-line"></div>
             </div>
-            <div class="row">
+            <div class="row m-5">
                 <?php
-                    $sql = "SELECT * FROM services";
-                    $result = mysqli_query($conn, $sql);
-                    $row= mysqli_fetch_all($result, MYSQLI_ASSOC);
+                $sql = "SELECT * FROM services";
+                $result = mysqli_query($conn, $sql);
+                // $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                while ($service =  mysqli_fetch_assoc($result)) {
                 ?>
 
-                <div class="col-lg-4 col-md-6 sm-padding grid-item">
-                    <div class="price_wrap">
-                        <ul class="price_list">
-                            <?php
-                                foreach ($row as $services)  
-                                {
-                                    ?>
-                                        <li>
-                                            <p><?php echo $services['service_name'] ?></p>
-                                            <span class="price">RM<?php echo $services['service_price'] ?></span>
-                                        </li>
-                                    <?php
-                                }
-                            ?>
-                        </ul>
+                    <div class="card col-6 border-secondary pt-2  mx-auto" style="width: 18rem" >
+                        <img src="design/haircolor.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title"> <?php echo $service ['service_name'];?> </h5>
+                            <p class="card-text"> RM <?php echo $service ['service_price'];?> </p>
+                            <p class="card-text"><?php echo $service ['service_duration'];?> min </p>
+                        </div>
                     </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </section>
@@ -118,7 +111,6 @@
 
         <div class="section_heading ">
             <h3>Our Gallery</h3>
-            <!-- <h2>OUR SERVICES</h2> -->
         </div>
 
             <div class="row">
@@ -191,30 +183,30 @@
     <!-- START BARBER SECTION --> 
     <section class="barber-section" id="barber">
         <div class="container">
-            <div class="section_heading ">
-                <h3>Trendy Salon</h3>
-                <!-- <h2>OUR BARBERS</h2> -->
+            <div class="section_heading">
+                <h3 style="color: grey;">Our Barbers</h3>
             </div>
+            <div class="row">
+
             <?php
             $sql = "SELECT * FROM barbers";
             $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
-            foreach ($row as $barber) {
-                echo $barber ['barber_name'];
-                echo "<br>";
-            }
+            // $row = mysqli_fetch_all($result, MYSQLI_ASSOC);
+            while ($barber =  mysqli_fetch_assoc($result)) {
+            
+            
             ?>
 
-            <!-- <div class="row">
-                <div class="card col m-4 border-secondary" style="width: 100%;">
-                    <img src="design/team-1.jpg" class="card-img-top" alt="Team Member">
+                <div class="card col border-secondary pt-3 m-auto" style="width: 35%;" >
+                    <img src="design/team-1.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
                     <div class="card-body text-center">
-                        <h5 class="card-title"><?php $barber ['barber_name'];?></h5>
-                        <p class="card-text">Barber Expertise</p>
+                    <h5 class="card-title"> Barber <?php echo $barber ['barber_name'];?></h5>
+                        <p class="card-text">Hi our customer, Have a nice dayy </p>
                     </div>
                 </div>
+                <?php } ?>
 
-                </div>
+                <!-- </div>
                     <ul class="team_members col"> 
                         <li class="barber-info">
                             <div class="team_member">
@@ -227,8 +219,9 @@
                             </div>
                         </li>
                     </ul>
-                </div>
-            </div> -->
+                </div> -->
+            </div>
+
         </div>
     </section>
     <!-- END BARBER SECTION --> 
@@ -243,23 +236,20 @@
                     <div class="contact-info">
                         <h2>Get in touch with us today!</h2>
                         <p> Twin & Dad Barbershop is the top 5 barbershop based in Kelantan</p>
+                        <a href="https://goo.gl/maps/XdmGpwy6BZKyj66U6">  
+                            <i class="fa fa-map-marker" style="font-size:30px; font-style:verdana; color:red; text-shadow:2px 2px 2px white;" 
+                            aria-hidden="true"><span style=" font-size:25px; color: white; text-shadow: 0px 2px 2px black;"> Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</span>
+</i>
+                        </a>  
                         <address>Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</address>
                         <h4>
-                            <i class="fa fa-envelope-o white">
-                            <span style = "font-weight: bold"> 
-                            </span> 
-                            </i>
-                            <span style = "font-weight: bold">Email</span> 
-                            hr.twinanddadbarbershop@gmail.com
-                            <br> 
-                            <span style = "font-weight: bold">Phone:</span> 
-                            +6011-39183821
-                            <br>
+                        
                         </h4>
                         
                         <!-- Business Hours -->
                         <div class="container card text-white bg-secondary mb-3">
                             <div class="row">
+                            <i class='far fa-clock' style='font-size:50px'></i>
                                 <div class="col-10 text-center card-header">Business Hours</div>
                                 <div class="col-4 card-text">Sunday<br>Monday<br>Tuesday<br>Wednesday<br>Thursday<br>Friday<br>Saturday</div>
                                 <div class="col-6 card-text">12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>Close<br>12:00PM - 9:30PM</div>
@@ -269,7 +259,34 @@
                 </div>
                 
                 <!-- Contact Us Form -->
-                <div class="col-lg-6 sm-padding">
+                <div class="col-lg-6 sm-padding" style="color: white;">
+                    <div class="row mx-auto">
+                        <a href="https://www.facebook.com/twinanddad.barbershop">
+                            <i class="fa fa-facebook-square" 
+                                aria-hidden="true" 
+                                style="font-size:30px;color: blue; text-shadow:2px 2px 2px white;"> Twin & Dad Barbershop</i>
+                        </a>
+                        <br> <br>
+                        <a href="https://chat.whatsapp.com/601121828562">
+                            <i class='fa fa-whatsapp green-color' 
+                                aria-hidden="true" 
+                                style="font-size:30px; color:#90ee90; text-shadow:2px 2px 4px #000000;"> 011-39183821 </i>
+                        </a>
+                        <br> <br>
+                        <a href="https://instagram.com/twinanddad.barbershop?igshid=YmMyMTA2M2Y=">
+                            <i class='fa fa-instagram' 
+                                aria-hidden="true" 
+                                style="font-size:30px; color:white; text-shadow:2px 2px 4px red;"> twinanddad.barbershop </i>
+                        </a>
+                        <br><br>
+                        <a href="https://mail.google.com/mail/u/0/#inbox">
+                            <i class='fa-regular fa fa-envelope-o'
+                                aria-hidden="true" 
+                                style="font-size:30px; color:red; text-shadow:2px 1px 1px white;"> hr.twinanddadbarbershop@gmail.com
+</i>
+                        </a>
+
+                    </div>
                 </div>
             </div>
         </div>

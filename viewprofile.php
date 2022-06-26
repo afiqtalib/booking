@@ -112,8 +112,8 @@
                         </div>';
                       
 
-                      echo '<div class="col-4">';
-                      echo '<button class="btn btn-secondary">
+                      echo '<div class="col-4">
+                      <button class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Update Your Profile - ' . $name . '">
                       <a href="profile.php?user_id='.$user_id.'" class="text-light">Update</a>
                       </button>
                       </div>
