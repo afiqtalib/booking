@@ -60,7 +60,7 @@
 
         <div class="grid-container mb-5">
             <div class="section_heading">
-                <h3 style="color: Grey; padding-top: 100px;">Men's Grooming Services</h3>
+                <h3 style="color: Grey; ">Men's Grooming Services</h3>
                 <!-- <h2>Our Barber Pricing</h2> -->
                 <div class="heading-line"></div>
             </div>
@@ -74,7 +74,7 @@
 
                     <div class="card col-6 border-secondary pt-2  mx-auto" style="width: 18rem" >
                         <img src="design/haircolor.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center text-dark">
                             <h5 class="card-title"> <?php echo $service ['service_name'];?> </h5>
                             <p class="card-text"> RM <?php echo $service ['service_price'];?> </p>
                             <p class="card-text"><?php echo $service ['service_duration'];?> min </p>

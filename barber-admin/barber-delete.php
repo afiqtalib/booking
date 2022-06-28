@@ -3,9 +3,9 @@
 include 'connect.php';
 
 //Code for deletion
-if(isset($_GET['barberid']))
+if(isset($_GET['barber_id']))
 {
-    $barber_id=($_GET['barberid']);
+    $barber_id=($_GET['barber_id']);
 
     $sql = "DELETE FROM barbers WHERE barber_id='$barber_id' ";
     $result = mysqli_query($conn, $sql);
