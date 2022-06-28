@@ -118,18 +118,102 @@
 					</div>
 			  	</div>
 			</div>
+			
+			<!-- CANCELED BOOKINGS -->
+			<div class="col-xl-3 col-md-6 mb-4">
+				<div class="card border-left-danger shadow h-100 py-2">
+					<div class="card-body">
+				  		<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+					  			<div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+					  				Canceled Bookings
+					  			</div>
+					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php
+                                        $sql = "SELECT COUNT(book_id) as count FROM bookings WHERE status='cancel' AND barber_id='$barber'";
+                                        $result =mysqli_query($conn, $sql);
+                                    
+                                            while($row = mysqli_fetch_assoc($result)){
+                                            echo $row["count"];
+                                        }
+                                    ?>
+                                </div>
+							</div>
+							<div class="col-auto">
+					  			<i class="fas fa-calendar fa-2x text-gray-300"></i>
+							</div>
+				 		</div>
+					</div>
+			  	</div>
+			</div>
+
+			<!-- COMPLETED BOOKINGS -->
+			<div class="col-xl-3 col-md-6 mb-4">
+				<div class="card border-left-success shadow h-100 py-2">
+					<div class="card-body">
+				  		<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+					  			<div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+					  				Completed Bookings
+					  			</div>
+					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php
+                                        $sql = "SELECT COUNT(book_id) as count FROM bookings WHERE status='completed' AND barber_id='$barber' ";
+                                        $result =mysqli_query($conn, $sql);
+                                    
+                                            while($row = mysqli_fetch_assoc($result)){
+                                            echo $row["count"];
+                                        }
+                                    ?>
+                                </div>
+							</div>
+							<div class="col-auto">
+					  			<i class="fas fa-calendar fa-2x text-gray-300"></i>
+							</div>
+				 		</div>
+					</div>
+			  	</div>
+			</div>
+
+			<!-- UPCOMING BOOKINGS -->
+            <div class="col-xl-3 col-md-6 mb-4">
+				<div class="card border-left-primary shadow h-100 py-2">
+					<div class="card-body">
+				  		<div class="row no-gutters align-items-center">
+							<div class="col mr-2">
+					  			<div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
+					  				Upcoming Bookings
+					  			</div>
+					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
+                                    <?php
+                                        $sql = "SELECT COUNT(book_id) as count FROM bookings WHERE status NOT IN ('completed', 'cancel') AND barber_id='$barber'";
+                                        $result =mysqli_query($conn, $sql);
+                                    
+                                            while($row = mysqli_fetch_assoc($result)){
+                                            echo $row["count"];
+                                        }
+                                    ?>
+                                </div>
+							</div>
+							<div class="col-auto">
+					  			<i class="fas fa-calendar fa-2x text-gray-300"></i>
+							</div>
+				 		</div>
+					</div>
+			  	</div>
+			</div>
 		</div>
 
 		<!-- Appointment Tables -->
         <div class="card shadow mb-4">
             <div class="card-header tab" style="padding: 0px !important;background: #36b9cc!important">
             	<button class="tablinks active" onclick="openTab(event, 'all')">
-            		Upcoming Bookings
+            		All Bookings
             	</button>
-                <button class="tablinks" onclick="openTab(event, 'All')">
-                	All Bookings
+                <button class="tablinks" onclick="openTab(event, 'completed')">
+                	Completed Bookings
                 </button>
-                <button class="tablinks" onclick="openTab(event, 'Canceled')">
+                <button class="tablinks" onclick="openTab(event, 'canceled')">
                 	Canceled Bookings
                 </button>
             </div>
@@ -177,7 +261,8 @@
 									ON u.user_id = b.user_id
 									JOIN slots sl
 									ON sl.slot_id = b.slot_id
-									WHERE br.barber_id = '$barber' ";
+									WHERE br.barber_id = '$barber'
+									AND status NOT IN ('completed', 'cancel') ";
 
 							
 									$result = mysqli_query($conn, $sql);
@@ -205,6 +290,165 @@
                                         echo "</tr>";
 									}
 								?>
+                            </tbody>
+                	</table>
+
+					<!-- COMPLETED BOOKINGS -->
+                	<table class="table table-bordered tabcontent" id="completed" width="100%" cellspacing="0">
+                  		<thead>
+                                <tr>
+                                    <th>
+                                        Booked Date
+                                    </th>
+                                    <th>
+                                        Booked Services
+                                    </th>
+                                    <th>
+                                        Booked Time
+                                    </th>
+                                    <th>
+                                        Customer
+                                    </th>
+                                    <th>
+                                        Barber
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                </tr>
+                        </thead>
+                            <tbody>
+                                <?php
+
+									
+									// $sql = "SELECT service_name, barber_name
+									// FROM services s 
+									// INNER JOIN bookings b
+									// ON s.service_id = b.service_id
+									// INNER JOIN barbers br
+									// ON br.barber_id = b.barber_id"; 
+									$sql = "SELECT book_id, service_name, barber_name, book_date, sl.time_slot, name, status
+                                    FROM services s 
+                                    INNER JOIN bookings b 
+                                    ON s.service_id = b.service_id 
+                                    INNER JOIN barbers br 
+                                    ON br.barber_id = b.barber_id 
+                                    INNER JOIN users u 
+                                    ON u.user_id = b.user_id
+                                    JOIN slots sl
+                                    ON b.slot_id = sl.slot_id
+									WHERE status='completed' 
+									AND br.barber_id = '$barber'";
+
+							
+									$result = mysqli_query($conn, $sql);
+									$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+									foreach($rows as $booking){
+                                
+										echo "<tr>";
+                                            echo "<td>";
+                                                echo $booking['book_date'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['service_name'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['time_slot'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['name'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['barber_name'];
+                                            echo "</td>";
+											echo "<td>";
+                                                echo $booking['status'];
+                                                // echo '<br>';
+                                                echo '<a  style="color: green;"><i class="fas fa-calendar-check fa-lg"></i></a>';
+                                            echo "</td>";
+								?>
+                                        </tr> 
+										<?php } ?>
+
+                            </tbody>
+                	</table>
+
+					<!-- CANCELED BOOKINGS -->
+					<table class="table table-bordered tabcontent" id="canceled" width="100%" cellspacing="0">
+                  		<thead>
+                                <tr>
+                                    <th>
+                                        Booked Date
+                                    </th>
+                                    <th>
+                                        Booked Services
+                                    </th>
+                                    <th>
+                                        Booked Time
+                                    </th>
+                                    <th>
+                                        Customer
+                                    </th>
+                                    <th>
+                                        Barber
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                </tr>
+                        </thead>
+                            <tbody>
+                                <?php
+
+									
+									// $sql = "SELECT service_name, barber_name
+									// FROM services s 
+									// INNER JOIN bookings b
+									// ON s.service_id = b.service_id
+									// INNER JOIN barbers br
+									// ON br.barber_id = b.barber_id"; 
+									$sql = "SELECT book_id, service_name, barber_name, book_date, sl.time_slot, name, status
+                                    FROM services s 
+                                    INNER JOIN bookings b 
+                                    ON s.service_id = b.service_id 
+                                    INNER JOIN barbers br 
+                                    ON br.barber_id = b.barber_id 
+                                    INNER JOIN users u 
+                                    ON u.user_id = b.user_id
+                                    JOIN slots sl
+                                    ON b.slot_id = sl.slot_id
+									WHERE status='cancel' 
+									AND br.barber_id = '$barber'";
+
+							
+									$result = mysqli_query($conn, $sql);
+									$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+									foreach($rows as $booking){
+                                
+										echo "<tr>";
+                                            echo "<td>";
+                                                echo $booking['book_date'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['service_name'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['time_slot'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['name'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['barber_name'];
+                                            echo "</td>";
+											echo "<td>";
+                                                echo $booking['status'];
+                                                echo '<a  style="color: red;"><i class="fas fa-calendar-times fa-lg"></i></a>';
+                                            echo "</td>";
+								?>
+                                        </tr> 
+										<?php } ?>
+
                             </tbody>
                 	</table>
               	</div>
