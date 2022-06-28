@@ -18,7 +18,7 @@
     
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Customers</h1>
+                <h1 class="h3 mb-0 text-gray-800">Customers List</h1>
                 <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report
@@ -37,13 +37,13 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Cust ID</th>
+                                    <th scope="col">#ID</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone Number</th>
                                     <th scope="col">E-mail</th>
                                     <th scope="col">Username</th>
                                     <th scope="col">Password</th>
-                                    <th scope="col">Manage</th>
+                                    <!-- <th scope="col">Manage</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -72,7 +72,8 @@
                                             echo "<td>";
                                                 echo "******";
                                             echo "</td>";
-                                            echo "<td>";?>
+                                        ?>
+                                            <!-- echo "<td>"; -->
 
                                                 <ul class="list-inline m-0">
                                                     <!-- DELETE BUTTON -->
@@ -85,7 +86,8 @@
                                                         </button>
                                                     </li> -->
                                                 </ul>
-                                            <?php echo "</td>";
+                                            <?php 
+                                            // echo "</td>";
                                         echo "</tr>";
                                     }
                                 ?>
