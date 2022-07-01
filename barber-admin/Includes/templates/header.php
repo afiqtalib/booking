@@ -96,7 +96,7 @@
 	  			<li class="nav-item">
 					<a class="nav-link" href="customers.php">
 		  				<i class="far fa-address-card"></i>
-		  				<span>Customers</span>
+		  				<span>Customers List</span>
 		  			</a>
 	  			</li>
 	  			<li class="nav-item">

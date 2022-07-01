@@ -89,7 +89,7 @@
 
 	  			<!-- Heading -->
 	  			<div class="sidebar-heading">
-					CUSTOMERS & BARBERS
+					CUSTOMERS
 	  			</div>
 
 	  			<!-- Nav Item - Charts -->

@@ -108,7 +108,7 @@
 
 				<!-- FORGOT YOUR PASSWORD LINK -->
 
-				<span class="forgotPW">Forgot your password ? <a href="#">Reset it here.</a></span>
+				<!-- <span class="forgotPW">Forgot your password ? <a href="#">Reset it here.</a></span> -->
 			</form>
 		</div>
 		

@@ -28,7 +28,8 @@
         $service_duration = $_POST["service_duration"];
         $service_price = $_POST["service_price"];
         $service_desc =$_POST["service_desc"];
-        
+
+
         // QUERY FOR ADD NEW SERVICE TO DATABASE
         $query=mysqli_query($conn, "INSERT INTO services (service_name, service_duration, service_price, service_desc) VALUE ('$service_name', '$service_duration', '$service_price', '$service_desc')");
         if ($query){
@@ -58,10 +59,10 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Services</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                 <i class="fas fa-download fa-sm text-white-50"></i>
                 Generate Report
-            </a>
+            </a> -->
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -81,13 +82,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="service_duration">Service Duration(min)</label>
-                                <input type="text" class="form-control" placeholder="Service Duration" name="service_duration" required="true">
+                                <input type="number" class="form-control" placeholder="45" name="service_duration" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="service_price">Service Price(RM)</label>
-                                <input type="text" class="form-control" placeholder="Service Price" name="service_price" required="true">
+                                <input type="number" class="form-control" placeholder="20" name="service_price" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -96,6 +97,7 @@
                                 <textarea class="form-control" placeholder="Service Description" name="service_desc" style="resize: none;" required="true"></textarea>
                             </div>
                         </div>
+                        
                     </div>
                 
                     <!-- SUBMIT BUTTON -->

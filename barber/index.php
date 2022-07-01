@@ -18,11 +18,11 @@
 		
 		<!-- Page Heading -->
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-			<a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+			<h1 class="h3 mb-0 text-gray-800">Dashboard - Barber</h1>
+			<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 				<i class="fas fa-download fa-sm text-white-50"></i>
 				Generate Report
-			</a>
+			</a> -->
 		</div>
 
 		<!-- Content Row -->
@@ -208,7 +208,7 @@
         <div class="card shadow mb-4">
             <div class="card-header tab" style="padding: 0px !important;background: #36b9cc!important">
             	<button class="tablinks active" onclick="openTab(event, 'all')">
-            		All Bookings
+            		Upcoming Bookings
             	</button>
                 <button class="tablinks" onclick="openTab(event, 'completed')">
                 	Completed Bookings
@@ -223,6 +223,9 @@
                   		<thead>
                                 <tr>
                                     <th>
+                                        #Booked ID
+                                    </th>
+									<th>
                                         Booked Date
                                     </th>
                                     <th>
@@ -237,19 +240,14 @@
                                     <th>
                                         Barber
                                     </th>
+									<th>
+                                        Manage
+                                    </th>
                                 </tr>
                         </thead>
                             <tbody>
                                 <?php
 
-									
-									// $sql = "SELECT service_name, barber_name
-									// FROM services s 
-									// INNER JOIN bookings b
-									// ON s.service_id = b.service_id
-									// INNER JOIN barbers br
-									// ON br.barber_id = b.barber_id"; 
-									// service_name, barber_name, book_date, book_time, name 
 									$barber = $_SESSION['barber_id'];
 									$sql = "SELECT s.*, b.*, br.*, u.*, sl.*
 									FROM services s 
@@ -272,6 +270,9 @@
 									// foreach($rows as $booking) {
                                 
 										echo "<tr>";
+											echo "<td>";
+												echo $booking['book_id'];
+											echo "</td>";
                                             echo "<td>";
                                                 echo $booking['book_date'];
                                             echo "</td>";
@@ -282,13 +283,29 @@
                                                 echo $booking['time_slot'];
                                             echo "</td>";
                                             echo "<td>";
-                                                echo $booking['name'];
+                                                echo '#';
+												echo $booking['user_id'];
+												echo " -  ";
+												echo $booking['name'];
                                             echo "</td>";
                                             echo "<td>";
                                                 echo $booking['barber_name'];
                                             echo "</td>";
-                                        echo "</tr>";
-									}
+											?>
+											<td>
+                                                <ul class="list-inline m-0">
+													<!-- COMPLETED BUTTON -->
+													<li class="list-inline-item" data-toggle="tooltip" title="Completed Appointment">
+                                                        <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
+															<a href="booking-completed.php?book_id=<?php echo $booking['book_id']; ?> " style="color: white;">
+																<i class="fas fa-calendar-check"></i>
+															</a>
+                                                        </button>
+                                                    </li>
+                                                </ul> 
+                                            </td>
+                                        </tr>
+								<?php	}
 								?>
                             </tbody>
                 	</table>
@@ -319,14 +336,6 @@
                         </thead>
                             <tbody>
                                 <?php
-
-									
-									// $sql = "SELECT service_name, barber_name
-									// FROM services s 
-									// INNER JOIN bookings b
-									// ON s.service_id = b.service_id
-									// INNER JOIN barbers br
-									// ON br.barber_id = b.barber_id"; 
 									$sql = "SELECT book_id, service_name, barber_name, book_date, sl.time_slot, name, status
                                     FROM services s 
                                     INNER JOIN bookings b 
