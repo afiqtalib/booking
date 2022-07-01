@@ -61,6 +61,7 @@
                                 <th scope="col">Booked Time </th>
                                 <th scope="col">Booked Service</th>
                                 <th scope="col">Barber</th>
+                                <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>                          
@@ -95,6 +96,9 @@
                                         echo "</td>";
                                         echo "<td>";
                                             echo $mybook['barber_name'];
+                                        echo "</td>";
+                                        echo "<td>";
+                                            echo $mybook['status'];
                                         echo "</td>";
                                     echo "</tr>";
 								} ?>

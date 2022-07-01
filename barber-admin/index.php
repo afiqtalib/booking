@@ -177,7 +177,7 @@
 					  			</div>
 					  			<div class="h5 mb-0 font-weight-bold text-gray-800">
                                     <?php
-                                        $sql = "SELECT COUNT(book_id) as count FROM bookings WHERE status NOT IN ('completed', 'cancel')";
+                                        $sql = "SELECT COUNT(book_id) as count FROM bookings WHERE status IS NULL";
                                         $result =mysqli_query($conn, $sql);
                                     
                                             while($row = mysqli_fetch_assoc($result)){
@@ -259,7 +259,7 @@
                                     ON u.user_id = b.user_id
                                     JOIN slots sl
                                     ON b.slot_id = sl.slot_id 
-									WHERE status NOT IN ('completed', 'cancel')";
+									WHERE status IS NULL";
 
 							
 									$result = mysqli_query($conn, $sql);

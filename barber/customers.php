@@ -46,7 +46,12 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "SELECT * FROM users";
+                					$barber = $_SESSION['barber_id'];
+                                    $sql = "SELECT u.*
+                                    FROM users u 
+                                    JOIN bookings b
+                                    ON u.user_id = b.user_id
+                                    WHERE b.barber_id = '$barber'";
                                     $result = mysqli_query($conn, $sql);
                                     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     foreach($rows as $customer)
