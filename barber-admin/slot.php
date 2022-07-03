@@ -44,7 +44,7 @@
                             <thead>
                                 <tr>
                                     <th>Time Slot</th>
-                                    <th>Date Slot</th>
+                                    <!-- <th>Date Slot</th> -->
                                     <th>Time Slot Status</th>
                                     <th>Barber Name</th>
                                     <th>Manage</th>
@@ -64,9 +64,9 @@
                                         echo "<td>";
                                             echo $slot['time_slot'];
                                         echo "</td>";
-                                        echo "<td>";
-                                            echo $slot['date_slot'];
-                                        echo "</td>";
+                                        // echo "<td>";
+                                        //     echo $slot['date_slot'];
+                                        // echo "</td>";
                                         echo "<td>";
                                             echo $slot['slot_status'];
                                         echo "</td>";

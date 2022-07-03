@@ -17,7 +17,7 @@
     <section class="home-section"id="home">
         <div class="home-section-container">
             <div class="bg-image">
-                <img src="design/barbers-1.jpg" alt="Snow" style="width:100%;">
+                <img src="design/barbers-2.jpg" alt="Snow" style="width:100%;">
             </div>
 
             <div class="bg-text card-header"> Hi, 
@@ -32,19 +32,24 @@
 
                 <span class="overlay-text text-start">
                     - Welcome to Twin & Dad Barbershop 
-                    <br>
-                    <br>
+                    <br><br>
                     It's Not Just a Haircut, It's an Experience.
                     <br>
                     - Quality Over Quantity -
-                    <br>
+                    <br><br>
                     Our Booking Policy :
                     <br>
-                    1) Just 3 barbers only set in booking system
-                    <br>
-                    2) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
-                    <br>
+                    <div class="text-start pl-5">
+                        1) Booking early a day
+                        <br>
+                        2) Just 3 barbers only set in booking system
+                        <br>
+                        3) 4 barbers are available for customer walk-in. So you can walk-in if not available in system
+                        <br>
+                        4) Contact Us if want to cancellation booking
+                        <br>
                 </span>
+                    </div>
                 <div class="d-grid gap-2 mt-5">
                     <a class="btn btn-light btn-lg" href="booking.php">BOOK NOW</a>
                 </div>
@@ -60,7 +65,7 @@
 
         <div class="grid-container mb-5">
             <div class="section_heading">
-                <h3 style="color: Grey; ">Men's Grooming Services</h3>
+                <h3 style="color: whitesmoke; ">Men's Grooming Services</h3>
                 <!-- <h2>Our Barber Pricing</h2> -->
                 <div class="heading-line"></div>
             </div>
@@ -73,7 +78,7 @@
                 ?>
 
                     <div class="card col-6 border-secondary pt-2  mx-auto" style="width: 18rem" >
-                        <img src="design/haircolor.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
+                        <!-- <img src="design/.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;"> -->
                         <div class="card-body text-center text-dark">
                             <h5 class="card-title"> <?php echo $service ['service_name'];?> </h5>
                             <p class="card-text"> RM <?php echo $service ['service_price'];?> </p>
@@ -174,7 +179,7 @@
             </div>
 
             <div class="column">
-                <img src="design/hairline.jpg" alt="hairstyle" style="width:100%" >
+                <img src="design/mullethair.jpg" alt="hairstyle" style="width:100%" >
             </div>
         </div>
     </section>

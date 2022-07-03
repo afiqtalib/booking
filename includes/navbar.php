@@ -104,8 +104,8 @@
                 <ul class="bold">
                         <li><a href="index.php#home">HOME</a></li>
                         <li><a href="booking.php">Book</a></li>
-                        <li><a href="index.php#service">Gallery</a></li>
                         <li><a href="index.php#pricing">Services</a></li>
+                        <li><a href="index.php#service">Gallery</a></li>
                         <li><a href="index.php#barber">barber</a></li>
                         <li><a href="index.php#contactus">about us</a></li>
                 </ul>   
