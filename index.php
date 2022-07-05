@@ -26,7 +26,7 @@
                         echo $_SESSION['username'];
                     }
                     else {
-                        echo "customer";
+                        echo "Customer";
                     }
                 ?>
 
