@@ -20,7 +20,7 @@
                 <img src="design/barbers-2.jpg" alt="Snow" style="width:100%;">
             </div>
 
-            <div class="bg-text card-header"> Hi, 
+            <div class="bg-text card-header text-center"> Hi, 
                 <?php 
                     if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
                         echo $_SESSION['username'];
@@ -30,7 +30,7 @@
                     }
                 ?>
 
-                <span class="overlay-text text-start">
+                <span class="overlay-text text-center">
                     - Welcome to Twin & Dad Barbershop 
                     <br><br>
                     It's Not Just a Haircut, It's an Experience.
@@ -78,7 +78,7 @@
                 ?>
 
                     <div class="card col-6 border-secondary pt-2  mx-auto" style="width: 18rem" >
-                        <!-- <img src="design/.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;"> -->
+                        <img src="design/haircut.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
                         <div class="card-body text-center text-dark">
                             <h5 class="card-title"> <?php echo $service ['service_name'];?> </h5>
                             <p class="card-text"> RM <?php echo $service ['service_price'];?> </p>
@@ -240,58 +240,102 @@
                     <!-- Business Information -->
                     <div class="contact-info">
                         <h2>Get in touch with us today!</h2>
-                        <p> Twin & Dad Barbershop is the top 5 barbershop based in Kelantan</p>
+                        <h2 style=" font-size:20px; color: white; text-shadow: 0px 2px 2px black;" >Twin & Dad Barbershop is the top 3 barbershop based in Kelantan</h2>
                         <a href="https://goo.gl/maps/XdmGpwy6BZKyj66U6">  
                             <i class="fa fa-map-marker" style="font-size:30px; font-style:verdana; color:red; text-shadow:2px 2px 2px white;" 
-                            aria-hidden="true"><span style=" font-size:25px; color: white; text-shadow: 0px 2px 2px black;"> Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</span>
-</i>
+                            aria-hidden="true"><h2 style=" font-size:20px; color: white; text-shadow: 0px 2px 2px black;"> Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</h2>
+                            </i>
                         </a>  
-                        <address>Twin & Dad Barbershop S/20 no 6447-F, Jalan Telipot 15150 Kota Bharu Kelantan</address>
-                        <h4>
-                        
-                        </h4>
-                        
-                        <!-- Business Hours -->
-                        <div class="container card text-white bg-secondary mb-3">
-                            <div class="row">
-                            <i class='far fa-clock' style='font-size:50px'></i>
-                                <div class="col-10 text-center card-header">Business Hours</div>
-                                <div class="col-4 card-text">Sunday<br>Monday<br>Tuesday<br>Wednesday<br>Thursday<br>Friday<br>Saturday</div>
-                                <div class="col-6 card-text">12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>12:00PM - 9:30PM<br>Close<br>12:00PM - 9:30PM</div>
-                            </div>
+                        <div class="row mx-auto pt-3">
+                            <a href="https://www.facebook.com/twinanddad.barbershop">
+                                <i class="fa fa-facebook-square" 
+                                    aria-hidden="true" 
+                                    style="font-size:30px; color: blue; text-shadow:2px 2px 2px white;"> Twin & Dad Barbershop</i>
+                            </a>
+                            <br> <br>
+                            <a href="https://chat.whatsapp.com/601121828562">
+                                <i class='fa fa-whatsapp green-color' 
+                                    aria-hidden="true" 
+                                    style="font-size:30px; color:#90ee90; text-shadow:2px 2px 4px #000000;"> 011-39183821 </i>
+                            </a>
+                            <br> <br>
+                            <a href="https://instagram.com/twinanddad.barbershop?igshid=YmMyMTA2M2Y=">
+                                <i class='fa fa-instagram' 
+                                    aria-hidden="true" 
+                                    style="font-size:30px; color:white; text-shadow:2px 2px 4px red;"> twinanddad.barbershop </i>
+                            </a>
+                            <br><br>
+                            <a href="https://mail.google.com/mail/u/0/#inbox">
+                                <i class='fa-regular fa fa-envelope-o'
+                                    aria-hidden="true" 
+                                    style="font-size:30px; color: white;"> hr.twinanddadbarbershop@gmail.com
+                                </i>
+                            </a>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Contact Us Form -->
-                <div class="col-lg-6 sm-padding" style="color: white;">
-                    <div class="row mx-auto">
-                        <a href="https://www.facebook.com/twinanddad.barbershop">
-                            <i class="fa fa-facebook-square" 
-                                aria-hidden="true" 
-                                style="font-size:30px;color: blue; text-shadow:2px 2px 2px white;"> Twin & Dad Barbershop</i>
-                        </a>
-                        <br> <br>
-                        <a href="https://chat.whatsapp.com/601121828562">
-                            <i class='fa fa-whatsapp green-color' 
-                                aria-hidden="true" 
-                                style="font-size:30px; color:#90ee90; text-shadow:2px 2px 4px #000000;"> 011-39183821 </i>
-                        </a>
-                        <br> <br>
-                        <a href="https://instagram.com/twinanddad.barbershop?igshid=YmMyMTA2M2Y=">
-                            <i class='fa fa-instagram' 
-                                aria-hidden="true" 
-                                style="font-size:30px; color:white; text-shadow:2px 2px 4px red;"> twinanddad.barbershop </i>
-                        </a>
-                        <br><br>
-                        <a href="https://mail.google.com/mail/u/0/#inbox">
-                            <i class='fa-regular fa fa-envelope-o'
-                                aria-hidden="true" 
-                                style="font-size:30px; color:red; text-shadow:2px 1px 1px white;"> hr.twinanddadbarbershop@gmail.com
-</i>
-                        </a>
-
-                    </div>
+                <div class="col-lg-6 sm-padding">
+                    <div class="container text-light contact-info pt-2 h2" style="font-size: 20px;" >
+                        <h2>Business Hours</h2>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="p-1">Sunday</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-1">12:00 PM - 9:30 PM</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="p-1">Monday</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-1">12:00 PM - 9:30 PM</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="p-1">Tuesday</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-1">12:00 PM - 9:30 PM</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="p-1">Wednesday</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-1">12:00 PM - 9:30 PM</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="p-1">Thursday</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-1">12:00 PM - 9:30 PM</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="p-1">Friday</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-1">Closed </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="p-1">Saturday</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="p-1">12:00 PM - 9:30 PM</div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </div>
