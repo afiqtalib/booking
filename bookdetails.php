@@ -1,5 +1,6 @@
 <!-- PHP INCLUDES -->
 <?php 
+   ob_start();
     session_start(); 
     include "connect.php";
     include "includes/header.php";
@@ -7,24 +8,8 @@
 
     //Extra JS FILES
     echo "<script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>"; 
+    $book = $_GET["book_id"];
 
-    // $sql="SELECT * FROM users WHERE user_id=$user_id";
-    // $result=mysqli_query($conn,$sql);
-    // $row=mysqli_fetch_array($result);
-    // $name=$row['name'];
-    // $uname=$row['uname'];
-    // $email=$row['email'];
-    // $phonenum=$row['phonenum'];
-    // $pass=$row['password'];
-
-
-    // $user_id=$_GET["user_id"];
-
-    // $name = ($_POST["name"]);
-    // $username = ($_POST["username"]);
-    // $email = ($_POST["email"]);
-    // $phonenum = ($_POST["phonenum"]);
-    // $password = ($_POST["password"]);
 
 ?>
 <!DOCTYPE html>
@@ -46,7 +31,7 @@
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-center">
-                <h6 class="m-0 font-weight-bold text-primary">My Booking</h6>
+                <h6 class="m-0 font-weight-bold text-dark">Booking Details</h6>
             </div>
             <div class="card-body p-5">
 
@@ -62,11 +47,16 @@
                                 <th scope="col">Duration (min)</th>
                                 <th scope="col">Booked Service</th>
                                 <th scope="col">Barber</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Customer #ID</th>
+                                <th scope="col">Customer Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Email</th>
                             </tr>
                         </thead>
                         <tbody>                          
                             <?php
+                                $book = $_GET["book_id"];
+
                                 $user = $_SESSION['user_id'];
                                 $sql = "SELECT s.*, b.*, br.*, u.*, sl.*
                                 FROM services s 
@@ -78,13 +68,14 @@
                                 ON u.user_id = b.user_id
                                 JOIN slots sl
                                 ON sl.slot_id = b.slot_id
-                                WHERE u.user_id = '$user' ";
+                                WHERE u.user_id = '$user'
+                                ";
         
                             $result = mysqli_query($conn, $sql);
-                                while ($mybook=mysqli_fetch_assoc($result)){
+                                while ($mybook=mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>";
-                                            echo $mybook['book_id'];
+                                            echo $book['book_id'];
                                         echo "</td>";
                                         echo "<td>";
                                             echo $mybook['book_date'];
@@ -102,7 +93,16 @@
                                             echo $mybook['barber_name'];
                                         echo "</td>";
                                         echo "<td>";
-                                            echo $mybook['status'];
+                                            echo $mybook['user_id'];
+                                        echo "</td>";
+                                        echo "<td>";
+                                            echo $mybook['name'];
+                                        echo "</td>";
+                                        echo "<td>";
+                                            echo $mybook['phonenum'];
+                                        echo "</td>";
+                                        echo "<td>";
+                                            echo $mybook['email'];
                                         echo "</td>";
                                     echo "</tr>";
 								} ?>

@@ -25,11 +25,11 @@ if (isset($_POST['edit_slot'])) {
     $slot_id = $_GET["slot_id"];
     //Getting Post Values
     $timeslot = $_POST["time_slot"];
-    $dateslot = $_POST["date_slot"];
+    // $dateslot = $_POST["date_slot"];
     $slotstatus = $_POST["slot_status"];
-    $barber = $_POST["slot_barber"];
+    // $barber = $_POST["slot_barber"];
 
-    $query=mysqli_query($conn, "UPDATE slots SET time_slot='$timeslot', date_slot='$dateslot', slot_status='$slotstatus', barber_id='$barber' WHERE slot_id='$slot_id'"); {
+    $query=mysqli_query($conn, "UPDATE slots SET time_slot='$timeslot', slot_status='$slotstatus' WHERE slot_id='$slot_id'"); {
         if ($query){
             echo "<script>alert('You have successfully updated the data');</script>";
             echo "<script type='text/javascript'> document.location ='slot.php'; </script>";
@@ -89,12 +89,12 @@ if (isset($_POST['edit_slot'])) {
                                 <input type="time" class="form-control"  placeholder="" value="<?php echo $row['time_slot']; ?>" name="time_slot" min="12:00" max="9:00" required="true">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_name">Date Slot</label>
                                 <input type="date" class="form-control"  placeholder="" value="<?php echo $row['date_slot']; ?>" name="date_slot" required="true">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_un">Slot Status</label>
@@ -104,18 +104,15 @@ if (isset($_POST['edit_slot'])) {
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_name">Barber</label>
                                 <select class="custom-select" name="slot_barber">
                                     <option value="">--</option>
-                                   
-                                            <option value="<?php echo $row['barber_id'] ?>"><?php echo $row['barber_name'] ?></option>
-                                        
-                                        
+                                    <option value="<?php echo $row['barber_id'] ?>"><?php echo $row['barber_name'] ?></option>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <?php
                     }

@@ -19,7 +19,7 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_payment'])) 
 {
-    // $book_id=$_GET["book_id"];
+    $book_id=$_GET["book_id"];
     
     $card_name = ($_POST['card_name']);
     $card_no = ($_POST['card_no']);

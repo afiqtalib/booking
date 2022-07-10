@@ -77,8 +77,8 @@
                 while ($service =  mysqli_fetch_assoc($result)) {
                 ?>
 
-                    <div class="card col-6 border-secondary pt-2  mx-auto" style="width: 18rem" >
-                        <img src="design/haircut.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
+                    <div class="card col-6 border-secondary pt-2  mx-auto" style="width: 25%" >
+                        <img src="design/services.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
                         <div class="card-body text-center text-dark">
                             <h5 class="card-title"> <?php echo $service ['service_name'];?> </h5>
                             <p class="card-text"> RM <?php echo $service ['service_price'];?> </p>
@@ -203,7 +203,7 @@
             ?>
 
                 <div class="card col border-secondary pt-3 m-auto" style="width: 35%;" >
-                    <img src="design/team-1.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
+                    <img src="design/barber-team.jpg" class="card-img-top rounded mx-auto d-block" alt="Team Member" style="width: 100%;">
                     <div class="card-body text-center">
                     <h5 class="card-title"> Barber <?php echo $barber ['barber_name'];?></h5>
                         <p class="card-text">Hi our customer, Have a nice dayy </p>

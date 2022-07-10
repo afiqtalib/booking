@@ -25,15 +25,15 @@
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_new_slot'])) {
         $timeslot = $_POST["time_slot"];
-        $dateslot = $_POST["date_slot"];
+        // $dateslot = $_POST["date_slot"];
         $slotstatus = $_POST["slot_status"];
         $barber = $_POST["slot_barber"];
 
         
         // QUERY FOR ADD NEW SERVICE TO DATABASE
-        $query=mysqli_query($conn, "INSERT INTO slots (time_slot, date_slot, slot_status, barber_id) VALUE ('$timeslot', '$dateslot', '$slotstatus', '$barber')");
+        $query=mysqli_query($conn, "INSERT INTO slots (time_slot, slot_status, barber_id) VALUE ('$timeslot', '$slotstatus', '$barber')");
         if ($query){
-            echo "<script>alert('You have successfully inserted the new slot time');</script>";
+            echo "<script>alert('You have successfully inserted the new timeslot');</script>";
             echo "<script type='text/javascript'> document.location ='slot.php'; </script>";
         }
         else
@@ -76,15 +76,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_name">Time Slot</label>
-                                <input type="time" class="form-control"  placeholder="" name="time_slot" min="12:00" max="9:00" required="true">
+                                <input type="time" class="form-control"  placeholder="" name="time_slot" min="12:00" max="10:00" required="true">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_name">Date Slot</label>
                                 <input type="date" class="form-control"  placeholder="" name="date_slot" required="true">
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_un">Slot Status</label>

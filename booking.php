@@ -8,11 +8,7 @@
 
     // SET TIMEZONE CALENDAR
     date_default_timezone_set("Asia/Kuala_Lumpur");
-    // if ($_SERVER["REQUEST_METHOD" == "POST"]){
-    //   foreach ($_POST as $key => $value){
-    //     echo "$key = $value<br>";
-    //   }
-    // }
+
     if (isset($_SESSION['user_id']) && isset($_SESSION['username'])) {
   ?>
 
@@ -71,21 +67,20 @@
   
           // Selected TIME 
           $selected_time=$_POST['selected_time'];
-
           // read all booking list to avoid redundant 
-          $servicelist = 'service_id';
-          $barberlist = 'barber_id'; 
-          $datelist = 'book_date';
-          $slotlist = 'slot_id'; 
-          $sql = "SELECT * FROM bookings WHERE service_id='$servicelist', barber_id='$barberlist', book_date='$datelist' AND slot_id='$slotlist'";
-          $result = mysqli_query($conn, $sql);
-          if ($selected_service == $servicelist && $selected_barber == $barberlist && $selected_date == $datelist && $selected_time == $slotlist){
-            echo "<div class = 'alert alert-danger text-center mt-4'>";
-              echo "Your booking unsuccessfully. Please Choose other Slot/Barber!!";
-            echo "</div>";
-          }
+          // $servicelist = 'service_id';
+          // $barberlist = 'barber_id'; 
+          // $datelist = 'book_date';
+          // $slotlist = 'slot_id'; 
+          // $sql = "SELECT * FROM bookings WHERE service_id='$servicelist', barber_id='$barberlist', book_date='$datelist' AND slot_id='$slotlist'";
+          // $result = mysqli_query($conn, $sql);
+          // if ($selected_service == $servicelist && $selected_barber == $barberlist && $selected_date == $datelist && $selected_time == $slotlist){
+          //   echo "<div class = 'alert alert-danger text-center mt-4'>";
+          //     echo "Your booking unsuccessfully. Please Choose other Slot/Barber!!";
+          //   echo "</div>";
+          // }
           
-          else {
+          // else {
             // test code yg atas 
             $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
     
@@ -109,9 +104,8 @@
             echo "</div>";
           echo "</div>";
         
-          }
-          // echo "<script type='text/javascript'> document.location ='payment.php'; </script>";
           
+          // echo "<script type='text/javascript'> document.location ='bookdetails.php'; </script>";
           // foreach ($_POST as $selected => $value){
           //   echo "$selected = $value";
           // }
@@ -131,8 +125,7 @@
               <div class="row">
                   <div class="p-5">
                     <div class="text-center">
-                      <h1 class="h4 text-gray-900 mb-3">Booking Now for being Handsome Boy
-                      </h1>
+                      <h1 class="h4 text-gray-900 mb-3">Booking Now for being Handsome Boy</h1>
                     </div>
                     
                     <!-- BOOKING FORM -->
@@ -213,7 +206,7 @@
                       
                       <!-- SUBMIT BOOKING BUTTON -->
                       <div class="d-grid gap-2">
-                        <button type="submit" name="submit_booking_form" value="submit" href="payment.php" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="submit_booking_form" value="submit" href="" class="btn btn-primary">Submit</button>
                       <div>
         
                     </form>
@@ -237,9 +230,9 @@
         {
           // header("Location: login.php");
           // exit();
-          echo "<div class = 'alert alert-danger text-center mt-4'>";
-          echo "Please Login First!!";
-          echo "</div>";     
+          // echo "<div class = 'alert alert-danger text-center mx-auto mt-5 pt-5'>";
+          // echo "Please Login First!!";
+          // echo "</div>";     
           echo "<script>alert('Please Login First Before Make a Booking!!');</script>"; 
 
           echo "<script type='text/javascript'> location.href ='login.php'; </script>";
