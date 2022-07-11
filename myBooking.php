@@ -41,16 +41,23 @@
     <div class="container-fluid  h-100">
     
         <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4 m-3">
+        <div class="d-sm-flex align-items-center justify-content-between m-4">
             <h1 class="h3 mb-0 text-gray-800">My Booking</h1>
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-center">
-                <h6 class="m-0 font-weight-bold text-primary">My Booking</h6>
+                <h6 class="h5 m-0 font-weight-bold text-dark">My Booking</h6>
             </div>
-            <div class="card-body p-5">
+            <div class="card-body m-4">
 
-
+                <div class="alert alert-success">
+                    <button data-dismiss="alert" class="close close-sm" type="button">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <div class="messages text-center">
+                        <div>Your booking has been created successfully!</div>
+                    </div>
+				</div>
                 <!-- MY BOOKING -->
                 
                     <table class="table table-bordered border-primary text-center">
@@ -116,7 +123,7 @@
 
 <?php 
         //Include Footer
-        include 'includes/footer.php';
+        // include 'includes/footer.php';
 ?>
 
 

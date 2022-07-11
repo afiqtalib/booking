@@ -13,13 +13,29 @@
         include 'Includes/templates/header.php';
 
 ?>
+    <script>
+        function myFunction() {
+            window.print();
+        }
+        function printDiv() {
+            var divContents = document.getElementById("report").innerHTML;
+            var a = window.open('', '', 'height=800, width=800');
+            a.document.write('<html>');
+            a.document.write('<body >');
+            a.document.write(divContents);
+            a.document.write('</body></html>');
+            a.document.close();
+            a.print();
+        }
+    </script>
+
 	<!-- Begin Page Content -->
 	<div class="container-fluid">
 		
 		<!-- Page Heading -->
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
 			<h1 class="h3 mb-0 text-gray-800">Dashboard Admin</h1>
-			<!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+			<!-- <a href="#" onclick="printDiv()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 				<i class="fas fa-download fa-sm text-white-50"></i>
 				Generate Report
 			</a> -->
@@ -304,7 +320,7 @@
                                                         </button>
 
                                                          <!-- CANCEL MODAL  -->
-                                                        <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+                                                        <!-- <div class="modal fade" id="" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
                                                             <div class="modal-dialog" role="document">
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
@@ -326,7 +342,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> -->
                                                     </li>
 
 													<!-- COMPLETED BUTTON -->

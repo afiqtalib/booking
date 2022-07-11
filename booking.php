@@ -85,9 +85,9 @@
             // test code yg atas 
             $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
     
-            echo "<div class = 'alert alert-success text-center mt-4'>";
-                echo "Your booking has been created successfully.";
-            echo "</div>";
+            // echo "<div class = 'alert alert-success text-center mt-4'>";
+            //     echo "Your booking has been created successfully.";
+            // echo "</div>";
             
             // MODAL FOR BOOKING DETAILS 
             echo "<div class='modal fade' tabindex='-1'>";
@@ -97,7 +97,7 @@
                       echo "<h5 class='modal-title'>Modal title</h5>";
                   echo "</div>";
                     echo "<div class='modal-body'>";
-                      echo "haiur";
+                      echo "dbdbd";
                     echo "</div>";
                       echo "<div class='modal-footer'>";
                         echo "<button type='button' class='btn btn-primary'>Confirm</button>";
@@ -107,7 +107,7 @@
           echo "</div>";
         
           
-          // echo "<script type='text/javascript'> document.location ='bookdetails.php'; </script>";
+          echo "<script type='text/javascript'> document.location ='mybooking.php'; </script>";
           // foreach ($_POST as $selected => $value){
           //   echo "$selected = $value";
           // }
@@ -209,7 +209,7 @@
                       
                       <!-- SUBMIT BOOKING BUTTON -->
                       <div class="d-grid gap-2">
-                        <button type="submit" name="submit_booking_form" value="submit" href="" class="btn btn-primary">Submit</button>
+                        <button type="submit" name="submit_booking_form" value="submit" href="" class="btn btn-primary" >Submit</button>
                       <div>
         
                     </form>
