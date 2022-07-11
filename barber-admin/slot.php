@@ -46,16 +46,17 @@
                                     <th>Time Slot</th>
                                     <!-- <th>Date Slot</th> -->
                                     <th>Time Slot Status</th>
-                                    <th>Barber Name</th>
+                                    <!-- <th>Barber Name</th> -->
                                     <th>Manage</th>
                                 </tr>
                             </thead> 
                             <tbody>
                                 <?php
-                                    $sql = "SELECT s.*, br.* 
-                                    FROM slots s
-                                    INNER JOIN barbers br 
-                                    ON s.barber_id = br.barber_id";
+                                    // $sql = "SELECT s.*, br.* 
+                                    // FROM slots s
+                                    // INNER JOIN barbers br 
+                                    // ON s.barber_id = br.barber_id";
+                                    $sql = "SELECT * FROM slots";
                                     $result = mysqli_query($conn, $sql);
                                     $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                                     foreach ($rows as $slot)
@@ -70,9 +71,9 @@
                                         echo "<td>";
                                             echo $slot['slot_status'];
                                         echo "</td>";
-                                        echo "<td>";
-                                            echo $slot['barber_name'];
-                                        echo "</td>";
+                                        // echo "<td>";
+                                        //     echo $slot['barber_name'];
+                                        // echo "</td>";
                                         echo "<td>";
                                         ?>
                                             <!-- DELETE & EDIT BUTTONS -->

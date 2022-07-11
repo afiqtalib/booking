@@ -67,7 +67,8 @@
   
           // Selected TIME 
           $selected_time=$_POST['selected_time'];
-          // read all booking list to avoid redundant 
+
+          // CODE TO READ ALL BOOKING TO CHECK REDUNDANT DATA
           // $servicelist = 'service_id';
           // $barberlist = 'barber_id'; 
           // $datelist = 'book_date';
@@ -88,6 +89,7 @@
                 echo "Your booking has been created successfully.";
             echo "</div>";
             
+            // MODAL FOR BOOKING DETAILS 
             echo "<div class='modal fade' tabindex='-1'>";
               echo "<div class='modal-dialog'>";
                 echo  "<div class='modal-content'>";
@@ -110,6 +112,7 @@
           //   echo "$selected = $value";
           // }
         }
+        // CODE ERROR BOOKING 
         // else {
         //   echo "<div class = 'alert alert-danger text-center mt-4'>";
         //   echo "Your booking unsuccessfully!!";

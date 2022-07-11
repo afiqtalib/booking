@@ -73,10 +73,13 @@ if (isset($_POST['edit_slot'])) {
                 <form method="POST">
                 <?php
                         $slot_id = $_GET["slot_id"];
-                        $sql = "SELECT s.*, br.* 
+                        // $sql = "SELECT s.*, br.* 
+                        // FROM slots s
+                        // INNER JOIN barbers br 
+                        // ON s.barber_id = br.barber_id
+                        // WHERE slot_id='$slot_id'";
+                        $sql = "SELECT *
                         FROM slots s
-                        INNER JOIN barbers br 
-                        ON s.barber_id = br.barber_id
                         WHERE slot_id='$slot_id'";
                         $ret=mysqli_query($conn,$sql);
                         while ($row=mysqli_fetch_array($ret)) {

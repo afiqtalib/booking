@@ -27,11 +27,11 @@
         $timeslot = $_POST["time_slot"];
         // $dateslot = $_POST["date_slot"];
         $slotstatus = $_POST["slot_status"];
-        $barber = $_POST["slot_barber"];
+        // $barber = $_POST["slot_barber"];
 
         
         // QUERY FOR ADD NEW SERVICE TO DATABASE
-        $query=mysqli_query($conn, "INSERT INTO slots (time_slot, slot_status, barber_id) VALUE ('$timeslot', '$slotstatus', '$barber')");
+        $query=mysqli_query($conn, "INSERT INTO slots (time_slot, slot_status) VALUE ('$timeslot', '$slotstatus')");
         if ($query){
             echo "<script>alert('You have successfully inserted the new timeslot');</script>";
             echo "<script type='text/javascript'> document.location ='slot.php'; </script>";
@@ -94,7 +94,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_name">Barber</label>
                                 <select class="custom-select" name="slot_barber">
@@ -113,7 +113,7 @@
                                     ?>
                                 </select>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 

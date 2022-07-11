@@ -208,7 +208,7 @@
                 	Completed Bookings
                 </button>
                 <button class="tablinks" onclick="openTab(event, 'canceled')">
-                	Canceled Bookings
+                	Cancelled Bookings
                 </button>
             </div>
             <div class="card-body">
@@ -350,6 +350,9 @@
                   		<thead>
                                 <tr>
                                     <th>
+                                        #Book ID
+                                    </th>
+                                    <th>
                                         Booked Date
                                     </th>
                                     <th>
@@ -398,6 +401,9 @@
                                 
 										echo "<tr>";
                                             echo "<td>";
+                                                echo $booking['book_id'];
+                                            echo "</td>";
+                                            echo "<td>";
                                                 echo $booking['book_date'];
                                             echo "</td>";
                                             echo "<td>";
@@ -429,6 +435,9 @@
                   		<thead>
                                 <tr>
                                     <th>
+                                        #Booked ID
+                                    </th>
+                                    <th>
                                         Booked Date
                                     </th>
                                     <th>
@@ -450,14 +459,6 @@
                         </thead>
                             <tbody>
                                 <?php
-
-									
-									// $sql = "SELECT service_name, barber_name
-									// FROM services s 
-									// INNER JOIN bookings b
-									// ON s.service_id = b.service_id
-									// INNER JOIN barbers br
-									// ON br.barber_id = b.barber_id"; 
 									$sql = "SELECT book_id, service_name, barber_name, book_date, sl.time_slot, name, status
                                     FROM services s 
                                     INNER JOIN bookings b 
@@ -468,7 +469,7 @@
                                     ON u.user_id = b.user_id
                                     JOIN slots sl
                                     ON b.slot_id = sl.slot_id
-									WHERE status='cancel';";
+									WHERE status='cancel'";
 
 							
 									$result = mysqli_query($conn, $sql);
@@ -476,6 +477,9 @@
 									foreach($rows as $booking){
                                 
 										echo "<tr>";
+                                            echo "<td>";
+                                                echo $booking['book_id'];
+                                            echo "</td>";
                                             echo "<td>";
                                                 echo $booking['book_date'];
                                             echo "</td>";
