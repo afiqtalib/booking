@@ -64,14 +64,14 @@ if (isset($_POST['edit_barber'])) {
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Update Profile</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                 <i class="fas fa-download fa-sm text-white-50"></i>
                 Generate Report
-            </a>
+            </a> -->
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Barber</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Barber's Profile</h6>
             </div>
             <div class="card-body">
 
@@ -94,13 +94,13 @@ if (isset($_POST['edit_barber'])) {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_phonenum">Phone Number</label>
-                                <input type="text" class="form-control" value="<?php echo $row['barber_phonenum']; ?>" placeholder="Phone Number" name="barber_phonenum" maxlength="10" pattern="[0-9]+">
+                                <input type="text" class="form-control" value="<?php echo $row['barber_phonenum']; ?>" placeholder="0123443555" name="barber_phonenum" maxlength="10" pattern="[0-9]+">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_email">Email</label>
-                                <input type="email" class="form-control" value="<?php echo $row['barber_email']; ?>" placeholder="Email" name="barber_email">
+                                <input type="email" class="form-control" value="<?php echo $row['barber_email']; ?>" placeholder="barber@gmail.com" name="barber_email">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -112,7 +112,7 @@ if (isset($_POST['edit_barber'])) {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_password">Password</label>
-                                <input type="text" class="form-control" placeholder="Barber Password" value="<?php echo $row['barber_password']; ?>" name="barber_password" required="true">
+                                <input type="password" class="form-control" placeholder="Barber Password" value="<?php echo $row['barber_password']; ?>" name="barber_password" required="true">
                             </div>
                         </div>
                         

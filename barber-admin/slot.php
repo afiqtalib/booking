@@ -18,7 +18,7 @@
     
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Time Slot</h1>
+                <h1 class="h3 mb-0 text-gray-800">Timeslot</h1>
                 <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report
@@ -28,7 +28,9 @@
             <!-- Service Categories Table -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Booking Slot</h6>
+                    <h6 class="m-0 font-weight-bold text-danger">*** 1¼ Hours for each timeslot</h6>
+                    <br>
+                    <h6 class="m-0 font-weight-bold text-danger">*** All timeslot set for all barber</h6>
                 </div>
                 <div class="card-body">
 
@@ -40,7 +42,7 @@
 
                     <!-- Categories Table -->
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered text-center" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Time Slot</th>
@@ -88,13 +90,13 @@
                                                         </button>
                                                     </li>
                                                     <!-- DELETE BUTTON -->
-                                                    <li class="list-inline-item" data-toggle="tooltip" title="Delete Slot">
+                                                    <!-- <li class="list-inline-item" data-toggle="tooltip" title="Delete Slot">
                                                         <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">   
                                                             <a href="slot-delete.php?slot_id=<?php echo $slot['slot_id']; ?>" style="color: white;">
                                                                 <i class="fa fa-trash"></i>
                                                             </a>
                                                         </button>
-                                                    </li>
+                                                    </li> -->
                                                 </ul>
                                             <?php
                                     

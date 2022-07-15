@@ -34,7 +34,7 @@
 		
 		<!-- Page Heading -->
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
-			<h1 class="h3 mb-0 text-gray-800">Dashboard Admin</h1>
+			<h1 class="h3 mb-0 text-gray-800">Dashboard - Admin</h1>
 			<!-- <a href="#" onclick="printDiv()" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
 				<i class="fas fa-download fa-sm text-white-50"></i>
 				Generate Report
@@ -230,7 +230,7 @@
             <div class="card-body">
             	<div class="table-responsive">
 
-                <!-- ALL BOOKINGS -->
+                <!-- ALL BOOKINGS -->                
                 	<table class="table table-bordered tabcontent" id="all" style="display:table" width="100%" cellspacing="0">
                   		<thead>
                                 <tr>
@@ -312,7 +312,7 @@
 
                                                      <!-- CANCEL BUTTON -->
 
-                                                    <li class="list-inline-item" data-toggle="tooltip" title="Cancel Appointment">
+                                                    <li class="list-inline-item" data-toggle="tooltip" title="Cancel Booking">
                                                         <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
 															<a href="booking-delete.php?book_id=<?php echo $booking['book_id']; ?> " style="color: white;">
 																<i class="fas fa-calendar-times"></i>
@@ -374,7 +374,7 @@
                                     <th>
                                         Booked Services
                                     </th>
-                                    <th>
+                                    <th style="width: 5%;">
                                         Booked Time
                                     </th>
                                     <th>
@@ -382,6 +382,9 @@
                                     </th>
                                     <th>
                                         Barber
+                                    </th>
+                                    <th style="width: 5%;">
+                                        Price (RM) 
                                     </th>
                                     <th>
                                         Status
@@ -398,7 +401,7 @@
 									// ON s.service_id = b.service_id
 									// INNER JOIN barbers br
 									// ON br.barber_id = b.barber_id"; 
-									$sql = "SELECT book_id, service_name, barber_name, book_date, sl.time_slot, name, status
+									$sql = "SELECT book_id, service_name, service_price, barber_name, book_date, sl.time_slot, name, status
                                     FROM services s 
                                     INNER JOIN bookings b 
                                     ON s.service_id = b.service_id 
@@ -433,6 +436,9 @@
                                             echo "</td>";
                                             echo "<td>";
                                                 echo $booking['barber_name'];
+                                            echo "</td>";
+                                            echo "<td>";
+                                                echo $booking['service_price'];
                                             echo "</td>";
 											echo "<td>";
                                                 echo $booking['status'];

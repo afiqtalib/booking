@@ -25,9 +25,8 @@ if ( isset($_POST['update_profile']))
     $username = ($_POST["username"]);
     $email = ($_POST["email"]);
     $phonenum = ($_POST["phonenum"]);
-    $password = ($_POST["password"]);
 
-    $sql="UPDATE users SET name='$name', username='$username', email='$email', phonenum='$phonenum', password='$password' WHERE user_id=$user_id";
+    $sql="UPDATE users SET name='$name', username='$username', email='$email', phonenum='$phonenum' WHERE user_id=$user_id";
     $result = mysqli_query($conn, $sql);
     if($result){
         echo "<script>alert('Your Profile has been successfully updated');</script>"; 
@@ -95,12 +94,12 @@ if ( isset($_POST['update_profile']))
                                 <input type="text" class="form-control" value="<?php echo $row['username']; ?>" placeholder="Username" name="username" required="true">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <label for="Password">Password</label>
                                 <input type="password" class="form-control" value="<?php echo $row['password']; ?>" placeholder="Password" name="password" required="true">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                     <?php
@@ -121,7 +120,7 @@ if ( isset($_POST['update_profile']))
 
 <?php 
         //Include Footer
-        include 'includes/footer.php';
+        // include 'includes/footer.php';
 ?>
 
 <?php

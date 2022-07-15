@@ -22,7 +22,7 @@
     
             <!-- Page Heading -->
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                <h1 class="h3 mb-0 text-gray-800">Barbers List</h1>
+                <h1 class="h3 mb-0 text-gray-800">Barbers</h1>
                 <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">
                     <i class="fas fa-download fa-sm text-white-50"></i>
                     Generate Report
@@ -30,7 +30,7 @@
             </div>
             <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Barbers</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Barbers List</h6>
                     </div>
                     <div class="card-body">
 
@@ -94,10 +94,10 @@
                                                     </li> -->
                                                     <!-- DELETE BUTTON -->
 
-                                                    <li class="list-inline-item" data-toggle="tooltip" title="Delete">
-                                                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
+                                                    <li class="list-inline-item" data-toggle="tooltip" title="terminate">
+                                                        <button class="btn btn-warning btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
                                                             <a href="barber-delete.php?barber_id=<?php echo $barber['barber_id']; ?>" style="color: white;">
-                                                                <i class="fa fa-trash"></i>    
+                                                                <i class="fa fa-edit"></i>    
                                                             </a>
                                                         </button>
                                                     </li>

@@ -68,6 +68,8 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Add New Barber</h6>
+                <br>
+                <h6 class="m-0 font-weight-bold text-danger">Barbers need to have expertise in all services </h6>
             </div>
             <div class="card-body">
                 
@@ -83,19 +85,19 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_phonenum">Phone Number</label>
-                                <input type="text" class="form-control" placeholder="Phone Number" name="barber_phonenum" required="true" maxlength="10" pattern="[0-9]+">
+                                <input type="text" class="form-control" placeholder="0184254524" name="barber_phonenum" required="true" maxlength="10" pattern="[0-9]+">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_email">Email</label>
-                                <input type="email" class="form-control" placeholder="Email" name="barber_email" required="true">
+                                <input type="email" class="form-control" placeholder="ali@gmail.com" name="barber_email" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="barber_un">Username</label>
-                                <input type="text" class="form-control" placeholder="Barber Username" name="barber_un" required="true">
+                                <input type="text" class="form-control" placeholder="barber_ali" name="barber_un" required="true">
                             </div>
                         </div>
                         <div class="col-md-6">

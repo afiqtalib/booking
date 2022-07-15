@@ -50,14 +50,14 @@
             </div>
             <div class="card-body m-4">
 
-                <div class="alert alert-success">
+                <!-- <div class="alert alert-success">
                     <button data-dismiss="alert" class="close close-sm" type="button">
                         <span aria-hidden="true">×</span>
                     </button>
                     <div class="messages text-center">
                         <div>Your booking has been created successfully!</div>
                     </div>
-				</div>
+				</div> -->
                 <!-- MY BOOKING -->
                 
                     <table class="table table-bordered border-primary text-center">

@@ -69,7 +69,7 @@
 			  	</div>
 			</div>
 
-			<div class="col-xl-3 col-md-6 mb-4">
+			<!-- <div class="col-xl-3 col-md-6 mb-4">
 				<div class="card border-left-info shadow h-100 py-2">
 					<div class="card-body">
 				  		<div class="row no-gutters align-items-center">
@@ -91,7 +91,7 @@
 				  		</div>
 					</div>
 			  	</div>
-			</div>
+			</div> -->
 
 			<div class="col-xl-3 col-md-6 mb-4">
 				<div class="card border-left-warning shadow h-100 py-2">
@@ -219,7 +219,7 @@
             </div>
             <div class="card-body">
             	<div class="table-responsive">
-                	<table class="table table-bordered tabcontent" id="all" style="display:table" width="100%" cellspacing="0">
+                	<table class="table table-bordered tabcontent table-fit" id="all" style="display:table" width="100%" cellspacing="0">
                   		<thead>
                                 <tr>
                                     <th>
@@ -233,6 +233,9 @@
                                     </th>
                                     <th>
                                         Booked Time
+                                    </th>
+									<th>
+                                        Duration (min)
                                     </th>
                                     <th>
                                         Customer
@@ -270,7 +273,7 @@
 									// foreach($rows as $booking) {
                                 
 										echo "<tr>";
-											echo "<td>";
+											echo "<td style = 'width:5%'>";
 												echo $booking['book_id'];
 											echo "</td>";
                                             echo "<td>";
@@ -279,8 +282,11 @@
                                             echo "<td>";
                                                 echo $booking['service_name'];
                                             echo "</td>";
-                                            echo "<td>";
+                                            echo "<td style = 'width:5%'>";
                                                 echo $booking['time_slot'];
+                                            echo "</td>";
+											echo "<td style = 'width:5%'>";
+                                                echo $booking['service_duration'];
                                             echo "</td>";
                                             echo "<td>";
                                                 echo '#';
@@ -295,7 +301,7 @@
 											<td>
                                                 <ul class="list-inline m-0">
 													<!-- COMPLETED BUTTON -->
-													<li class="list-inline-item" data-toggle="tooltip" title="Completed Appointment">
+													<li class="list-inline-item" data-toggle="tooltip" title="Completed Booking">
                                                         <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
 															<a href="booking-completed.php?book_id=<?php echo $booking['book_id']; ?> " style="color: white;">
 																<i class="fas fa-calendar-check"></i>
@@ -315,6 +321,9 @@
                   		<thead>
                                 <tr>
                                     <th>
+                                        #Booked ID
+                                    </th>
+									<th>
                                         Booked Date
                                     </th>
                                     <th>
@@ -356,6 +365,9 @@
                                 
 										echo "<tr>";
                                             echo "<td>";
+                                                echo $booking['book_id'];
+                                            echo "</td>";
+											echo "<td>";
                                                 echo $booking['book_date'];
                                             echo "</td>";
                                             echo "<td>";
@@ -387,6 +399,9 @@
                   		<thead>
                                 <tr>
                                     <th>
+                                        #Booked ID
+                                    </th>
+									<th>
                                         Booked Date
                                     </th>
                                     <th>
@@ -436,6 +451,9 @@
                                 
 										echo "<tr>";
                                             echo "<td>";
+                                                echo $booking['book_id'];
+                                            echo "</td>";
+											echo "<td>";
                                                 echo $booking['book_date'];
                                             echo "</td>";
                                             echo "<td>";

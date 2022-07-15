@@ -85,29 +85,13 @@
             // test code yg atas 
             $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
     
-            // echo "<div class = 'alert alert-success text-center mt-4'>";
-            //     echo "Your booking has been created successfully.";
-            // echo "</div>";
-            
-            // MODAL FOR BOOKING DETAILS 
-            echo "<div class='modal fade' tabindex='-1'>";
-              echo "<div class='modal-dialog'>";
-                echo  "<div class='modal-content'>";
-                  echo "<div class='modal-header'>";
-                      echo "<h5 class='modal-title'>Modal title</h5>";
-                  echo "</div>";
-                    echo "<div class='modal-body'>";
-                      echo "dbdbd";
-                    echo "</div>";
-                      echo "<div class='modal-footer'>";
-                        echo "<button type='button' class='btn btn-primary'>Confirm</button>";
-                      echo "</div>";
-              echo "</div>";
+            echo "<div class = 'alert alert-success text-center mt-4'>";
+                echo "Your booking has been created successfully ";
+                echo "<a href='mybooking.php' class='ca'>My Booking</a>";
             echo "</div>";
-          echo "</div>";
-        
+            
           
-          echo "<script type='text/javascript'> document.location ='mybooking.php'; </script>";
+          // echo "<script type='text/javascript'> document.location ='mybooking.php'; </script>";
           // foreach ($_POST as $selected => $value){
           //   echo "$selected = $value";
           // }
