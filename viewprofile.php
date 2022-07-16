@@ -101,15 +101,15 @@
                       </div>
                       <hr style="width:50%">';
 
-                      echo '<div class="row justify-content-start">
-                        <div class="col-2">
-                          <strong>
-                            PASSWORD 
-                          </strong>
-                        </div>
-                        <div class="col-4">
-                           ******
-                        </div>';
+                      // echo '<div class="row justify-content-start">
+                      //   <div class="col-2">
+                      //     <strong>
+                      //       PASSWORD 
+                      //     </strong>
+                      //   </div>
+                      //   <div class="col-4">
+                      //      ******
+                      //   </div>';
                       
 
                       echo '<div class="col-4">
