@@ -144,7 +144,7 @@
                       <!-- SELECT BARBER  -->
                       <div class="form-check mt-4">Choose Our Barber
                         <select class="form-select" aria-label="Default select example" name="selected_barber" required="true">
-                          <option value="" >--- Choose Our Barber ---</option>
+                          <option value="0" >--- Choose Our Barber ---</option>
 
                           <?php 
                             $sql = "SELECT * FROM barbers";
@@ -207,7 +207,54 @@
         </div>
       </div>
     </section>
-  </body>           
+  </body> 
+  <script>
+    let bookdate = 0
+    let selectbarber = 0
+    function toggleslot(){
+    if (document.getElementsByClassName("form-select")[1].value !=0  && document.getElementsByClassName("form-group mt-4")[0].children[0].value.length >=10){
+      if (selectbarber != document.getElementsByClassName("form-select")[1].value  || bookdate != document.getElementsByClassName("form-group mt-4")[0].children[0].value){
+        selectbarber = document.getElementsByClassName("form-select")[1].value
+          bookdate = document.getElementsByClassName("form-group mt-4")[0].children[0].value
+          getslot()
+      }
+
+      document.getElementsByClassName("form-group mt-4")[1].style.display = "block"
+    }
+    else {
+      document.getElementsByClassName("form-group mt-4")[1].style.display = "none"
+    }
+  }
+
+  function clearselect(){
+    document.getElementsByClassName("form-group mt-4")[1].children[0].length=1
+  }
+
+  async function getslot(){
+    if (document.getElementsByClassName("form-select")[1].value !=0  && document.getElementsByClassName("form-group mt-4")[0].children[0].value.length >=10){
+      let target = document.getElementsByClassName("form-group mt-4")[1].children[0]
+      let = book = document.getElementsByClassName("form-group mt-4")[0].children[0].value
+      let barber = document.getElementsByClassName("form-select")[1].value
+      let url = '/bbs/api.php?date='+book+'&&barber='+barber
+      const response = await fetch (url)
+      const obj = await response.json()
+      clearselect()
+      ctr =0
+      while (ctr <obj.length){
+        holder = document.createElement("option")
+        holder.value = obj[ctr].value
+        holder.innerHTML = obj[ctr].display
+        document.getElementsByClassName("form-group mt-4")[1].children[0].appendChild(holder)
+        ctr++
+      }
+
+  }}
+
+  toggleslot()
+    document.getElementsByTagName("form")[0].addEventListener("change", function a (){
+      toggleslot()
+    })
+  </script>          
 </html>
 
 			<!-- PHP INCLUDES -->
