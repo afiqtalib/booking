@@ -83,7 +83,7 @@
           
           // else {
             // test code yg atas 
-            $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id)");
+            $stmt_booking = $conn->query("insert into bookings(service_id, barber_id, book_date, slot_id, user_id, status) values($selected_service, $selected_barber, '$selected_date', '$selected_time', $user_id, 'uncompleted')");
     
             echo "<div class = 'alert alert-success text-center mt-4'>";
                 echo "Your booking has been created successfully ";

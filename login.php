@@ -20,6 +20,10 @@
 
      	<button type="submit">Login</button>
           <a href="signup.php" class="ca">Don't have an account ?</a>
+		  <br>
+		  <a href="barber/login.php" class="ca">Barber</a>
+		  <br>
+		  <a href="barber-admin/login.php" class="ca">Admin</a>
      </form>
 </body>
 </html>
