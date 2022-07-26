@@ -253,7 +253,7 @@
                                     style="font-size:30px; color: blue; text-shadow:2px 2px 2px white;"> Twin & Dad Barbershop</i>
                             </a>
                             <br> <br>
-                            <a href="https://chat.whatsapp.com/601121828562">
+                            <a href="https://wa.me/601139183821?text=Assalamualaikum">
                                 <i class='fa fa-whatsapp green-color' 
                                     aria-hidden="true" 
                                     style="font-size:30px; color:#90ee90; text-shadow:2px 2px 4px #000000;"> 011-39183821 </i>
