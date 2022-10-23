@@ -313,7 +313,7 @@
                                                      <!-- CANCEL BUTTON -->
 
                                                     <li class="list-inline-item" data-toggle="tooltip" title="Cancel Booking">
-                                                        <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="modal" data-target="#" data-placement="top">
+                                                        <button class="btn btn-danger btn-sm rounded-3" type="button" data-toggle="modal" data-target="#" data-placement="top">
 															<a href="booking-delete.php?book_id=<?php echo $booking['book_id']; ?> " style="color: white;">
 																<i class="fas fa-calendar-times"></i>
 															</a>
