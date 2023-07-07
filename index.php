@@ -31,7 +31,7 @@
                 ?>
 
                 <span class="overlay-text text-center">
-                    - Welcome to Twin & Dad Barbershop 
+                    - Welcome to Twin & Dad Barbershop, Kota Bharu
                     <br><br>
                     It's Not Just a Haircut, It's an Experience.
                     <br>
