@@ -32,5 +32,9 @@
   - Logout
   
 **********************
-Functionaility 
+TOOLS
 **********************
+- HTML & CSS
+- Bootstrap 4
+- PHP
+- Javascript
